@@ -1,5 +1,1203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Data Thoughts</title><link href="https://keith.ml/" rel="alternate"></link><link href="https://keith.ml/feeds/blog.atom.xml" rel="self"></link><id>https://keith.ml/</id><updated>2018-02-12T22:00:00+08:00</updated><entry><title>Posting patterns on the DS-Connect group</title><link href="https://keith.ml/GOV-dsc_viz.html" rel="alternate"></link><published>2018-02-12T22:00:00+08:00</published><updated>2018-02-12T22:00:00+08:00</updated><author><name>wykeith</name></author><id>tag:keith.ml,2018-02-12:GOV-dsc_viz.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Data Thoughts</title><link href="https://keith.ml/" rel="alternate"></link><link href="https://keith.ml/feeds/blog.atom.xml" rel="self"></link><id>https://keith.ml/</id><updated>2018-09-03T20:00:00+08:00</updated><entry><title>Datascience Blogs</title><link href="https://keith.ml/DSblogs.html" rel="alternate"></link><published>2018-09-03T20:00:00+08:00</published><updated>2018-09-03T20:00:00+08:00</updated><author><name>wykeith</name></author><id>tag:keith.ml,2018-09-03:DSblogs.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+*
+* IPython notebook
+*
+*/
+/* CSS font colors for translated ANSI colors. */
+.ansibold {
+  font-weight: bold;
+}
+/* use dark versions for foreground, to improve visibility */
+.ansiblack {
+  color: black;
+}
+.ansired {
+  color: darkred;
+}
+.ansigreen {
+  color: darkgreen;
+}
+.ansiyellow {
+  color: #c4a000;
+}
+.ansiblue {
+  color: darkblue;
+}
+.ansipurple {
+  color: darkviolet;
+}
+.ansicyan {
+  color: steelblue;
+}
+.ansigray {
+  color: gray;
+}
+/* and light for background, for the same reason */
+.ansibgblack {
+  background-color: black;
+}
+.ansibgred {
+  background-color: red;
+}
+.ansibggreen {
+  background-color: green;
+}
+.ansibgyellow {
+  background-color: yellow;
+}
+.ansibgblue {
+  background-color: blue;
+}
+.ansibgpurple {
+  background-color: magenta;
+}
+.ansibgcyan {
+  background-color: cyan;
+}
+.ansibggray {
+  background-color: gray;
+}
+div.cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  width: 100%;
+  padding: 5px;
+  /* This acts as a spacer between cells, that is outside the border */
+  margin: 0px;
+  outline: none;
+  border-left-width: 1px;
+  padding-left: 5px;
+  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
+}
+div.cell.jupyter-soft-selected {
+  border-left-color: #90CAF9;
+  border-left-color: #E3F2FD;
+  border-left-width: 1px;
+  padding-left: 5px;
+  border-right-color: #E3F2FD;
+  border-right-width: 1px;
+  background: #E3F2FD;
+}
+@media print {
+  div.cell.jupyter-soft-selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected {
+  border-color: #ababab;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
+}
+@media print {
+  div.cell.selected {
+    border-color: transparent;
+  }
+}
+div.cell.selected.jupyter-soft-selected {
+  border-left-width: 0;
+  padding-left: 6px;
+  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
+}
+.edit_mode div.cell.selected {
+  border-color: #66BB6A;
+  border-left-width: 0px;
+  padding-left: 6px;
+  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
+}
+@media print {
+  .edit_mode div.cell.selected {
+    border-color: transparent;
+  }
+}
+.prompt {
+  /* This needs to be wide enough for 3 digit prompt numbers: In[100]: */
+  min-width: 14ex;
+  /* This padding is tuned to match the padding on the CodeMirror editor. */
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace;
+  text-align: right;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+  /* Don't highlight prompt number selection */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  /* Use default cursor */
+  cursor: default;
+}
+@media (max-width: 540px) {
+  .prompt {
+    text-align: left;
+  }
+}
+div.inner_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+}
+@-moz-document url-prefix() {
+  div.inner_cell {
+    overflow-x: hidden;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_area {
+  border: 1px solid #cfcfcf;
+  border-radius: 2px;
+  background: #f7f7f7;
+  line-height: 1.21429em;
+}
+/* This is needed so that empty prompt areas can collapse to zero height when there
+   is no content in the output_subarea and the prompt. The main purpose of this is
+   to make sure that empty JavaScript output_subareas have no height. */
+div.prompt:empty {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+div.unrecognized_cell {
+  padding: 5px 5px 5px 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.unrecognized_cell .inner_cell {
+  border-radius: 2px;
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+  border: 1px solid #cfcfcf;
+  background: #eaeaea;
+}
+div.unrecognized_cell .inner_cell a {
+  color: inherit;
+  text-decoration: none;
+}
+div.unrecognized_cell .inner_cell a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 540px) {
+  div.unrecognized_cell &gt; div.prompt {
+    display: none;
+  }
+}
+div.code_cell {
+  /* avoid page breaking on code cells when printing */
+}
+@media print {
+  div.code_cell {
+    page-break-inside: avoid;
+  }
+}
+/* any special styling for code cells that are currently running goes here */
+div.input {
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.input {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+/* input_area and input_prompt must match in top border and margin for alignment */
+div.input_prompt {
+  color: #303F9F;
+  border-top: 1px solid transparent;
+}
+div.input_area &gt; div.highlight {
+  margin: 0.4em;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+div.input_area &gt; div.highlight &gt; pre {
+  margin: 0px;
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+}
+/* The following gets added to the &lt;head&gt; if it is detected that the user has a
+ * monospace font with inconsistent normal/bold/italic height.  See
+ * notebookmain.js.  Such fonts will have keywords vertically offset with
+ * respect to the rest of the text.  The user should select a better font.
+ * See: https://github.com/ipython/ipython/issues/1503
+ *
+ * .CodeMirror span {
+ *      vertical-align: bottom;
+ * }
+ */
+.CodeMirror {
+  line-height: 1.21429em;
+  /* Changed from 1em to our global default */
+  font-size: 14px;
+  height: auto;
+  /* Changed to auto to autogrow */
+  background: none;
+  /* Changed from white to allow our bg to show through */
+}
+.CodeMirror-scroll {
+  /*  The CodeMirror docs are a bit fuzzy on if overflow-y should be hidden or visible.*/
+  /*  We have found that if it is visible, vertical scrollbars appear with font size changes.*/
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+.CodeMirror-lines {
+  /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
+  /* we have set a different line-height and want this to scale with that. */
+  padding: 0.4em;
+}
+.CodeMirror-linenumber {
+  padding: 0 8px 0 4px;
+}
+.CodeMirror-gutters {
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
+}
+.CodeMirror pre {
+  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
+  /* .CodeMirror-lines */
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+/*
+
+Original style from softwaremaniacs.org (c) Ivan Sagalaev &lt;Maniac@SoftwareManiacs.Org&gt;
+Adapted from GitHub theme
+
+*/
+.highlight-base {
+  color: #000;
+}
+.highlight-variable {
+  color: #000;
+}
+.highlight-variable-2 {
+  color: #1a1a1a;
+}
+.highlight-variable-3 {
+  color: #333333;
+}
+.highlight-string {
+  color: #BA2121;
+}
+.highlight-comment {
+  color: #408080;
+  font-style: italic;
+}
+.highlight-number {
+  color: #080;
+}
+.highlight-atom {
+  color: #88F;
+}
+.highlight-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.highlight-builtin {
+  color: #008000;
+}
+.highlight-error {
+  color: #f00;
+}
+.highlight-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.highlight-meta {
+  color: #AA22FF;
+}
+/* previously not defined, copying from default codemirror */
+.highlight-def {
+  color: #00f;
+}
+.highlight-string-2 {
+  color: #f50;
+}
+.highlight-qualifier {
+  color: #555;
+}
+.highlight-bracket {
+  color: #997;
+}
+.highlight-tag {
+  color: #170;
+}
+.highlight-attribute {
+  color: #00c;
+}
+.highlight-header {
+  color: blue;
+}
+.highlight-quote {
+  color: #090;
+}
+.highlight-link {
+  color: #00c;
+}
+/* apply the same style to codemirror */
+.cm-s-ipython span.cm-keyword {
+  color: #008000;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-atom {
+  color: #88F;
+}
+.cm-s-ipython span.cm-number {
+  color: #080;
+}
+.cm-s-ipython span.cm-def {
+  color: #00f;
+}
+.cm-s-ipython span.cm-variable {
+  color: #000;
+}
+.cm-s-ipython span.cm-operator {
+  color: #AA22FF;
+  font-weight: bold;
+}
+.cm-s-ipython span.cm-variable-2 {
+  color: #1a1a1a;
+}
+.cm-s-ipython span.cm-variable-3 {
+  color: #333333;
+}
+.cm-s-ipython span.cm-comment {
+  color: #408080;
+  font-style: italic;
+}
+.cm-s-ipython span.cm-string {
+  color: #BA2121;
+}
+.cm-s-ipython span.cm-string-2 {
+  color: #f50;
+}
+.cm-s-ipython span.cm-meta {
+  color: #AA22FF;
+}
+.cm-s-ipython span.cm-qualifier {
+  color: #555;
+}
+.cm-s-ipython span.cm-builtin {
+  color: #008000;
+}
+.cm-s-ipython span.cm-bracket {
+  color: #997;
+}
+.cm-s-ipython span.cm-tag {
+  color: #170;
+}
+.cm-s-ipython span.cm-attribute {
+  color: #00c;
+}
+.cm-s-ipython span.cm-header {
+  color: blue;
+}
+.cm-s-ipython span.cm-quote {
+  color: #090;
+}
+.cm-s-ipython span.cm-link {
+  color: #00c;
+}
+.cm-s-ipython span.cm-error {
+  color: #f00;
+}
+.cm-s-ipython span.cm-tab {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=);
+  background-position: right;
+  background-repeat: no-repeat;
+}
+div.output_wrapper {
+  /* this position must be relative to enable descendents to be absolute within it */
+  position: relative;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  z-index: 1;
+}
+/* class for the output area when it should be height-limited */
+div.output_scroll {
+  /* ideally, this would be max-height, but FF barfs all over that */
+  height: 24em;
+  /* FF needs this *and the wrapper* to specify full width, or it will shrinkwrap */
+  width: 100%;
+  overflow: auto;
+  border-radius: 2px;
+  -webkit-box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.8);
+  display: block;
+}
+/* output div while it is collapsed */
+div.output_collapsed {
+  margin: 0px;
+  padding: 0px;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+div.out_prompt_overlay {
+  height: 100%;
+  padding: 0px 0.4em;
+  position: absolute;
+  border-radius: 2px;
+}
+div.out_prompt_overlay:hover {
+  /* use inner shadow to get border that is computed the same on WebKit/FF */
+  -webkit-box-shadow: inset 0 0 1px #000;
+  box-shadow: inset 0 0 1px #000;
+  background: rgba(240, 240, 240, 0.5);
+}
+div.output_prompt {
+  color: #D84315;
+}
+/* This class is the outer container of all output sections. */
+div.output_area {
+  padding: 0px;
+  page-break-inside: avoid;
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+div.output_area .MathJax_Display {
+  text-align: left !important;
+}
+div.output_area 
+div.output_area 
+div.output_area img,
+div.output_area svg {
+  max-width: 100%;
+  height: auto;
+}
+div.output_area img.unconfined,
+div.output_area svg.unconfined {
+  max-width: none;
+}
+/* This is needed to protect the pre formating from global settings such
+   as that of bootstrap */
+.output {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: vertical;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: vertical;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.output_area {
+    /* Old browsers */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-box-align: stretch;
+    display: -moz-box;
+    -moz-box-orient: vertical;
+    -moz-box-align: stretch;
+    display: box;
+    box-orient: vertical;
+    box-align: stretch;
+    /* Modern browsers */
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+div.output_area pre {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  color: black;
+  background-color: transparent;
+  border-radius: 0;
+}
+/* This class is for the output subarea inside the output_area and after
+   the prompt div. */
+div.output_subarea {
+  overflow-x: auto;
+  padding: 0.4em;
+  /* Old browsers */
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  /* Modern browsers */
+  flex: 1;
+  max-width: calc(100% - 14ex);
+}
+div.output_scroll div.output_subarea {
+  overflow-x: visible;
+}
+/* The rest of the output_* classes are for special styling of the different
+   output types */
+/* all text output has this class: */
+div.output_text {
+  text-align: left;
+  color: #000;
+  /* This has to match that of the the CodeMirror class line-height below */
+  line-height: 1.21429em;
+}
+/* stdout/stderr are 'text' as well as 'stream', but execute_result/error are *not* streams */
+div.output_stderr {
+  background: #fdd;
+  /* very light red background for stderr */
+}
+div.output_latex {
+  text-align: left;
+}
+/* Empty output_javascript divs should have no height */
+div.output_javascript:empty {
+  padding: 0;
+}
+.js-error {
+  color: darkred;
+}
+/* raw_input styles */
+div.raw_input_container {
+  line-height: 1.21429em;
+  padding-top: 5px;
+}
+pre.raw_input_prompt {
+  /* nothing needed here. */
+}
+input.raw_input {
+  font-family: monospace;
+  font-size: inherit;
+  color: inherit;
+  width: auto;
+  /* make sure input baseline aligns with prompt */
+  vertical-align: baseline;
+  /* padding + margin = 0.5em between prompt and cursor */
+  padding: 0em 0.25em;
+  margin: 0em 0.25em;
+}
+input.raw_input:focus {
+  box-shadow: none;
+}
+p.p-space {
+  margin-bottom: 10px;
+}
+div.output_unrecognized {
+  padding: 5px;
+  font-weight: bold;
+  color: red;
+}
+div.output_unrecognized a {
+  color: inherit;
+  text-decoration: none;
+}
+div.output_unrecognized a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+.rendered_html {
+  color: #000;
+  /* any extras will just be numbers: */
+}
+
+
+
+.rendered_html :link {
+  text-decoration: underline;
+}
+.rendered_html :visited {
+  text-decoration: underline;
+}
+
+
+
+
+
+
+.rendered_html h1:first-child {
+  margin-top: 0.538em;
+}
+.rendered_html h2:first-child {
+  margin-top: 0.636em;
+}
+.rendered_html h3:first-child {
+  margin-top: 0.777em;
+}
+.rendered_html h4:first-child {
+  margin-top: 1em;
+}
+.rendered_html h5:first-child {
+  margin-top: 1em;
+}
+.rendered_html h6:first-child {
+  margin-top: 1em;
+}
+
+
+
+
+
+
+
+
+.rendered_html * + ul {
+  margin-top: 1em;
+}
+.rendered_html * + ol {
+  margin-top: 1em;
+}
+
+
+.rendered_html pre,
+
+
+
+.rendered_html tr,
+.rendered_html th,
+
+.rendered_html td,
+
+
+.rendered_html * + table {
+  margin-top: 1em;
+}
+
+.rendered_html * + p {
+  margin-top: 1em;
+}
+
+.rendered_html * + img {
+  margin-top: 1em;
+}
+.rendered_html img,
+
+.rendered_html img.unconfined,
+
+div.text_cell {
+  /* Old browsers */
+  display: -webkit-box;
+  -webkit-box-orient: horizontal;
+  -webkit-box-align: stretch;
+  display: -moz-box;
+  -moz-box-orient: horizontal;
+  -moz-box-align: stretch;
+  display: box;
+  box-orient: horizontal;
+  box-align: stretch;
+  /* Modern browsers */
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+@media (max-width: 540px) {
+  div.text_cell &gt; div.prompt {
+    display: none;
+  }
+}
+div.text_cell_render {
+  /*font-family: "Helvetica Neue", Arial, Helvetica, Geneva, sans-serif;*/
+  outline: none;
+  resize: none;
+  width: inherit;
+  border-style: none;
+  padding: 0.5em 0.5em 0.5em 0.4em;
+  color: #000;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+a.anchor-link:link {
+  text-decoration: none;
+  padding: 0px 20px;
+  visibility: hidden;
+}
+h1:hover .anchor-link,
+h2:hover .anchor-link,
+h3:hover .anchor-link,
+h4:hover .anchor-link,
+h5:hover .anchor-link,
+h6:hover .anchor-link {
+  visibility: visible;
+}
+.text_cell.rendered .input_area {
+  display: none;
+}
+.text_cell.rendered 
+.text_cell.unrendered .text_cell_render {
+  display: none;
+}
+.cm-header-1,
+.cm-header-2,
+.cm-header-3,
+.cm-header-4,
+.cm-header-5,
+.cm-header-6 {
+  font-weight: bold;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.cm-header-1 {
+  font-size: 185.7%;
+}
+.cm-header-2 {
+  font-size: 157.1%;
+}
+.cm-header-3 {
+  font-size: 128.6%;
+}
+.cm-header-4 {
+  font-size: 110%;
+}
+.cm-header-5 {
+  font-size: 100%;
+  font-style: italic;
+}
+.cm-header-6 {
+  font-size: 100%;
+  font-style: italic;
+}
+&lt;/style&gt;
+&lt;style type="text/css"&gt;.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;
+&lt;style type="text/css"&gt;
+/* Temporary definitions which will become obsolete with Notebook release 5.0 */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-bold { font-weight: bold; }
+&lt;/style&gt;
+&lt;div class="cell border-box-sizing text_cell rendered"&gt;
+&lt;div class="prompt input_prompt"&gt;
+&lt;/div&gt;
+&lt;div class="inner_cell"&gt;
+&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
+&lt;h1 id="Data-Science-Blogs"&gt;Data Science Blogs&lt;a class="anchor-link" href="#Data-Science-Blogs"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;img alt="I never trust anyone who&amp;#x27;s more excited about success than about doing the thing they want to be successful at." src="https://imgs.xkcd.com/comics/time_management.png" title="I never trust anyone who&amp;#x27;s more excited about success than about doing the thing they want to be successful at." /&gt;&lt;/p&gt;
+&lt;p&gt;A curated list of data science blogs from lazyprogrammer to explore before the one year sprint begins =/&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A Blog From a Human-engineer-being &lt;a href="http://www.erogol.com/"&gt;http://www.erogol.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.erogol.com/feed/"&gt;http://www.erogol.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Aakash Japi &lt;a href="http://aakashjapi.com/"&gt;http://aakashjapi.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://logicx24.github.io/feed.xml"&gt;http://logicx24.github.io/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Advanced Analytics &amp; R &lt;a href="http://advanceddataanalytics.net/"&gt;http://advanceddataanalytics.net/&lt;/a&gt; [(RSS)] (&lt;a href="http://advanceddataanalytics.net/feed/"&gt;http://advanceddataanalytics.net/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Adventures in Data Land &lt;a href="http://blog.smola.org"&gt;http://blog.smola.org&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.smola.org/rss"&gt;http://blog.smola.org/rss&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Agile Data Science &lt;a href="http://blog.sense.io/"&gt;http://blog.sense.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.sense.io/rss/"&gt;http://blog.sense.io/rss/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Ahmed El Deeb &lt;a href="https://medium.com/@D33B"&gt;https://medium.com/@D33B&lt;/a&gt; [(RSS)] (&lt;a href="https://medium.com/feed/@D33B"&gt;https://medium.com/feed/@D33B&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Airbnb Data blog &lt;a href="http://nerds.airbnb.com/data/"&gt;http://nerds.airbnb.com/data/&lt;/a&gt; [(RSS)] (&lt;a href="http://nerds.airbnb.com/feed/"&gt;http://nerds.airbnb.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Alex Perrier &lt;a href="http://alexperrier.github.io/"&gt;http://alexperrier.github.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://alexperrier.github.io/feed.xml"&gt;http://alexperrier.github.io/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Analytics Vidhya &lt;a href="http://www.analyticsvidhya.com/blog/"&gt;http://www.analyticsvidhya.com/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://feeds.feedburner.com/AnalyticsVidhya"&gt;http://feeds.feedburner.com/AnalyticsVidhya&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Andreas Müller &lt;a href="http://peekaboo-vision.blogspot.com/"&gt;http://peekaboo-vision.blogspot.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://peekaboo-vision.blogspot.com/atom.xml"&gt;http://peekaboo-vision.blogspot.com/atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Andrej Karpathy blog &lt;a href="http://karpathy.github.io/"&gt;http://karpathy.github.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://karpathy.github.io/feed.xml"&gt;http://karpathy.github.io/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Avi Singh &lt;a href="http://avisingh599.github.io/blog/"&gt;http://avisingh599.github.io/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://avisingh599.github.io/feed.xml"&gt;http://avisingh599.github.io/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Beautiful Data &lt;a href="http://beautifuldata.net/"&gt;http://beautifuldata.net/&lt;/a&gt; [(RSS)] (&lt;a href="http://beautifuldata.net/feed/"&gt;http://beautifuldata.net/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Beckerfuffle &lt;a href="http://mdbecker.github.io/"&gt;http://mdbecker.github.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://mdbecker.github.io/atom.xml"&gt;http://mdbecker.github.io/atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Becoming A Data Scientist &lt;a href="http://www.becomingadatascientist.com/"&gt;http://www.becomingadatascientist.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.becomingadatascientist.com/feed/"&gt;http://www.becomingadatascientist.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Big-Ish Data &lt;a href="http://bigishdata.com/"&gt;http://bigishdata.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://bigishdata.com/feed/"&gt;http://bigishdata.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;blog += 1 &lt;a href="http://snippyhollow.github.io/"&gt;http://snippyhollow.github.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://snippyhollow.github.io/atom.xml"&gt;http://snippyhollow.github.io/atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Bugra Akyildiz &lt;a href="http://bugra.github.io/"&gt;http://bugra.github.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://bugra.github.io/feeds/all.atom.xml"&gt;http://bugra.github.io/feeds/all.atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Carl Shan &lt;a href="http://carlshan.com/"&gt;http://carlshan.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://feeds.feedburner.com/carlshan"&gt;http://feeds.feedburner.com/carlshan&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Christophe Bourguignat &lt;a href="https://medium.com/@chris_bour"&gt;https://medium.com/@chris_bour&lt;/a&gt; [(RSS)] (&lt;a href="https://medium.com/feed/@chris_bour"&gt;https://medium.com/feed/@chris_bour&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Christopher Nguyen &lt;a href="https://medium.com/@ctn"&gt;https://medium.com/@ctn&lt;/a&gt; [(RSS)] (&lt;a href="https://medium.com/feed/@ctn"&gt;https://medium.com/feed/@ctn&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Cloudera Data Science Posts &lt;a href="http://blog.cloudera.com/blog/category/data-science/"&gt;http://blog.cloudera.com/blog/category/data-science/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.cloudera.com/blog/category/data-science/feed/"&gt;http://blog.cloudera.com/blog/category/data-science/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;colah's blog &lt;a href="http://colah.github.io/archive.html"&gt;http://colah.github.io/archive.html&lt;/a&gt; [(RSS)] (&lt;a href="http://colah.github.io/rss.xml"&gt;http://colah.github.io/rss.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Connect with Data Science &lt;a href="http://www.datasciencebowl.com/connect-with-data-science/"&gt;http://www.datasciencebowl.com/connect-with-data-science/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.datasciencebowl.com/feed/"&gt;http://www.datasciencebowl.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Daniel Forsyth &lt;a href="http://www.danielforsyth.me/"&gt;http://www.danielforsyth.me/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.danielforsyth.me/rss/"&gt;http://www.danielforsyth.me/rss/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Daniel Nee &lt;a href="http://danielnee.com"&gt;http://danielnee.com&lt;/a&gt; [(RSS)] (&lt;a href="http://danielnee.com/?feed=rss2"&gt;http://danielnee.com/?feed=rss2&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Data Based Inventions &lt;a href="http://datalab.lu/"&gt;http://datalab.lu/&lt;/a&gt; [(RSS)] (&lt;a href="http://datalab.lu/atom.xml"&gt;http://datalab.lu/atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Data Labs &lt;a href="http://blog.insightdatalabs.com/"&gt;http://blog.insightdatalabs.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.insightdatalabs.com/rss/"&gt;http://blog.insightdatalabs.com/rss/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Data Miners Blog &lt;a href="http://blog.data-miners.com/"&gt;http://blog.data-miners.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.data-miners.com/feeds/posts/default?alt=rss"&gt;http://blog.data-miners.com/feeds/posts/default?alt=rss&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Data Mining Research &lt;a href="http://www.dataminingblog.com/"&gt;http://www.dataminingblog.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://feeds.feedburner.com/dataminingblog"&gt;http://feeds.feedburner.com/dataminingblog&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Data Mining: Text Mining, Visualization and Social Media &lt;a href="http://datamining.typepad.com/data_mining/"&gt;http://datamining.typepad.com/data_mining/&lt;/a&gt; [(RSS)] (&lt;a href="http://datamining.typepad.com/data_mining/atom.xml"&gt;http://datamining.typepad.com/data_mining/atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Data Piques &lt;a href="http://blog.ethanrosenthal.com/"&gt;http://blog.ethanrosenthal.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.ethanrosenthal.com/atom.xml"&gt;http://blog.ethanrosenthal.com/atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Data School &lt;a href="http://www.dataschool.io/"&gt;http://www.dataschool.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.dataschool.io/rss/"&gt;http://www.dataschool.io/rss/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Data Science 101 &lt;a href="http://101.datascience.community/"&gt;http://101.datascience.community/&lt;/a&gt; [(RSS)] (&lt;a href="http://101.datascience.community/feed/"&gt;http://101.datascience.community/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Data Science @ Facebook &lt;a href="https://research.facebook.com/blog/datascience/"&gt;https://research.facebook.com/blog/datascience/&lt;/a&gt; [(RSS)] (&lt;a href="https://research.facebook.com/blog/rss"&gt;https://research.facebook.com/blog/rss&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Data Science Tutorials &lt;a href="https://codementor.io/data-science/tutorial"&gt;https://codementor.io/data-science/tutorial&lt;/a&gt; [(RSS)] (&lt;a href="https://www.codementor.io/data-science/tutorial/feed"&gt;https://www.codementor.io/data-science/tutorial/feed&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Data Science Vademecum &lt;a href="http://datasciencevademecum.wordpress.com/"&gt;http://datasciencevademecum.wordpress.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://datasciencevademecum.wordpress.com/feed/"&gt;http://datasciencevademecum.wordpress.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Dataaspirant &lt;a href="http://dataaspirant.com/"&gt;http://dataaspirant.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://dataaspirant.wordpress.com/feed/"&gt;http://dataaspirant.wordpress.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Dataclysm &lt;a href="http://blog.okcupid.com/"&gt;http://blog.okcupid.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.okcupid.com/index.php/feed/"&gt;http://blog.okcupid.com/index.php/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;DataGenetics &lt;a href="http://datagenetics.com/blog.html"&gt;http://datagenetics.com/blog.html&lt;/a&gt; [(RSS)] (&lt;a href="http://datagenetics.com/feed/rss.xml"&gt;http://datagenetics.com/feed/rss.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Dataiku &lt;a href="https://www.dataiku.com/blog/"&gt;https://www.dataiku.com/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.dataiku.com/feed.xml"&gt;http://www.dataiku.com/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;DataKind &lt;a href="http://www.datakind.org/blog"&gt;http://www.datakind.org/blog&lt;/a&gt; [(RSS)] (&lt;a href="http://feeds.feedburner.com/DataKin"&gt;http://feeds.feedburner.com/DataKin&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;DataLook &lt;a href="http://blog.datalook.io/"&gt;http://blog.datalook.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.datalook.io/feed/"&gt;http://blog.datalook.io/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Dataquest Blog &lt;a href="https://www.dataquest.io/blog/"&gt;https://www.dataquest.io/blog/&lt;/a&gt; [(RSS)] (&lt;a href="https://www.dataquest.io/blog/atom.xml"&gt;https://www.dataquest.io/blog/atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;DataRobot &lt;a href="http://www.datarobot.com/blog/"&gt;http://www.datarobot.com/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.datarobot.com/feed/"&gt;http://www.datarobot.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Datascope &lt;a href="http://datascopeanalytics.com/blog"&gt;http://datascopeanalytics.com/blog&lt;/a&gt; [(RSS)] (&lt;a href="http://datascopeanalytics.com/rss"&gt;http://datascopeanalytics.com/rss&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Dato Blog &lt;a href="http://blog.dato.com/"&gt;http://blog.dato.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.dato.com/rss.xml"&gt;http://blog.dato.com/rss.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;David Mimno &lt;a href="http://www.mimno.org/"&gt;http://www.mimno.org/&lt;/a&gt; [(RSS)] (&lt;a href="http://mimno.infosci.cornell.edu/b/feed.xml"&gt;http://mimno.infosci.cornell.edu/b/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Dayne Batten &lt;a href="http://daynebatten.com"&gt;http://daynebatten.com&lt;/a&gt; [(RSS)] (&lt;a href="http://daynebatten.com/feed/"&gt;http://daynebatten.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Deep Learning &lt;a href="http://deeplearning.net/feed/"&gt;http://deeplearning.net/feed/&lt;/a&gt; [(RSS)] (&lt;a href="http://deeplearning.net/feed/"&gt;http://deeplearning.net/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Deep Learning &lt;a href="https://timdettmers.wordpress.com/"&gt;https://timdettmers.wordpress.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://timdettmers.wordpress.com/feed/"&gt;http://timdettmers.wordpress.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Deepdish &lt;a href="http://deepdish.io/"&gt;http://deepdish.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://deepdish.io/atom.xml"&gt;http://deepdish.io/atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;District Data Labs &lt;a href="http://districtdatalabs.silvrback.com/"&gt;http://districtdatalabs.silvrback.com/&lt;/a&gt; [(RSS)] (&lt;a href="https://districtdatalabs.silvrback.com/feed"&gt;https://districtdatalabs.silvrback.com/feed&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Diving into data &lt;a href="https://blog.datadive.net/"&gt;https://blog.datadive.net/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.datadive.net/feed/"&gt;http://blog.datadive.net/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Domino Data Lab's blog &lt;a href="http://blog.dominodatalab.com/"&gt;http://blog.dominodatalab.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.dominodatalab.com/rss/"&gt;http://blog.dominodatalab.com/rss/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Dr. Randal S. Olson &lt;a href="http://www.randalolson.com/blog/"&gt;http://www.randalolson.com/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.randalolson.com/feed/"&gt;http://www.randalolson.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Drew Conway &lt;a href="https://medium.com/@drewconway"&gt;https://medium.com/@drewconway&lt;/a&gt; [(RSS)] (&lt;a href="https://medium.com/feed/@drewconway"&gt;https://medium.com/feed/@drewconway&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Dustin Tran &lt;a href="http://dustintran.com/blog/"&gt;http://dustintran.com/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://dustintran.com/blog/rss/"&gt;http://dustintran.com/blog/rss/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Edwin Chen &lt;a href="http://blog.echen.me"&gt;http://blog.echen.me&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.echen.me/feeds/all.rss.xml"&gt;http://blog.echen.me/feeds/all.rss.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;EFavDB &lt;a href="http://efavdb.com/"&gt;http://efavdb.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://efavdb.com/feed/"&gt;http://efavdb.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Emilio Ferrara, Ph.D.  &lt;a href="http://www.emilio.ferrara.name/"&gt;http://www.emilio.ferrara.name/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.emilio.ferrara.name/feed/"&gt;http://www.emilio.ferrara.name/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Entrepreneurial Geekiness &lt;a href="http://ianozsvald.com/"&gt;http://ianozsvald.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://ianozsvald.com/feed/"&gt;http://ianozsvald.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Eric Jonas &lt;a href="http://ericjonas.com/archives.html"&gt;http://ericjonas.com/archives.html&lt;/a&gt; [(RSS)] (&lt;a href="http://ericjonas.com/archives.html"&gt;http://ericjonas.com/archives.html&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Eric Siegel &lt;a href="http://www.predictiveanalyticsworld.com/blog"&gt;http://www.predictiveanalyticsworld.com/blog&lt;/a&gt; [(RSS)] (&lt;a href="http://feeds.feedburner.com/predictiveanalyticsworld/GXRy"&gt;http://feeds.feedburner.com/predictiveanalyticsworld/GXRy&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Erik Bern &lt;a href="http://erikbern.com"&gt;http://erikbern.com&lt;/a&gt; [(RSS)] (&lt;a href="http://erikbern.com/feed/"&gt;http://erikbern.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;ERIN SHELLMAN &lt;a href="http://www.erinshellman.com/"&gt;http://www.erinshellman.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.erinshellman.com/feed/"&gt;http://www.erinshellman.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fabian Pedregosa &lt;a href="http://fa.bianp.net/"&gt;http://fa.bianp.net/&lt;/a&gt; [(RSS)] (&lt;a href="http://fa.bianp.net/blog/feed/"&gt;http://fa.bianp.net/blog/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Fast Forward Labs &lt;a href="http://blog.fastforwardlabs.com/"&gt;http://blog.fastforwardlabs.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.fastforwardlabs.com/rss"&gt;http://blog.fastforwardlabs.com/rss&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;FastML &lt;a href="http://fastml.com/"&gt;http://fastml.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://fastml.com/atom.xml"&gt;http://fastml.com/atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Florian Hartl &lt;a href="http://florianhartl.com/"&gt;http://florianhartl.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://florianhartl.com/feed/"&gt;http://florianhartl.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Full Stack ML &lt;a href="http://fullstackml.com/"&gt;http://fullstackml.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://fullstackml.com/feed/"&gt;http://fullstackml.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Garbled Notes &lt;a href="http://www.chioka.in/"&gt;http://www.chioka.in/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.chioka.in/feed/"&gt;http://www.chioka.in/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Greg Reda &lt;a href="http://www.gregreda.com/blog/"&gt;http://www.gregreda.com/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.gregreda.com/feeds/all.atom.xml"&gt;http://www.gregreda.com/feeds/all.atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;i am trask &lt;a href="http://iamtrask.github.io/"&gt;http://iamtrask.github.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://iamtrask.github.io/feed.xml"&gt;http://iamtrask.github.io/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;I Quant NY &lt;a href="http://iquantny.tumblr.com/"&gt;http://iquantny.tumblr.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://iquantny.tumblr.com/rss"&gt;http://iquantny.tumblr.com/rss&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;iDiBON &lt;a href="http://idibon.com/blog/"&gt;http://idibon.com/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://idibon.com/blog/rss"&gt;http://idibon.com/blog/rss&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;inFERENCe &lt;a href="http://www.inference.vc/"&gt;http://www.inference.vc/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.inference.vc/rss/"&gt;http://www.inference.vc/rss/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;INSPIRATION INFORMATION &lt;a href="http://myinspirationinformation.com/"&gt;http://myinspirationinformation.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://myinspirationinformation.com/feed/"&gt;http://myinspirationinformation.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;I’m a bandit &lt;a href="https://blogs.princeton.edu/imabandit/"&gt;https://blogs.princeton.edu/imabandit/&lt;/a&gt; [(RSS)] (&lt;a href="https://blogs.princeton.edu/imabandit/feed/"&gt;https://blogs.princeton.edu/imabandit/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Jeremy D. Jackson, PhD &lt;a href="http://www.jeremydjacksonphd.com/"&gt;http://www.jeremydjacksonphd.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.jeremydjacksonphd.com/?feed=rss2"&gt;http://www.jeremydjacksonphd.com/?feed=rss2&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Jesse Steinweg-Woods &lt;a href="https://jessesw.com/"&gt;https://jessesw.com/&lt;/a&gt; [(RSS)] (&lt;a href="https://jessesw.com/feed.xml"&gt;https://jessesw.com/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Joe Cauteruccio &lt;a href="http://www.joecjr.com/"&gt;http://www.joecjr.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.joecjr.com/feed/"&gt;http://www.joecjr.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;John's Soapbox &lt;a href="http://joschu.github.io/"&gt;http://joschu.github.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://joschu.github.io/feed.xml"&gt;http://joschu.github.io/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Jonas Degrave &lt;a href="http://317070.github.io/"&gt;http://317070.github.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://317070.github.io/feed.xml"&gt;http://317070.github.io/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Joy Of Data &lt;a href="http://www.joyofdata.de/blog/"&gt;http://www.joyofdata.de/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.joyofdata.de/blog/feed/"&gt;http://www.joyofdata.de/blog/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Julia Evans &lt;a href="http://jvns.ca/"&gt;http://jvns.ca/&lt;/a&gt; [(RSS)] (&lt;a href="http://jvns.ca/atom.xml"&gt;http://jvns.ca/atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;KDnuggets &lt;a href="http://www.kdnuggets.com/"&gt;http://www.kdnuggets.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://feeds.feedburner.com/kdnuggets-data-mining-analytics"&gt;http://feeds.feedburner.com/kdnuggets-data-mining-analytics&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Kenny Bastani &lt;a href="http://www.kennybastani.com/"&gt;http://www.kennybastani.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.kennybastani.com/feeds/posts/default?alt=rss"&gt;http://www.kennybastani.com/feeds/posts/default?alt=rss&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Kevin Davenport &lt;a href="http://kldavenport.com/"&gt;http://kldavenport.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://kldavenport.com/feed/"&gt;http://kldavenport.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;korbonits | Math ∩ Data &lt;a href="http://korbonits.github.io/"&gt;http://korbonits.github.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://korbonits.github.io/feed.xml"&gt;http://korbonits.github.io/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Lazy Programmer &lt;a href="http://lazyprogrammer.me/"&gt;http://lazyprogrammer.me/&lt;/a&gt; [(RSS)] (&lt;a href="http://lazyprogrammer.me/feed/"&gt;http://lazyprogrammer.me/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Large Scale Machine Learning  &lt;a href="http://bickson.blogspot.com/"&gt;http://bickson.blogspot.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://bickson.blogspot.com/feeds/posts/default"&gt;http://bickson.blogspot.com/feeds/posts/default&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;LATERAL BLOG &lt;a href="https://blog.lateral.io/"&gt;https://blog.lateral.io/&lt;/a&gt; [(RSS)] (&lt;a href="https://blog.lateral.io/feed/"&gt;https://blog.lateral.io/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Learn Analytics Here &lt;a href="https://learnanalyticshere.wordpress.com/"&gt;https://learnanalyticshere.wordpress.com/&lt;/a&gt; [(RSS)] (&lt;a href="https://learnanalyticshere.wordpress.com/feed/"&gt;https://learnanalyticshere.wordpress.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;LearnDataSci &lt;a href="https://learndatasci.com/"&gt;https://learndatasci.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.learndatasci.com/feed/"&gt;http://www.learndatasci.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Learning With Data &lt;a href="http://learningwithdata.com/"&gt;http://learningwithdata.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://learningwithdata.com/rss_feed.xml"&gt;http://learningwithdata.com/rss_feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Life, Language, Learning &lt;a href="http://daoudclarke.github.io/"&gt;http://daoudclarke.github.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://daoudclarke.github.io/atom.xml"&gt;http://daoudclarke.github.io/atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Louis Dorard &lt;a href="http://www.louisdorard.com/blog/"&gt;http://www.louisdorard.com/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.louisdorard.com/blog?format=rss"&gt;http://www.louisdorard.com/blog?format=rss&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;M.E.Driscoll &lt;a href="http://medriscoll.com/"&gt;http://medriscoll.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://medriscoll.com/rss"&gt;http://medriscoll.com/rss&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Machinalis &lt;a href="http://www.machinalis.com/blog"&gt;http://www.machinalis.com/blog&lt;/a&gt; [(RSS)] (&lt;a href="http://www.machinalis.com/blog/feeds/rss/"&gt;http://www.machinalis.com/blog/feeds/rss/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Machine Learning &lt;a href="https://charlesmartin14.wordpress.com/"&gt;https://charlesmartin14.wordpress.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://charlesmartin14.wordpress.com/feed/"&gt;http://charlesmartin14.wordpress.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Machine Learning (Theory) &lt;a href="http://hunch.net/"&gt;http://hunch.net/&lt;/a&gt; [(RSS)] (&lt;a href="http://hunch.net/?feed=rss2"&gt;http://hunch.net/?feed=rss2&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Machine Learning and Data Science &lt;a href="http://alexhwoods.com/"&gt;http://alexhwoods.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://alexhwoods.com/feed/"&gt;http://alexhwoods.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Machine Learning Mastery &lt;a href="http://machinelearningmastery.com/blog/"&gt;http://machinelearningmastery.com/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://machinelearningmastery.com/feed/"&gt;http://machinelearningmastery.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Machine Learning, etc &lt;a href="http://yaroslavvb.blogspot.com"&gt;http://yaroslavvb.blogspot.com&lt;/a&gt; [(RSS)] (&lt;a href="http://yaroslavvb.blogspot.com/feeds/posts/default"&gt;http://yaroslavvb.blogspot.com/feeds/posts/default&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Machined Learnings &lt;a href="http://www.machinedlearnings.com/"&gt;http://www.machinedlearnings.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.machinedlearnings.com/feeds/posts/default"&gt;http://www.machinedlearnings.com/feeds/posts/default&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Machine Learning, Maths and Physics &lt;a href="https://mlopezm.wordpress.com/"&gt;https://mlopezm.wordpress.com/&lt;/a&gt; [(RSS)] (&lt;a href="https://mlopezm.wordpress.com/feed/"&gt;https://mlopezm.wordpress.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;MAREK REI &lt;a href="http://www.marekrei.com/blog/"&gt;http://www.marekrei.com/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.marekrei.com/blog/feed/"&gt;http://www.marekrei.com/blog/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;MARGINALLY INTERESTING &lt;a href="http://blog.mikiobraun.de/"&gt;http://blog.mikiobraun.de/&lt;/a&gt; [(RSS)] (&lt;a href="http://feeds.feedburner.com/MarginallyInteresting"&gt;http://feeds.feedburner.com/MarginallyInteresting&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Math ∩ Programming &lt;a href="http://jeremykun.com/"&gt;http://jeremykun.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://jeremykun.wordpress.com/feed/"&gt;http://jeremykun.wordpress.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Matthew Rocklin &lt;a href="http://matthewrocklin.com/blog/"&gt;http://matthewrocklin.com/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://matthewrocklin.com/blog/atom.xml"&gt;http://matthewrocklin.com/blog/atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Melody Wolk &lt;a href="http://melodywolk.com/projects/"&gt;http://melodywolk.com/projects/&lt;/a&gt; [(RSS)] (&lt;a href="http://melodywolk.com/feed/"&gt;http://melodywolk.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Mic Farris &lt;a href="http://www.micfarris.com/"&gt;http://www.micfarris.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.micfarris.com/feed/"&gt;http://www.micfarris.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;minimaxir | Max Woolf's Blog &lt;a href="http://minimaxir.com/"&gt;http://minimaxir.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://minimaxir.com/rss.xml"&gt;http://minimaxir.com/rss.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Mirror Image &lt;a href="https://mirror2image.wordpress.com/"&gt;https://mirror2image.wordpress.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://mirror2image.wordpress.com/feed/"&gt;http://mirror2image.wordpress.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Mitch Crowe &lt;a href="http://www.dataphoric.com/"&gt;http://www.dataphoric.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.dataphoric.com/feed.xml"&gt;http://www.dataphoric.com/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;MLWave &lt;a href="http://mlwave.com/"&gt;http://mlwave.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://mlwave.com/feed/"&gt;http://mlwave.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Models are illuminating and wrong &lt;a href="https://peadarcoyle.wordpress.com/"&gt;https://peadarcoyle.wordpress.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://peadarcoyle.wordpress.com/feed/"&gt;http://peadarcoyle.wordpress.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;no free hunch &lt;a href="http://blog.kaggle.com/"&gt;http://blog.kaggle.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.kaggle.com/feed/"&gt;http://blog.kaggle.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Nuit Blanche &lt;a href="http://nuit-blanche.blogspot.com/"&gt;http://nuit-blanche.blogspot.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://nuit-blanche.blogspot.com/feeds/posts/default"&gt;http://nuit-blanche.blogspot.com/feeds/posts/default&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Number 2147483647 &lt;a href="https://no2147483647.wordpress.com/"&gt;https://no2147483647.wordpress.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://no2147483647.wordpress.com/feed/"&gt;http://no2147483647.wordpress.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Opiate for the masses Data is our religion. &lt;a href="http://opiateforthemass.es/"&gt;http://opiateforthemass.es/&lt;/a&gt; [(RSS)] (&lt;a href="http://opiateforthemass.es/feed.xml"&gt;http://opiateforthemass.es/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;On Machine Intelligence &lt;a href="https://aimatters.wordpress.com/"&gt;https://aimatters.wordpress.com/&lt;/a&gt; [(RSS)] (&lt;a href="https://aimatters.wordpress.com/feed/"&gt;https://aimatters.wordpress.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;p-value.info &lt;a href="http://www.p-value.info/"&gt;http://www.p-value.info/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.p-value.info/feeds/posts/default"&gt;http://www.p-value.info/feeds/posts/default&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Pete Warden's blog &lt;a href="http://petewarden.com/"&gt;http://petewarden.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://feeds.feedburner.com/typepad/petewarden"&gt;http://feeds.feedburner.com/typepad/petewarden&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Plotly Blog &lt;a href="http://blog.plot.ly/"&gt;http://blog.plot.ly/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.plot.ly/rss"&gt;http://blog.plot.ly/rss&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Probably Overthinking It &lt;a href="http://allendowney.blogspot.ca/"&gt;http://allendowney.blogspot.ca/&lt;/a&gt; [(RSS)] (&lt;a href="http://allendowney.blogspot.com/feeds/posts/default"&gt;http://allendowney.blogspot.com/feeds/posts/default&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Prooffreader.com &lt;a href="http://www.prooffreader.com"&gt;http://www.prooffreader.com&lt;/a&gt; [(RSS)] (&lt;a href="http://www.prooffreader.com/feeds/posts/default"&gt;http://www.prooffreader.com/feeds/posts/default&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;ProoffreaderPlus &lt;a href="http://prooffreaderplus.blogspot.ca/"&gt;http://prooffreaderplus.blogspot.ca/&lt;/a&gt; [(RSS)] (&lt;a href="http://prooffreaderplus.blogspot.ca/feeds/posts/default"&gt;http://prooffreaderplus.blogspot.ca/feeds/posts/default&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Publishable Stuff &lt;a href="http://www.sumsar.net/"&gt;http://www.sumsar.net/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.sumsar.net/atom.xml"&gt;http://www.sumsar.net/atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;PyImageSearch &lt;a href="http://www.pyimagesearch.com/"&gt;http://www.pyimagesearch.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://feeds.feedburner.com/Pyimagesearch"&gt;http://feeds.feedburner.com/Pyimagesearch&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Pythonic Perambulations &lt;a href="https://jakevdp.github.io/"&gt;https://jakevdp.github.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://jakevdp.github.com/atom.xml"&gt;http://jakevdp.github.com/atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;R-bloggers &lt;a href="http://www.r-bloggers.com/"&gt;http://www.r-bloggers.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://feeds.feedburner.com/RBloggers"&gt;http://feeds.feedburner.com/RBloggers&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Ramiro Gómez &lt;a href="http://ramiro.org/notebooks/"&gt;http://ramiro.org/notebooks/&lt;/a&gt; [(RSS)] (&lt;a href="http://ramiro.org/notebook/rss.xml"&gt;http://ramiro.org/notebook/rss.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Randy Zwitch &lt;a href="http://randyzwitch.com/category/data-science/"&gt;http://randyzwitch.com/category/data-science/&lt;/a&gt; [(RSS)] (&lt;a href="http://randyzwitch.com/category/data-science/feed/"&gt;http://randyzwitch.com/category/data-science/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;RaRe Technologies &lt;a href="http://rare-technologies.com/blog/"&gt;http://rare-technologies.com/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://rare-technologies.com/feed/"&gt;http://rare-technologies.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Rayli.Net &lt;a href="http://rayli.net/blog/"&gt;http://rayli.net/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://rayli.net/blog/feed/"&gt;http://rayli.net/blog/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Revolutions &lt;a href="http://blog.revolutionanalytics.com/"&gt;http://blog.revolutionanalytics.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.revolutionanalytics.com/atom.xml"&gt;http://blog.revolutionanalytics.com/atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Rinu Boney &lt;a href="http://rinuboney.github.io/"&gt;http://rinuboney.github.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://rinuboney.github.io/feed.xml"&gt;http://rinuboney.github.io/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;RNDuja Blog &lt;a href="http://rnduja.github.io/"&gt;http://rnduja.github.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://rnduja.github.io/feed.xml"&gt;http://rnduja.github.io/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Robert Chang &lt;a href="https://medium.com/@rchang"&gt;https://medium.com/@rchang&lt;/a&gt; [(RSS)] (&lt;a href="https://medium.com/feed/@rchang"&gt;https://medium.com/feed/@rchang&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Rocket-Powered Data Science &lt;a href="http://rocketdatascience.org"&gt;http://rocketdatascience.org&lt;/a&gt; [(RSS)] (&lt;a href="http://rocketdatascience.org/?feed=rss2"&gt;http://rocketdatascience.org/?feed=rss2&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;samim &lt;a href="https://medium.com/@samim"&gt;https://medium.com/@samim&lt;/a&gt; [(RSS)] (&lt;a href="https://medium.com/feed/@samim"&gt;https://medium.com/feed/@samim&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Sean J. Taylor &lt;a href="http://seanjtaylor.com/"&gt;http://seanjtaylor.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://seanjtaylor.com/rss"&gt;http://seanjtaylor.com/rss&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Sebastian Raschka &lt;a href="http://sebastianraschka.com/articles.html"&gt;http://sebastianraschka.com/articles.html&lt;/a&gt; [(RSS)] (&lt;a href="http://sebastianraschka.com/rss_feed.xml"&gt;http://sebastianraschka.com/rss_feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Sebastian's slow blog &lt;a href="http://www.nowozin.net/sebastian/blog/"&gt;http://www.nowozin.net/sebastian/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.nowozin.net/sebastian/blog/feeds/all.atom.xml"&gt;http://www.nowozin.net/sebastian/blog/feeds/all.atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Shakir's Machine Learning Blog &lt;a href="http://blog.shakirm.com/"&gt;http://blog.shakirm.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.shakirm.com/feed/"&gt;http://blog.shakirm.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Simply Statistics &lt;a href="http://simplystatistics.org"&gt;http://simplystatistics.org&lt;/a&gt; [(RSS)] (&lt;a href="http://simplystatistics.org/feed/"&gt;http://simplystatistics.org/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Startup.ML Blog &lt;a href="http://startup.ml/blog"&gt;http://startup.ml/blog&lt;/a&gt; [(RSS)] (&lt;a href="http://www.startup.ml/blog?format=RSS"&gt;http://www.startup.ml/blog?format=RSS&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Stigler Diet &lt;a href="http://stiglerdiet.com/"&gt;http://stiglerdiet.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://stiglerdiet.com/feeds/all.atom.xml"&gt;http://stiglerdiet.com/feeds/all.atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Stitch Fix Tech Blog &lt;a href="http://multithreaded.stitchfix.com/blog/"&gt;http://multithreaded.stitchfix.com/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://multithreaded.stitchfix.com/feed.xml"&gt;http://multithreaded.stitchfix.com/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Storytelling with Statistics on Quora &lt;a href="http://datastories.quora.com/"&gt;http://datastories.quora.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://datastories.quora.com/rss"&gt;http://datastories.quora.com/rss&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;StreamHacker &lt;a href="http://streamhacker.com/"&gt;http://streamhacker.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://feeds.feedburner.com/StreamHacker"&gt;http://feeds.feedburner.com/StreamHacker&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Subconscious Musings &lt;a href="http://blogs.sas.com/content/subconsciousmusings/"&gt;http://blogs.sas.com/content/subconsciousmusings/&lt;/a&gt; [(RSS)] (&lt;a href="http://feeds.feedburner.com/advanalytics"&gt;http://feeds.feedburner.com/advanalytics&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;TechNet &lt;a href="http://blogs.technet.com/b/machinelearning/default.aspx"&gt;http://blogs.technet.com/b/machinelearning/default.aspx&lt;/a&gt; [(RSS)] (&lt;a href="http://blogs.technet.com/b/machinelearning/rss.aspx"&gt;http://blogs.technet.com/b/machinelearning/rss.aspx&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;TechnoCalifornia &lt;a href="http://technocalifornia.blogspot.se/"&gt;http://technocalifornia.blogspot.se/&lt;/a&gt; [(RSS)] (&lt;a href="http://technocalifornia.blogspot.com/feeds/posts/default"&gt;http://technocalifornia.blogspot.com/feeds/posts/default&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;TEXT ANALYSIS BLOG | AYLIEN &lt;a href="http://blog.aylien.com/"&gt;http://blog.aylien.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.aylien.com/rss"&gt;http://blog.aylien.com/rss&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;The Angry Statistician &lt;a href="http://angrystatistician.blogspot.com/"&gt;http://angrystatistician.blogspot.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://angrystatistician.blogspot.com/feeds/posts/default"&gt;http://angrystatistician.blogspot.com/feeds/posts/default&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;The Clever Machine &lt;a href="https://theclevermachine.wordpress.com/"&gt;https://theclevermachine.wordpress.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://theclevermachine.wordpress.com/feed/"&gt;http://theclevermachine.wordpress.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;The Data Camp Blog &lt;a href="http://blog.datacamp.com"&gt;http://blog.datacamp.com&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.datacamp.com/feed/"&gt;http://blog.datacamp.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;The Data Incubator &lt;a href="http://blog.thedataincubator.com/"&gt;http://blog.thedataincubator.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.thedataincubator.com/feed/"&gt;http://blog.thedataincubator.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;The Data Science Lab &lt;a href="https://datasciencelab.wordpress.com/"&gt;https://datasciencelab.wordpress.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://datasciencelab.wordpress.com/feed/"&gt;http://datasciencelab.wordpress.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;THE ETZ-FILES &lt;a href="http://alexanderetz.com/"&gt;http://alexanderetz.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://nicebrain.wordpress.com/feed/"&gt;http://nicebrain.wordpress.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;The Science of Data &lt;a href="http://www.martingoodson.com"&gt;http://www.martingoodson.com&lt;/a&gt; [(RSS)] (&lt;a href="http://www.martingoodson.com/rss/"&gt;http://www.martingoodson.com/rss/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;The Shape of Data &lt;a href="https://shapeofdata.wordpress.com"&gt;https://shapeofdata.wordpress.com&lt;/a&gt; [(RSS)] (&lt;a href="https://shapeofdata.wordpress.com/feed/"&gt;https://shapeofdata.wordpress.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;The unofficial Google data science Blog &lt;a href="http://www.unofficialgoogledatascience.com/"&gt;http://www.unofficialgoogledatascience.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.unofficialgoogledatascience.com/feeds/posts/default"&gt;http://www.unofficialgoogledatascience.com/feeds/posts/default&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Tombone's Computer Vision Blog &lt;a href="http://www.computervisionblog.com/"&gt;http://www.computervisionblog.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.computervisionblog.com/feeds/posts/default"&gt;http://www.computervisionblog.com/feeds/posts/default&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Trevor Stephens &lt;a href="http://trevorstephens.com/"&gt;http://trevorstephens.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://trevorstephens.com/rss"&gt;http://trevorstephens.com/rss&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Trey Causey &lt;a href="http://treycausey.com/"&gt;http://treycausey.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://treycausey.com/feeds/all.atom.xml"&gt;http://treycausey.com/feeds/all.atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;UW Data Science Blog &lt;a href="http://datasciencedegree.wisconsin.edu/blog/"&gt;http://datasciencedegree.wisconsin.edu/blog/&lt;/a&gt; [(RSS)] (&lt;a href="http://datasciencedegree.wisconsin.edu/feed/"&gt;http://datasciencedegree.wisconsin.edu/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Wellecks &lt;a href="http://wellecks.wordpress.com/"&gt;http://wellecks.wordpress.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://wellecks.wordpress.com/feed/"&gt;http://wellecks.wordpress.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Wes McKinney &lt;a href="http://blog.wesmckinney.com/"&gt;http://blog.wesmckinney.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://wesmckinney.com/blog/feed/"&gt;http://wesmckinney.com/blog/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;While My MCMC Gently Samples &lt;a href="http://twiecki.github.io/"&gt;http://twiecki.github.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://twiecki.github.io/atom.xml"&gt;http://twiecki.github.io/atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;WildML &lt;a href="http://www.wildml.com/"&gt;http://www.wildml.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.wildml.com/feed/"&gt;http://www.wildml.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Will do stuff for stuff &lt;a href="http://rinzewind.org/blog-en"&gt;http://rinzewind.org/blog-en&lt;/a&gt; [(RSS)] (&lt;a href="http://rinzewind.org/feed-en"&gt;http://rinzewind.org/feed-en&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;William Lyon &lt;a href="http://www.lyonwj.com/"&gt;http://www.lyonwj.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.lyonwj.com/atom.xml"&gt;http://www.lyonwj.com/atom.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Yanir Seroussi &lt;a href="http://yanirseroussi.com/"&gt;http://yanirseroussi.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://yanirseroussi.com/feed/"&gt;http://yanirseroussi.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Zac Stewart &lt;a href="http://zacstewart.com/"&gt;http://zacstewart.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://zacstewart.com/feed.xml"&gt;http://zacstewart.com/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;ŷhat &lt;a href="http://blog.yhathq.com/"&gt;http://blog.yhathq.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.yhathq.com/rss.xml"&gt;http://blog.yhathq.com/rss.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;ℚuantitative √ourney &lt;a href="http://outlace.com/"&gt;http://outlace.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://outlace.com/feed.xml"&gt;http://outlace.com/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;大トロ &lt;a href="http://blog.otoro.net/"&gt;http://blog.otoro.net/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.otoro.net/feed/"&gt;http://blog.otoro.net/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Mike Tyka &lt;a href="http://mtyka.github.io/"&gt;http://mtyka.github.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://mtyka.github.io//feed.xml"&gt;http://mtyka.github.io//feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Anton Lebedevich's Blog &lt;a href="http://mabrek.github.io/"&gt;http://mabrek.github.io/&lt;/a&gt; [(RSS)] (&lt;a href="http://mabrek.github.io/feed.xml"&gt;http://mabrek.github.io/feed.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Neil Lawrence &lt;a href="http://inverseprobability.com/blog.html"&gt;http://inverseprobability.com/blog.html&lt;/a&gt; [(RSS)] (&lt;a href="http://inverseprobability.com/rss.xml"&gt;http://inverseprobability.com/rss.xml&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;John Myles White &lt;a href="http://www.johnmyleswhite.com/"&gt;http://www.johnmyleswhite.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://www.johnmyleswhite.com/feed/"&gt;http://www.johnmyleswhite.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Sebastian Ruder &lt;a href="http://sebastianruder.com/"&gt;http://sebastianruder.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://sebastianruder.com/rss/"&gt;http://sebastianruder.com/rss/&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;DENNY'S BLOG &lt;a href="http://blog.dennybritz.com/"&gt;http://blog.dennybritz.com/&lt;/a&gt; [(RSS)] (&lt;a href="http://blog.dennybritz.com/feed/"&gt;http://blog.dennybritz.com/feed/&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;
+</summary><category term="links"></category></entry><entry><title>Posting patterns on the DS-Connect group</title><link href="https://keith.ml/GOV-dsc_viz.html" rel="alternate"></link><published>2018-02-12T22:00:00+08:00</published><updated>2018-02-12T22:00:00+08:00</updated><author><name>wykeith</name></author><id>tag:keith.ml,2018-02-12:GOV-dsc_viz.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1038,10 +2236,10 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="18ae1d2e-14e6-4e45-8634-f6f4ad05d910"&gt;&lt;/div&gt;
+&lt;div id="16e52dd4-ea2a-4fcb-ae23-e4472addb306"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#18ae1d2e-14e6-4e45-8634-f6f4ad05d910');
+var element = $('#16e52dd4-ea2a-4fcb-ae23-e4472addb306');
 
 (function(global) {
   function now() {
