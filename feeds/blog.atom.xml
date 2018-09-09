@@ -976,7 +976,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Datascience-execise-#1"&gt;Datascience execise #1&lt;a class="anchor-link" href="#Datascience-execise-#1"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;img alt="Chart showing errors in height estimates" src="https://wykeith.github.io/images/height-survey-boxplot.png" /&gt;&lt;/p&gt;
+&lt;h1 id="Datascience-exercise-#1"&gt;Datascience exercise #1&lt;a class="anchor-link" href="#Datascience-exercise-#1"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;img alt="Chart showing errors in height estimates" src="https://wykeith.github.io/images/height-survey-boxplot.png" /&gt;&lt;/p&gt;
 &lt;p&gt;Attended a basic R tutorial for my MUSPP class, everyone was tasked to estimate the heights of each other and record them into a table. This formed the dataset which we subsequently analysed using R. I'm repeating this exercise in Python as it is easier for me for analysis. Since I cant use python as the class assignments are based on R, I will try to do the python recoding for all my future assignments on this blog.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -990,7 +990,7 @@ h6:hover .anchor-link {
 &lt;li&gt;Generally most of us under-estimate&lt;/li&gt;
 &lt;li&gt;With the exception of MaKaKu who tend to mostly over-estimate &lt;/li&gt;
 &lt;li&gt;Yours truly understimates everyone's height, and since I'm consistently inaccurate, one could add 10cm to all future predictions from myself to achieve an estimate that is closer to reality. Maybe I have got parallex error in my vision.&lt;/li&gt;
-&lt;li&gt;Plotting the all errors for each estimates individually , we also find that for the shortest (DeKo) ,most of the estimators over-estimate, ie more blue bars. And for the tallest (LiSwKi) most of the estimators under-estimate, ie more orange bars. See chart below&lt;/li&gt;
+&lt;li&gt;Plotting the all errors for each estimates individually, we also find that for the shortest (DeKo), most of the estimators over-estimate, ie more blue bars. And for the tallest (LiSwKi) most of the estimators under-estimate, ie more orange bars. See chart below&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Takeaway if estimators were IOT sensors, the above chart can be used to visualise under-estimation/over-estimations during calibration.&lt;/p&gt;
 &lt;/div&gt;
@@ -1806,7 +1806,7 @@ h6:hover .anchor-link {
 &lt;div class="prompt input_prompt"&gt;In [12]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
-&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;## All estimators errors plotted on a boxsplot , Under to Over Estimator&lt;/span&gt;
+&lt;div class=" highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;## All estimators errors plotted on a boxsplot , Under to Over Estimating&lt;/span&gt;
 
 &lt;span class="n"&gt;g&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;sns&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;catplot&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;kind&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'box'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
                 &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;merged_table&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'Estimator'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;'Error'&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
@@ -1937,32 +1937,19 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;pre&gt;&lt;code&gt;%%javascript
-IPython.OutputArea.prototype._should_scroll = function(lines) {
-    return false;
-}&lt;/code&gt;&lt;/pre&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;/div&gt;
-&lt;div class="cell border-box-sizing text_cell rendered"&gt;
-&lt;div class="prompt input_prompt"&gt;
-&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Additional-Code---Plot-out-individual-estimators-and-their-estimates"&gt;Additional Code - Plot out individual estimators and their estimates&lt;a class="anchor-link" href="#Additional-Code---Plot-out-individual-estimators-and-their-estimates"&gt;¶&lt;/a&gt;&lt;/h1&gt;
-&lt;pre&gt;&lt;code&gt;for x in actual_heights.sort_values('Act_value').Person:
+&lt;h1 id="Additional-Code---Plot-out-each-estimators-and-their-estimates"&gt;Additional Code - Plot out each estimators and their estimates&lt;a class="anchor-link" href="#Additional-Code---Plot-out-each-estimators-and-their-estimates"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;for x in actual_heights.sort_values('Act_value').Person:
     Target = x
-    xline = actual_heights.query('Person==@Target')['Act_value']
-    ## Line represents actual height
-    plt.figure(figsize=(10,5))
-    fig = sns.barplot(data=merged_table[merged_table.Person==Target].sort_values('Est_value'),y='Estimator',x='Est_value',color=".7")
-    plt.axvline(int(xline),c='r',linestyle='-.',lw=1)
-    plt.xlim(int(xline)-40, int(xline)+40)
-    plt.title("Grp Estimated Heights for {}".format(Target))
-    plt.xlabel("Heights (cm)")
-    plt.ylabel("Estimators")
+    xline = actual_heights.query('Person==@Target')['Act_value']&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;## Line represents actual height
+plt.figure(figsize=(10,5))
+fig = sns.barplot(data=merged_table[merged_table.Person==Target].sort_values('Est_value'),y='Estimator',x='Est_value',color=".7")
+plt.axvline(int(xline),c='r',linestyle='-.',lw=1)
+plt.xlim(int(xline)-40, int(xline)+40)
+plt.title("Grp Estimated Heights for {}".format(Target))
+plt.xlabel("Heights (cm)")
+plt.ylabel("Estimators")
 
-    plt.show(fig)&lt;/code&gt;&lt;/pre&gt;
+plt.show(fig)&lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -4241,10 +4228,10 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="2bd29a7b-2c7b-403c-a76f-70a6db230e89"&gt;&lt;/div&gt;
+&lt;div id="76d58982-62a9-405c-8e67-b1e058725f2a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#2bd29a7b-2c7b-403c-a76f-70a6db230e89');
+var element = $('#76d58982-62a9-405c-8e67-b1e058725f2a');
 
 (function(global) {
   function now() {

@@ -22,11 +22,11 @@
 
 
 <meta name="author" content="wykeith" />
-<meta name="description" content="Datascience execise #1¶ Attended a basic R tutorial for my MUSPP class, everyone was tasked to estimate the heights of each other and record them into a table. This formed the dataset which we subsequently analysed using R. I'm repeating this exercise in Python as it is easier for me for analysis. Since I cant use python as the class assignments are based on R, I will try to do the python recoding for all my future assignments on this blog." />
+<meta name="description" content="Datascience exercise #1¶ Attended a basic R tutorial for my MUSPP class, everyone was tasked to estimate the heights of each other and record them into a table. This formed the dataset which we subsequently analysed using R. I'm repeating this exercise in Python as it is easier for me for analysis. Since I cant use python as the class assignments are based on R, I will try to do the python recoding for all my future assignments on this blog." />
 <meta name="keywords" content="Seaborn, 02521-Data-Methods-1, MUSPP, Python, SUTD, LKYCLC, HASS">
 <meta property="og:site_name" content="Data Thoughts"/>
 <meta property="og:title" content="Height Survey Analysis"/>
-<meta property="og:description" content="Datascience execise #1¶ Attended a basic R tutorial for my MUSPP class, everyone was tasked to estimate the heights of each other and record them into a table. This formed the dataset which we subsequently analysed using R. I'm repeating this exercise in Python as it is easier for me for analysis. Since I cant use python as the class assignments are based on R, I will try to do the python recoding for all my future assignments on this blog."/>
+<meta property="og:description" content="Datascience exercise #1¶ Attended a basic R tutorial for my MUSPP class, everyone was tasked to estimate the heights of each other and record them into a table. This formed the dataset which we subsequently analysed using R. I'm repeating this exercise in Python as it is easier for me for analysis. Since I cant use python as the class assignments are based on R, I will try to do the python recoding for all my future assignments on this blog."/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./2521-Ht_survey.html"/>
 <meta property="og:type" content="article"/>
@@ -1066,7 +1066,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Datascience-execise-#1">Datascience execise #1<a class="anchor-link" href="#Datascience-execise-#1">¶</a></h1><p><img alt="Chart showing errors in height estimates" src="https://wykeith.github.io/images/height-survey-boxplot.png" /></p>
+<h1 id="Datascience-exercise-#1">Datascience exercise #1<a class="anchor-link" href="#Datascience-exercise-#1">¶</a></h1><p><img alt="Chart showing errors in height estimates" src="https://wykeith.github.io/images/height-survey-boxplot.png" /></p>
 <p>Attended a basic R tutorial for my MUSPP class, everyone was tasked to estimate the heights of each other and record them into a table. This formed the dataset which we subsequently analysed using R. I'm repeating this exercise in Python as it is easier for me for analysis. Since I cant use python as the class assignments are based on R, I will try to do the python recoding for all my future assignments on this blog.</p>
 </div>
 </div>
@@ -1080,7 +1080,7 @@ h6:hover .anchor-link {
 <li>Generally most of us under-estimate</li>
 <li>With the exception of MaKaKu who tend to mostly over-estimate </li>
 <li>Yours truly understimates everyone's height, and since I'm consistently inaccurate, one could add 10cm to all future predictions from myself to achieve an estimate that is closer to reality. Maybe I have got parallex error in my vision.</li>
-<li>Plotting the all errors for each estimates individually , we also find that for the shortest (DeKo) ,most of the estimators over-estimate, ie more blue bars. And for the tallest (LiSwKi) most of the estimators under-estimate, ie more orange bars. See chart below</li>
+<li>Plotting the all errors for each estimates individually, we also find that for the shortest (DeKo), most of the estimators over-estimate, ie more blue bars. And for the tallest (LiSwKi) most of the estimators under-estimate, ie more orange bars. See chart below</li>
 </ul>
 <p>Takeaway if estimators were IOT sensors, the above chart can be used to visualise under-estimation/over-estimations during calibration.</p>
 </div>
@@ -1896,7 +1896,7 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## All estimators errors plotted on a boxsplot , Under to Over Estimator</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## All estimators errors plotted on a boxsplot , Under to Over Estimating</span>
 
 <span class="n">g</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">catplot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'box'</span><span class="p">,</span>
                 <span class="n">data</span><span class="o">=</span><span class="n">merged_table</span><span class="p">,</span><span class="n">y</span><span class="o">=</span><span class="s1">'Estimator'</span><span class="p">,</span><span class="n">x</span><span class="o">=</span><span class="s1">'Error'</span><span class="p">,</span>
@@ -2027,32 +2027,19 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<pre><code>%%javascript
-IPython.OutputArea.prototype._should_scroll = function(lines) {
-    return false;
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Additional-Code---Plot-out-individual-estimators-and-their-estimates">Additional Code - Plot out individual estimators and their estimates<a class="anchor-link" href="#Additional-Code---Plot-out-individual-estimators-and-their-estimates">¶</a></h1>
-<pre><code>for x in actual_heights.sort_values('Act_value').Person:
+<h1 id="Additional-Code---Plot-out-each-estimators-and-their-estimates">Additional Code - Plot out each estimators and their estimates<a class="anchor-link" href="#Additional-Code---Plot-out-each-estimators-and-their-estimates">¶</a></h1><p>for x in actual_heights.sort_values('Act_value').Person:
     Target = x
-    xline = actual_heights.query('Person==@Target')['Act_value']
-    ## Line represents actual height
-    plt.figure(figsize=(10,5))
-    fig = sns.barplot(data=merged_table[merged_table.Person==Target].sort_values('Est_value'),y='Estimator',x='Est_value',color=".7")
-    plt.axvline(int(xline),c='r',linestyle='-.',lw=1)
-    plt.xlim(int(xline)-40, int(xline)+40)
-    plt.title("Grp Estimated Heights for {}".format(Target))
-    plt.xlabel("Heights (cm)")
-    plt.ylabel("Estimators")
+    xline = actual_heights.query('Person==@Target')['Act_value']</p>
+<pre><code>## Line represents actual height
+plt.figure(figsize=(10,5))
+fig = sns.barplot(data=merged_table[merged_table.Person==Target].sort_values('Est_value'),y='Estimator',x='Est_value',color=".7")
+plt.axvline(int(xline),c='r',linestyle='-.',lw=1)
+plt.xlim(int(xline)-40, int(xline)+40)
+plt.title("Grp Estimated Heights for {}".format(Target))
+plt.xlabel("Heights (cm)")
+plt.ylabel("Estimators")
 
-    plt.show(fig)</code></pre>
+plt.show(fig)</code></pre>
 </div>
 </div>
 </div>
