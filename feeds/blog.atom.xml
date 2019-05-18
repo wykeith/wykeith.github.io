@@ -976,7 +976,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Book-Review---Superminds"&gt;Book Review - Superminds&lt;a class="anchor-link" href="#Book-Review---Superminds"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;a href="https://catalogue.nlb.gov.sg/cgi-bin/spydus.exe/FULL/WPAC/BIBENQ/4014412/252276085,1"&gt;&lt;img alt="Superminds by Thomas W Malone" src="https://wykeith.github.io/images/superminds.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://catalogue.nlb.gov.sg/cgi-bin/spydus.exe/FULL/WPAC/BIBENQ/4014412/252276085,1"&gt;&lt;img alt="Superminds by Thomas W Malone" src="https://wykeith.github.io/images/superminds.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;I just finished this book recently, and it sparked numerous ahha moments. Thus I highly recommend it for non-technical readers who are curious about AI and their impact on society. The author explains the concepts of superminds operating in society as a consequence of collective intelligence. He defines collective intelligence as the result of groups of individuals acting together in ways that seem intelligent or purposeful. This book teaches us how to recognise the characteristics of superminds and tap on their superpowers.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6302,10 +6302,10 @@ h6:hover .anchor-link {
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="8f3f75c3-5c85-44f4-a517-2d67ebd59d36"&gt;&lt;/div&gt;
+&lt;div id="e709352c-24f6-4976-90f5-c8d543ec0270"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#8f3f75c3-5c85-44f4-a517-2d67ebd59d36');
+var element = $('#e709352c-24f6-4976-90f5-c8d543ec0270');
 IPython.OutputArea.prototype._should_scroll = function(lines) {
     return false;
 }
@@ -8697,10 +8697,10 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="0aa2d664-c72c-4add-b572-543607b57606"&gt;&lt;/div&gt;
+&lt;div id="b36cb934-f0f6-4801-98c1-f2440daa7586"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#0aa2d664-c72c-4add-b572-543607b57606');
+var element = $('#b36cb934-f0f6-4801-98c1-f2440daa7586');
 
 (function(global) {
   function now() {
