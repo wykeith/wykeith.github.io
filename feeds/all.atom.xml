@@ -1110,7 +1110,7 @@ Another hybrid form of supermind supermind which encompasses all the above as we
 &lt;li&gt;People will do more of the things that machines make cheaper to do.&lt;/li&gt;
 &lt;li&gt;People will do things just because we want people to do them&lt;/li&gt;
 &lt;/ul&gt;
-&lt;blockquote&gt;&lt;p&gt;My goal is to actively look for opportunities to create cyber-human learning loops (this was my masters dissertation topic 10 years ago!), Superminds that are made up of people and computers will be able to continuously improve their performance by learning from their own experiences extremely effectively. Achieve superlearning through superminds!&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;Everyone should actively seek for opportunities to create cyber-human learning loops (this was my own masters dissertation topic 10 years ago!), Superminds that are made up of people and computers are be able to continuously improve their performance by learning from their own experiences extremely effectively. Superlearning can be achieved through superminds!&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6302,10 +6302,10 @@ h6:hover .anchor-link {
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="e709352c-24f6-4976-90f5-c8d543ec0270"&gt;&lt;/div&gt;
+&lt;div id="65e151f6-44dc-4381-b7cf-912519f5145c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#e709352c-24f6-4976-90f5-c8d543ec0270');
+var element = $('#65e151f6-44dc-4381-b7cf-912519f5145c');
 IPython.OutputArea.prototype._should_scroll = function(lines) {
     return false;
 }
@@ -8697,10 +8697,10 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="b36cb934-f0f6-4801-98c1-f2440daa7586"&gt;&lt;/div&gt;
+&lt;div id="bee28252-45a7-4275-9d26-adc1e5394d6c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b36cb934-f0f6-4801-98c1-f2440daa7586');
+var element = $('#bee28252-45a7-4275-9d26-adc1e5394d6c');
 
 (function(global) {
   function now() {
