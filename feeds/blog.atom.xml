@@ -1070,16 +1070,12 @@ Another hybrid form of supermind supermind which encompasses all the above as we
 &lt;h2 id="Some-examples-of-a-superminds-in-real-life"&gt;Some examples of a superminds in real life&lt;a class="anchor-link" href="#Some-examples-of-a-superminds-in-real-life"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;Our &lt;em&gt;Food production system&lt;/em&gt; is a Market type of supermind. Previously in Hunting-Gathering communities , population growth was limited because we had to hunt, gather, prepare and cook our own food. Now we buy our food at stores and restaurant and outsourced most of the food preparation to a much larger supermind: the global market economy.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;font color="grey"&gt;&lt;/p&gt;
-&lt;blockquote&gt;&lt;p&gt;New information and transportation technology have increased our ability to take advantage economies of scale for food production and hence we have greatly increased the size of human groups , moving to th apex of the food chain
-&lt;/font&gt;&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;New information and transportation technology have increased our ability to take advantage economies of scale for food production and hence we have greatly increased the size of human groups , moving humans to the apex of the food chain&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;ol&gt;
 &lt;li&gt;Purely hierarchical governments, with leaders like kings and emperors. have been overseeing markets for many years, and they still continue to do so in some countries today (ie vatican). But many countries have established democracies that oversee their hierarchical governments. Hierarchical governments are important. For instance with their legal system and police powers, they can resolve problems when people dont fulfill their contracts. They can also help prevent sellers from lying about their products, and they can insist on health and safety standards&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;font color="grey"&gt;&lt;/p&gt;
-&lt;blockquote&gt;&lt;p&gt;Technology have enabled cyber-human sensing, as sensors become more purvasive more and more things will be electronically sensed and recorded in future. China is already experimenting with something it calls a social credit system which keep track of financial behavior, such as whether people keep up with their insurance premiums, tax payments, and credit card bills. The system is also expected to include information about various kinds of social behavior ie cheating on subway fares, jaywalking, causing disturbance on airline flights and violating family-planning limits. All this data is used to compute various "social credit" ratings that will lead to all kinds of benefits and penalties
-&lt;/font&gt;&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;Technology have enabled cyber-human sensing, as sensors become more purvasive more and more things will be electronically sensed and recorded in future. China is already experimenting with something it calls a social credit system which keep track of financial behavior, such as whether people keep up with their insurance premiums, tax payments, and credit card bills. The system is also expected to include information about various kinds of social behavior ie cheating on subway fares, jaywalking, causing disturbance on airline flights and violating family-planning limits. All this data is used to compute various "social credit" ratings that will lead to all kinds of benefits and penalties&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1114,7 +1110,8 @@ Another hybrid form of supermind supermind which encompasses all the above as we
 &lt;li&gt;People will do more of the things that machines make cheaper to do.&lt;/li&gt;
 &lt;li&gt;People will do things just because we want people to do them&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;My goal is to actively look for opportunities to create cyber-human learning loops (this was my masters dissertation topic 10 years ago!), Superminds that are made up of people and computers will be able to continuously improve their performance by learning from their own experiences extremely effectively. Achieve superlearning through superminds!&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;My goal is to actively look for opportunities to create cyber-human learning loops (this was my masters dissertation topic 10 years ago!), Superminds that are made up of people and computers will be able to continuously improve their performance by learning from their own experiences extremely effectively. Achieve superlearning through superminds!&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6305,10 +6302,10 @@ h6:hover .anchor-link {
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ffc47a4a-1bb5-48a3-8867-eb589b94698e"&gt;&lt;/div&gt;
+&lt;div id="8f3f75c3-5c85-44f4-a517-2d67ebd59d36"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ffc47a4a-1bb5-48a3-8867-eb589b94698e');
+var element = $('#8f3f75c3-5c85-44f4-a517-2d67ebd59d36');
 IPython.OutputArea.prototype._should_scroll = function(lines) {
     return false;
 }
@@ -8700,10 +8697,10 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="9d071305-537b-4f7c-a4c4-9c175400fca2"&gt;&lt;/div&gt;
+&lt;div id="0aa2d664-c72c-4add-b572-543607b57606"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9d071305-537b-4f7c-a4c4-9c175400fca2');
+var element = $('#0aa2d664-c72c-4add-b572-543607b57606');
 
 (function(global) {
   function now() {
