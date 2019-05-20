@@ -6620,10 +6620,10 @@ h6:hover .anchor-link {
 
 
 
-&lt;div id="281ef983-204f-40dc-afcd-a0130e452dc2"&gt;&lt;/div&gt;
+&lt;div id="d2e58418-296f-4dc6-8188-5622c31ec05b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#281ef983-204f-40dc-afcd-a0130e452dc2');
+var element = $('#d2e58418-296f-4dc6-8188-5622c31ec05b');
 IPython.OutputArea.prototype._should_scroll = function(lines) {
     return false;
 }
@@ -8977,10 +8977,10 @@ h6:hover .anchor-link {
 
 
 
-&lt;div id="60bba847-3c17-4795-80ad-34eb24bc7a8f"&gt;&lt;/div&gt;
+&lt;div id="6dc7971b-a93c-48dc-9b68-300e0f48172d"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#60bba847-3c17-4795-80ad-34eb24bc7a8f');
+var element = $('#6dc7971b-a93c-48dc-9b68-300e0f48172d');
 
 (function(global) {
   function now() {
