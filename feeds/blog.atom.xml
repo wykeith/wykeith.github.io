@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Data Thoughts</title><link href="https://keith.ml/" rel="alternate"></link><link href="https://keith.ml/feeds/blog.atom.xml" rel="self"></link><id>https://keith.ml/</id><updated>2019-05-18T08:00:00+08:00</updated><entry><title>Book Review - Supermind by Thomas Malone</title><link href="https://keith.ml/supermind.html" rel="alternate"></link><published>2019-05-18T08:00:00+08:00</published><updated>2019-05-18T08:00:00+08:00</updated><author><name>wykeith</name></author><id>tag:keith.ml,2019-05-18:supermind.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Data Thoughts</title><link href="https://keith.ml/" rel="alternate"></link><link href="https://keith.ml/feeds/blog.atom.xml" rel="self"></link><id>https://keith.ml/</id><updated>2019-05-18T08:00:00+08:00</updated><entry><title>Book Review - Superminds by Thomas Malone</title><link href="https://keith.ml/supermind.html" rel="alternate"></link><published>2019-05-18T08:00:00+08:00</published><updated>2019-05-18T08:00:00+08:00</updated><author><name>wykeith</name></author><id>tag:keith.ml,2019-05-18:supermind.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1001,7 +1001,7 @@ h6:hover .anchor-link {
 Another hybrid form of supermind supermind which encompasses all the above as well as indivdiuals is an eco-system
 &lt;/font&gt;&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Ecosystem&lt;/strong&gt; where decisions are made based on who has the most power and the greatest ability to survive and reproduce. Found whereever there are no overall frameworks for cooperation, such as in the conflicts amony the different types of superminds above&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ecosystem&lt;/strong&gt; where decisions are made based on who has the most power and the greatest ability to survive and reproduce. Found wherever there are no overall frameworks for cooperation, such as in the conflicts among the different types of superminds above.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1086,12 +1086,23 @@ Another hybrid form of supermind supermind which encompasses all the above as we
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="How-can-we-tap-on-superminds-to-solve-problems"&gt;How can we tap on superminds to solve problems&lt;a class="anchor-link" href="#How-can-we-tap-on-superminds-to-solve-problems"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;Hyperspecialisation - Topcoder,Amazon Mechanical Turk (Division of Human Tasks)&lt;/li&gt;
-&lt;li&gt;Contest Web , Wisdom of Crowds - Climate Colab (solving climate issues)&lt;/li&gt;
-&lt;li&gt;Task/Job Matching - Monster.com, Ebay (selling goods)&lt;/li&gt;
+&lt;li&gt;Hyperspecialisation - &lt;ul&gt;
+&lt;li&gt;Examples are Topcoder,Amazon Mechanical Turk (Division of Human Tasks) &lt;/li&gt;
+&lt;li&gt;Tasks are sub-divded and passed to the best performing individual.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Contest Web , Wisdom of Crowds - &lt;ul&gt;
+&lt;li&gt;Climate Colab (solving climate issues)&lt;/li&gt;
+&lt;li&gt;Crowdsourcing platforms where ideation is distributed&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;Job/Demand Matching  - &lt;ul&gt;
+&lt;li&gt;Monster.com, Ebay (selling goods)&lt;/li&gt;
+&lt;li&gt;Supply and Demand are matched with efficiency.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;Key features of technology enablers&lt;/p&gt;
-&lt;ul&gt;
+&lt;h2 id="Key-features-of-technology-enablers"&gt;Key features of technology enablers&lt;a class="anchor-link" href="#Key-features-of-technology-enablers"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;dividing work in new ways&lt;/li&gt;
 &lt;li&gt;assigning task in new ways&lt;/li&gt;
 &lt;li&gt;coordinating interdependencies among tasks in new ways&lt;/li&gt;
@@ -1104,13 +1115,13 @@ Another hybrid form of supermind supermind which encompasses all the above as we
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="My-Thoughts-and-Takeways"&gt;My Thoughts and Takeways&lt;a class="anchor-link" href="#My-Thoughts-and-Takeways"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;AI is also Augmented Intelligence, eventually technology will takeaway certain jobs but it will also create others.&lt;/p&gt;
+&lt;h1 id="My-Thoughts-and-Takeways"&gt;My Thoughts and Takeways&lt;a class="anchor-link" href="#My-Thoughts-and-Takeways"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;AI is also Augmented Intelligence, eventually technology will takeaway certain jobs but it will also create others, better to recogise this and calibrate one's career path&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;People will do what machines can't&lt;/li&gt;
 &lt;li&gt;People will do more of the things that machines make cheaper to do.&lt;/li&gt;
 &lt;li&gt;People will do things just because we want people to do them&lt;/li&gt;
 &lt;/ul&gt;
-&lt;blockquote&gt;&lt;p&gt;Everyone should actively seek for opportunities to create cyber-human learning loops (this was my own masters dissertation topic 10 years ago!), Superminds that are made up of people and computers are be able to continuously improve their performance by learning from their own experiences extremely effectively. Superlearning can be achieved through superminds!&lt;/p&gt;
+&lt;blockquote&gt;&lt;p&gt;We should actively seek for opportunities to create cyber-human learning loops (this was my own masters dissertation topic 10 years ago!). Superminds that are made up of people and computers are be able to continuously improve their performance by learning from their own experiences extremely effectively. Superlearning can be achieved through superminds!&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -6302,10 +6313,10 @@ h6:hover .anchor-link {
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="458b8c60-5c99-4f48-ae3b-70f6abf21027"&gt;&lt;/div&gt;
+&lt;div id="b531c611-0157-4fd3-b85b-67865e999b81"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#458b8c60-5c99-4f48-ae3b-70f6abf21027');
+var element = $('#b531c611-0157-4fd3-b85b-67865e999b81');
 IPython.OutputArea.prototype._should_scroll = function(lines) {
     return false;
 }
@@ -8697,10 +8708,10 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="c73594a1-b10c-4c32-acbd-2d7d02fe05ed"&gt;&lt;/div&gt;
+&lt;div id="b2d97f4c-3c48-4aa9-81cd-4e86d27334ae"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#c73594a1-b10c-4c32-acbd-2d7d02fe05ed');
+var element = $('#b2d97f4c-3c48-4aa9-81cd-4e86d27334ae');
 
 (function(global) {
   function now() {
