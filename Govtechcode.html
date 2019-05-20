@@ -22,11 +22,11 @@
 
 
 <meta name="author" content="wykeith" />
-<meta name="description" content="Govtech Chinese New Year Code breaking challenge¶ Govtech is running a coding challenge to give away some prizes¶Decided to give it a shot since I'm bored with CNY festivities in lala land. Answer to the code is at the end of the post =), you can also submit your answer by 11:59 pm, February 8 here: https://bit.ly/2RUVNBG" />
+<meta name="description" content="What is the decoded text to Govtech CNY 2019 challenge?" />
 <meta name="keywords" content="Govtech, python, cryptography">
 <meta property="og:site_name" content="Data Thoughts"/>
 <meta property="og:title" content="Govtech Code Challenge"/>
-<meta property="og:description" content="Govtech Chinese New Year Code breaking challenge¶ Govtech is running a coding challenge to give away some prizes¶Decided to give it a shot since I'm bored with CNY festivities in lala land. Answer to the code is at the end of the post =), you can also submit your answer by 11:59 pm, February 8 here: https://bit.ly/2RUVNBG"/>
+<meta property="og:description" content="What is the decoded text to Govtech CNY 2019 challenge?"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./Govtechcode.html"/>
 <meta property="og:type" content="article"/>
@@ -1062,11 +1062,12 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Govtech-Chinese-New-Year-Code-breaking-challenge">Govtech Chinese New Year Code breaking challenge<a class="anchor-link" href="#Govtech-Chinese-New-Year-Code-breaking-challenge">¶</a></h1><p><img alt="Govtech Challenge" src="http://oi67.tinypic.com/5ug55d.jpg" /></p>
-<h2 id="Govtech-is-running-a-coding-challenge-to-give-away-some-prizes">Govtech is running a coding challenge to give away some prizes<a class="anchor-link" href="#Govtech-is-running-a-coding-challenge-to-give-away-some-prizes">¶</a></h2><p>Decided to give it a shot since I'm bored with CNY festivities in lala land.
+<h1 id="Govtech-Chinese-New-Year-Code-breaking-challenge">Govtech Chinese New Year Code breaking challenge<a class="anchor-link" href="#Govtech-Chinese-New-Year-Code-breaking-challenge">&#182;</a></h1><p><img src="http://oi67.tinypic.com/5ug55d.jpg" alt="Govtech Challenge"></p>
+<h2 id="Govtech-is-running-a-coding-challenge-to-give-away-some-prizes">Govtech is running a coding challenge to give away some prizes<a class="anchor-link" href="#Govtech-is-running-a-coding-challenge-to-give-away-some-prizes">&#182;</a></h2><p>Decided to give it a shot since I'm bored with CNY festivities in lala land.
 Answer to the code is at the end of the post =), you can also
 submit your answer by 11:59 pm, February 8 here: <a href="https://bit.ly/2RUVNBG">https://bit.ly/2RUVNBG</a>.</p>
 <p>Do give me credit (^.^)</p>
+
 </div>
 </div>
 </div>
@@ -1075,7 +1076,7 @@ submit your answer by 11:59 pm, February 8 here: <a href="https://bit.ly/2RUVNBG
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Clues">Clues<a class="anchor-link" href="#Clues">¶</a></h1><ul>
+<h1 id="Clues">Clues<a class="anchor-link" href="#Clues">&#182;</a></h1><ul>
 <li>The punctuations marks are unobfuscated</li>
 <li>Exclamation mark at the end of sentence and period is at the end of a word</li>
 <li>there are no capital letters, all are lowercase or punctuations</li>
@@ -1092,33 +1093,38 @@ submit your answer by 11:59 pm, February 8 here: <a href="https://bit.ly/2RUVNBG
 <p>Frequency analysis methods illustrated here as well <a href="https://www3.nd.edu/~busiforc/handouts/cryptography/cryptography%20hints.html">https://www3.nd.edu/~busiforc/handouts/cryptography/cryptography%20hints.html</a></p>
 <p>One-Letter English Words : a, I.
 Since it doesnt make sense to decapitalise a word , we map the letter a to i and try with the longer words</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Difference </span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"The difference in alphatical order between a and i is {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)</span><span class="o">-</span><span class="nb">ord</span><span class="p">(</span><span class="s1">'i'</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;The difference in alphatical order between a and i is {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">-</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)))</span>
 
 <span class="c1"># Add difference</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Adding the differnce makes ip become {}{}!"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">'i'</span><span class="p">)</span><span class="o">-</span><span class="mi">8</span><span class="p">),</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">'p'</span><span class="p">)</span><span class="o">-</span><span class="mi">8</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Adding the differnce makes ip become {}{}!&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">)</span><span class="o">-</span><span class="mi">8</span><span class="p">),</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span><span class="o">-</span><span class="mi">8</span><span class="p">)))</span>
 
 <span class="c1"># Try ivl</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"ivl become {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">8</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">'ivl'</span><span class="p">])))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;ivl become {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">8</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">&#39;ivl&#39;</span><span class="p">])))</span>
 
-<span class="k">print</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Bingo!"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Bingo!&quot;</span><span class="p">)</span>
 
 <span class="c1"># Try the Year of Pixxg =p</span>
-<span class="k">print</span><span class="p">(</span><span class="s2">"Pixxg become {}"</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">8</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">'pixxg'</span><span class="p">])))</span>
+<span class="k">print</span><span class="p">(</span><span class="s2">&quot;Pixxg become {}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">-</span><span class="mi">8</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="s1">&#39;pixxg&#39;</span><span class="p">])))</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>The difference in alphatical order between a and i is -8
@@ -1130,80 +1136,97 @@ Pixxg become happ_
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="It-appears-that-the-letters-will-rotated-back-to-the-end-z-after-reaching-a">It appears that the letters will rotated back to the end z after reaching a<a class="anchor-link" href="#It-appears-that-the-letters-will-rotated-back-to-the-end-z-after-reaching-a">¶</a></h1><h1 id="We-write-a-function-to-make-things-easier-to-read">We write a function to make things easier to read<a class="anchor-link" href="#We-write-a-function-to-make-things-easier-to-read">¶</a></h1>
+<h1 id="It-appears-that-the-letters-will-rotated-back-to-the-end-z-after-reaching-a">It appears that the letters will rotated back to the end z after reaching a<a class="anchor-link" href="#It-appears-that-the-letters-will-rotated-back-to-the-end-z-after-reaching-a">&#182;</a></h1><h1 id="We-write-a-function-to-make-things-easier-to-read">We write a function to make things easier to read<a class="anchor-link" href="#We-write-a-function-to-make-things-easier-to-read">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">code</span> <span class="o">=</span> <span class="s2">"owdbmkp eqapma gwc i pixxg ivl xzwaxmzwca tcviz vme gmiz. pcib ip!"</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">code</span> <span class="o">=</span> <span class="s2">&quot;owdbmkp eqapma gwc i pixxg ivl xzwaxmzwca tcviz vme gmiz. pcib ip!&quot;</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">from</span> <span class="nn">string</span> <span class="kn">import</span> <span class="n">ascii_lowercase</span>
 <span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">deque</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">unobfuscate</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span><span class="n">rot</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">unobfuscate</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">rot</span><span class="o">=</span><span class="mi">8</span><span class="p">):</span>
     <span class="n">s_deq</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">ascii_lowercase</span><span class="p">)</span>
     <span class="n">s_deq</span><span class="o">.</span><span class="n">rotate</span><span class="p">(</span><span class="n">rot</span><span class="p">)</span>
-    <span class="k">return</span> <span class="s1">''</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">s_deq</span><span class="p">[</span><span class="n">ascii_lowercase</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ascii_lowercase</span> <span class="k">else</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">string</span><span class="p">])</span>
+    <span class="k">return</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">s_deq</span><span class="p">[</span><span class="n">ascii_lowercase</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="n">x</span><span class="p">)]</span> <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ascii_lowercase</span> <span class="k">else</span> <span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">string</span><span class="p">])</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">unobfuscate</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre>'govtech wishes you a happy and prosperous lunar new year. huat ah!'</pre>
+<pre>&#39;govtech wishes you a happy and prosperous lunar new year. huat ah!&#39;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
-</div>
+
 </div>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -1220,6 +1243,7 @@ Pixxg become happ_
         "        preview: 'TeX'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
         "    } " +
         "}); ";

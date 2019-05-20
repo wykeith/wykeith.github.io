@@ -22,11 +22,11 @@
 
 
 <meta name="author" content="wykeith" />
-<meta name="description" content="Housing affordability¶ It has been reported in the papers that resales prices are coming down Interest rates for bank housing loans are on the rise together with the possible Fed rate hike and sibor increase. Recently I've booked a new flat from HDB however HDB is dragging their feet in confirming the followup appointment for finalising the sales agreement, I'm considering the purchase a ready resale unit instead forgoing the 2k option fee." />
+<meta name="description" content="Are HDB resale flas affordable to typical families in singapore earning median wages?" />
 <meta name="keywords" content="HDB, MoM, charts, wages, statistics">
 <meta property="og:site_name" content="Data Thoughts"/>
 <meta property="og:title" content="Are HDB resale flats affordable?"/>
-<meta property="og:description" content="Housing affordability¶ It has been reported in the papers that resales prices are coming down Interest rates for bank housing loans are on the rise together with the possible Fed rate hike and sibor increase. Recently I've booked a new flat from HDB however HDB is dragging their feet in confirming the followup appointment for finalising the sales agreement, I'm considering the purchase a ready resale unit instead forgoing the 2k option fee."/>
+<meta property="og:description" content="Are HDB resale flas affordable to typical families in singapore earning median wages?"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./HDB-afford.html"/>
 <meta property="og:type" content="article"/>
@@ -1064,7 +1064,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Housing-affordability">Housing affordability<a class="anchor-link" href="#Housing-affordability">¶</a></h1><p><img alt="Logo" src="http://cdn-cms.pgimgs.com/news/2016/09/Figure-1-SIBOR-SOR-Charts-v2-e1474855552532-1024x620.jpg" /></p>
+<h1 id="Housing-affordability">Housing affordability<a class="anchor-link" href="#Housing-affordability">&#182;</a></h1><p><img src="http://cdn-cms.pgimgs.com/news/2016/09/Figure-1-SIBOR-SOR-Charts-v2-e1474855552532-1024x620.jpg" alt="Logo"></p>
 <ol>
 <li>It has been reported in the <a href="http://www.businesstimes.com.sg/real-estate/hdb-resale-prices-retreat-06-m-o-m-in-july-but-volume-up-18-srx">papers</a> that resales prices are coming down</li>
 <li>Interest rates for bank housing loans are on the rise together with the possible Fed rate hike and sibor increase.</li>
@@ -1076,6 +1076,7 @@ h6:hover .anchor-link {
 <li>While <a href="http://stats.mom.gov.sg/Pages/Income-Summary-Table.aspx">MoM</a> provides a spreadsheet download of the annual median wage for Singapore residents from 2001-2016</li>
 <li>It is noted that ownership of HDB resale flats are only avaliable to both Singapore PRs and citizens, so it safe to assume HDB resale transactions are conducted between Singapore residents and the median income used to compute the maximum CPF loan is ceiling representative of a general Singapore house buyer.</li>
 </ol>
+
 </div>
 </div>
 </div>
@@ -1084,35 +1085,40 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="HDB-resale-transactions---100330-records">HDB resale transactions - 100330 records<a class="anchor-link" href="#HDB-resale-transactions---100330-records">¶</a></h3>
+<h3 id="HDB-resale-transactions---100330-records">HDB resale transactions - 100330 records<a class="anchor-link" href="#HDB-resale-transactions---100330-records">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [8]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Parse HDB Data</span>
 <span class="c1"># Combining all the downloaded csv together</span>
-<span class="c1">#  - 'Resale transacted prices.'</span>
-<span class="c1">#  - 'Prior to March 2012, data is based on date of approval for the resale transactions.'</span>
-<span class="c1">#  - 'For March 2012 onwards, the data is based on date of registration for the resale</span>
-<span class="c1">#    transactions.'</span>
+<span class="c1">#  - &#39;Resale transacted prices.&#39;</span>
+<span class="c1">#  - &#39;Prior to March 2012, data is based on date of approval for the resale transactions.&#39;</span>
+<span class="c1">#  - &#39;For March 2012 onwards, the data is based on date of registration for the resale</span>
+<span class="c1">#    transactions.&#39;</span>
 
-<span class="n">dfa</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csvafilename</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">'month'</span><span class="p">],</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">dfb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csvbfilename</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">'month'</span><span class="p">],</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span class="n">dfc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csvcfilename</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">'month'</span><span class="p">],</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">dfa</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csvafilename</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">],</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">dfb</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csvbfilename</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">],</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">dfc</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">csvcfilename</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">],</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">dfc</span><span class="p">,</span><span class="n">dfb</span><span class="p">,</span><span class="n">dfa</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt output_prompt">Out[8]:</div>
+
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1129,124 +1135,132 @@ h6:hover .anchor-link {
     }
 </style>
 <table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>month</th>
-<th>town</th>
-<th>flat_type</th>
-<th>block</th>
-<th>street_name</th>
-<th>storey_range</th>
-<th>floor_area_sqm</th>
-<th>flat_model</th>
-<th>lease_commence_date</th>
-<th>resale_price</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>100326</th>
-<td>2017-06-01</td>
-<td>YISHUN</td>
-<td>EXECUTIVE</td>
-<td>326</td>
-<td>YISHUN RING RD</td>
-<td>10 TO 12</td>
-<td>153.0</td>
-<td>Maisonette</td>
-<td>1988</td>
-<td>590000.0</td>
-</tr>
-<tr>
-<th>100327</th>
-<td>2017-06-01</td>
-<td>YISHUN</td>
-<td>EXECUTIVE</td>
-<td>792</td>
-<td>YISHUN RING RD</td>
-<td>07 TO 09</td>
-<td>142.0</td>
-<td>Apartment</td>
-<td>1987</td>
-<td>525000.0</td>
-</tr>
-<tr>
-<th>100328</th>
-<td>2017-06-01</td>
-<td>YISHUN</td>
-<td>EXECUTIVE</td>
-<td>326</td>
-<td>YISHUN RING RD</td>
-<td>10 TO 12</td>
-<td>142.0</td>
-<td>Apartment</td>
-<td>1988</td>
-<td>585000.0</td>
-</tr>
-<tr>
-<th>100329</th>
-<td>2017-06-01</td>
-<td>YISHUN</td>
-<td>EXECUTIVE</td>
-<td>293</td>
-<td>YISHUN ST 22</td>
-<td>01 TO 03</td>
-<td>169.0</td>
-<td>Apartment</td>
-<td>1992</td>
-<td>600000.0</td>
-</tr>
-<tr>
-<th>100330</th>
-<td>2017-06-01</td>
-<td>YISHUN</td>
-<td>EXECUTIVE</td>
-<td>614</td>
-<td>YISHUN ST 61</td>
-<td>07 TO 09</td>
-<td>146.0</td>
-<td>Maisonette</td>
-<td>1987</td>
-<td>590000.0</td>
-</tr>
-</tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>month</th>
+      <th>town</th>
+      <th>flat_type</th>
+      <th>block</th>
+      <th>street_name</th>
+      <th>storey_range</th>
+      <th>floor_area_sqm</th>
+      <th>flat_model</th>
+      <th>lease_commence_date</th>
+      <th>resale_price</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>100326</th>
+      <td>2017-06-01</td>
+      <td>YISHUN</td>
+      <td>EXECUTIVE</td>
+      <td>326</td>
+      <td>YISHUN RING RD</td>
+      <td>10 TO 12</td>
+      <td>153.0</td>
+      <td>Maisonette</td>
+      <td>1988</td>
+      <td>590000.0</td>
+    </tr>
+    <tr>
+      <th>100327</th>
+      <td>2017-06-01</td>
+      <td>YISHUN</td>
+      <td>EXECUTIVE</td>
+      <td>792</td>
+      <td>YISHUN RING RD</td>
+      <td>07 TO 09</td>
+      <td>142.0</td>
+      <td>Apartment</td>
+      <td>1987</td>
+      <td>525000.0</td>
+    </tr>
+    <tr>
+      <th>100328</th>
+      <td>2017-06-01</td>
+      <td>YISHUN</td>
+      <td>EXECUTIVE</td>
+      <td>326</td>
+      <td>YISHUN RING RD</td>
+      <td>10 TO 12</td>
+      <td>142.0</td>
+      <td>Apartment</td>
+      <td>1988</td>
+      <td>585000.0</td>
+    </tr>
+    <tr>
+      <th>100329</th>
+      <td>2017-06-01</td>
+      <td>YISHUN</td>
+      <td>EXECUTIVE</td>
+      <td>293</td>
+      <td>YISHUN ST 22</td>
+      <td>01 TO 03</td>
+      <td>169.0</td>
+      <td>Apartment</td>
+      <td>1992</td>
+      <td>600000.0</td>
+    </tr>
+    <tr>
+      <th>100330</th>
+      <td>2017-06-01</td>
+      <td>YISHUN</td>
+      <td>EXECUTIVE</td>
+      <td>614</td>
+      <td>YISHUN ST 61</td>
+      <td>07 TO 09</td>
+      <td>146.0</td>
+      <td>Maisonette</td>
+      <td>1987</td>
+      <td>590000.0</td>
+    </tr>
+  </tbody>
 </table>
 </div>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Median-Wages">Median Wages<a class="anchor-link" href="#Median-Wages">¶</a></h3>
+<h3 id="Median-Wages">Median Wages<a class="anchor-link" href="#Median-Wages">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Parse MoM Data</span>
 
-<span class="n">headers</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">'Total_CPF'</span><span class="p">,</span><span class="s1">'FullTime'</span><span class="p">,</span><span class="s1">'Parttime'</span><span class="p">,</span><span class="s1">'Total_noCPF'</span><span class="p">,</span><span class="s1">'FullTime_noCPF'</span><span class="p">,</span><span class="s1">'Parttime_noCPF'</span><span class="p">]</span>
-<span class="n">xls</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">xlsxfilename</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span><span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span><span class="n">skip_footer</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">na_values</span><span class="o">=</span><span class="s1">'n.a.'</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">headers</span> <span class="o">=</span>  <span class="p">[</span><span class="s1">&#39;Total_CPF&#39;</span><span class="p">,</span><span class="s1">&#39;FullTime&#39;</span><span class="p">,</span><span class="s1">&#39;Parttime&#39;</span><span class="p">,</span><span class="s1">&#39;Total_noCPF&#39;</span><span class="p">,</span><span class="s1">&#39;FullTime_noCPF&#39;</span><span class="p">,</span><span class="s1">&#39;Parttime_noCPF&#39;</span><span class="p">]</span>
+<span class="n">xls</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">xlsxfilename</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span><span class="n">skiprows</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span><span class="n">skip_footer</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span><span class="n">na_values</span><span class="o">=</span><span class="s1">&#39;n.a.&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
 
 <span class="c1"># Drop everything else , only interested in Gross Wage excluding employeers CPF</span>
-<span class="n">income</span> <span class="o">=</span> <span class="n">xls</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">'FullTime_noCPF'</span><span class="p">]]</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="mi">7</span><span class="p">])</span>
+<span class="n">income</span> <span class="o">=</span> <span class="n">xls</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;FullTime_noCPF&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="mi">7</span><span class="p">])</span>
 <span class="n">income</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt output_prompt">Out[9]:</div>
+
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1263,75 +1277,83 @@ h6:hover .anchor-link {
     }
 </style>
 <table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>0</th>
-<th>FullTime_noCPF</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>12</th>
-<td>2012</td>
-<td>3000.0</td>
-</tr>
-<tr>
-<th>13</th>
-<td>2013</td>
-<td>3250.0</td>
-</tr>
-<tr>
-<th>14</th>
-<td>2014</td>
-<td>3276.0</td>
-</tr>
-<tr>
-<th>15</th>
-<td>2015</td>
-<td>3467.0</td>
-</tr>
-<tr>
-<th>16</th>
-<td>2016</td>
-<td>3500.0</td>
-</tr>
-</tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>FullTime_noCPF</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>12</th>
+      <td>2012</td>
+      <td>3000.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>2013</td>
+      <td>3250.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2014</td>
+      <td>3276.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>2015</td>
+      <td>3467.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2016</td>
+      <td>3500.0</td>
+    </tr>
+  </tbody>
 </table>
 </div>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Aggregate-HDB-transactions-by-type">Aggregate HDB transactions by type<a class="anchor-link" href="#Aggregate-HDB-transactions-by-type">¶</a></h3>
+<h3 id="Aggregate-HDB-transactions-by-type">Aggregate HDB transactions by type<a class="anchor-link" href="#Aggregate-HDB-transactions-by-type">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [10]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Data Munging</span>
 <span class="c1"># Timeseries of average resale price for various types of flats groupby town</span>
-<span class="n">avg_bb</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'month'</span><span class="p">,</span><span class="s1">'flat_type'</span><span class="p">])[</span><span class="s1">'resale_price'</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<span class="n">avg_bb</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;month&#39;</span><span class="p">,</span><span class="s1">&#39;flat_type&#39;</span><span class="p">])[</span><span class="s1">&#39;resale_price&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 
 <span class="c1"># Transform pivot table</span>
 <span class="n">t</span><span class="o">=</span><span class="n">avg_bb</span><span class="o">.</span><span class="n">unstack</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">t</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1348,99 +1370,102 @@ h6:hover .anchor-link {
     }
 </style>
 <table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th>flat_type</th>
-<th>1 ROOM</th>
-<th>2 ROOM</th>
-<th>3 ROOM</th>
-<th>4 ROOM</th>
-<th>5 ROOM</th>
-<th>EXECUTIVE</th>
-<th>MULTI GENERATION</th>
-<th>MULTI-GENERATION</th>
-</tr>
-<tr>
-<th>month</th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>2017-02-01</th>
-<td>NaN</td>
-<td>238000.0</td>
-<td>305000.0</td>
-<td>408000.0</td>
-<td>485000.0</td>
-<td>587000.0</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>2017-03-01</th>
-<td>209000.0</td>
-<td>255500.0</td>
-<td>305250.0</td>
-<td>415888.0</td>
-<td>477500.0</td>
-<td>604944.0</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>2017-04-01</th>
-<td>NaN</td>
-<td>235000.0</td>
-<td>304000.0</td>
-<td>400000.0</td>
-<td>488000.0</td>
-<td>593500.0</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>2017-05-01</th>
-<td>217000.0</td>
-<td>241500.0</td>
-<td>305000.0</td>
-<td>405000.0</td>
-<td>480000.0</td>
-<td>587500.0</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-<tr>
-<th>2017-06-01</th>
-<td>NaN</td>
-<td>241000.0</td>
-<td>308000.0</td>
-<td>408000.0</td>
-<td>467000.0</td>
-<td>610000.0</td>
-<td>NaN</td>
-<td>NaN</td>
-</tr>
-</tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th>flat_type</th>
+      <th>1 ROOM</th>
+      <th>2 ROOM</th>
+      <th>3 ROOM</th>
+      <th>4 ROOM</th>
+      <th>5 ROOM</th>
+      <th>EXECUTIVE</th>
+      <th>MULTI GENERATION</th>
+      <th>MULTI-GENERATION</th>
+    </tr>
+    <tr>
+      <th>month</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2017-02-01</th>
+      <td>NaN</td>
+      <td>238000.0</td>
+      <td>305000.0</td>
+      <td>408000.0</td>
+      <td>485000.0</td>
+      <td>587000.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2017-03-01</th>
+      <td>209000.0</td>
+      <td>255500.0</td>
+      <td>305250.0</td>
+      <td>415888.0</td>
+      <td>477500.0</td>
+      <td>604944.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2017-04-01</th>
+      <td>NaN</td>
+      <td>235000.0</td>
+      <td>304000.0</td>
+      <td>400000.0</td>
+      <td>488000.0</td>
+      <td>593500.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2017-05-01</th>
+      <td>217000.0</td>
+      <td>241500.0</td>
+      <td>305000.0</td>
+      <td>405000.0</td>
+      <td>480000.0</td>
+      <td>587500.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2017-06-01</th>
+      <td>NaN</td>
+      <td>241000.0</td>
+      <td>308000.0</td>
+      <td>408000.0</td>
+      <td>467000.0</td>
+      <td>610000.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
 </table>
 </div>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [11]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># NPV of a series of cashflows ,with interest compounded annually</span>
 <span class="k">def</span> <span class="nf">NPV</span> <span class="p">(</span><span class="n">mthpay</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="n">yrs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">pa</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
     <span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1455,8 +1480,8 @@ h6:hover .anchor-link {
 
 <span class="c1"># Use Fulltime wages without employer CFP , ammount that goes into CPFOA account is 23% from Yr 2010 onwards</span>
 <span class="n">totalCPFloan</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="n">totalCPFloan</span><span class="p">[</span><span class="s1">'Year'</span><span class="p">]</span><span class="o">=</span><span class="n">income</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">totalCPFloan</span><span class="p">[</span><span class="s1">'FullTime_noCPF'</span><span class="p">]</span><span class="o">=</span><span class="n">income</span><span class="p">[</span><span class="s1">'FullTime_noCPF'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">NPV</span><span class="p">(</span><span class="n">mthpay</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">NfYperhouse</span><span class="o">*</span><span class="n">OArate</span><span class="p">),</span><span class="n">yrs</span><span class="o">=</span><span class="n">yrsloan</span><span class="p">,</span><span class="n">pa</span><span class="o">=</span><span class="n">intrate</span><span class="p">))</span>
+<span class="n">totalCPFloan</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">income</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">totalCPFloan</span><span class="p">[</span><span class="s1">&#39;FullTime_noCPF&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">income</span><span class="p">[</span><span class="s1">&#39;FullTime_noCPF&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">NPV</span><span class="p">(</span><span class="n">mthpay</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">NfYperhouse</span><span class="o">*</span><span class="n">OArate</span><span class="p">),</span><span class="n">yrs</span><span class="o">=</span><span class="n">yrsloan</span><span class="p">,</span><span class="n">pa</span><span class="o">=</span><span class="n">intrate</span><span class="p">))</span>
 
 <span class="n">OArate</span><span class="o">=</span><span class="mf">0.23</span>
 <span class="n">yrsloan</span><span class="o">=</span><span class="mi">30</span>
@@ -1465,27 +1490,29 @@ h6:hover .anchor-link {
 
 <span class="c1"># Use Fulltime wages without employer CFP , ammount that goes into CPFOA account is 23% from Yr 2010 onwards</span>
 <span class="n">totalBANKloan</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-<span class="n">totalBANKloan</span><span class="p">[</span><span class="s1">'Year'</span><span class="p">]</span><span class="o">=</span><span class="n">income</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">totalBANKloan</span><span class="p">[</span><span class="s1">'FullTime_noCPF'</span><span class="p">]</span><span class="o">=</span><span class="n">income</span><span class="p">[</span><span class="s1">'FullTime_noCPF'</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">NPV</span><span class="p">(</span><span class="n">mthpay</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">NfYperhouse</span><span class="o">*</span><span class="n">OArate</span><span class="p">),</span><span class="n">yrs</span><span class="o">=</span><span class="n">yrsloan</span><span class="p">,</span><span class="n">pa</span><span class="o">=</span><span class="n">intrate</span><span class="p">))</span>
+<span class="n">totalBANKloan</span><span class="p">[</span><span class="s1">&#39;Year&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">income</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">totalBANKloan</span><span class="p">[</span><span class="s1">&#39;FullTime_noCPF&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">income</span><span class="p">[</span><span class="s1">&#39;FullTime_noCPF&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">NPV</span><span class="p">(</span><span class="n">mthpay</span><span class="o">=</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">NfYperhouse</span><span class="o">*</span><span class="n">OArate</span><span class="p">),</span><span class="n">yrs</span><span class="o">=</span><span class="n">yrsloan</span><span class="p">,</span><span class="n">pa</span><span class="o">=</span><span class="n">intrate</span><span class="p">))</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [12]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plot Static Chart</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">15</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s1">'EXECUTIVE'</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'purple'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'EXECUTIVE Resale'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s1">'5 ROOM'</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'green'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'5 ROOM Resale'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s1">'4 ROOM'</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'4 ROOM Resale'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s1">'3 ROOM'</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'3 ROOM Resale'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Median Resale Pr in Singapore"</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Transaction Pr in SGD"</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;EXECUTIVE&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;EXECUTIVE Resale&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;5 ROOM&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;5 ROOM Resale&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;4 ROOM&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;4 ROOM Resale&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="s1">&#39;3 ROOM&#39;</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;3 ROOM Resale&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Median Resale Pr in Singapore&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Transaction Pr in SGD&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="c1"># Plot Bank loan ceiling for yr 2001 to yr 2016</span>
@@ -1496,9 +1523,9 @@ h6:hover .anchor-link {
     <span class="n">end</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">endTime</span><span class="p">)</span>
     <span class="n">width</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
     <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">rect</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">width</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'grey'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'30yr Bank Loan @ 1%'</span><span class="p">)</span>
+        <span class="n">rect</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">width</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;30yr Bank Loan @ 1%&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">rect</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">width</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'grey'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+        <span class="n">rect</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">width</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
 
 <span class="c1"># Plot CPF loan ceiling for yr 2001 to yr 2016</span>
@@ -1509,24 +1536,30 @@ h6:hover .anchor-link {
     <span class="n">end</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">endTime</span><span class="p">)</span>
     <span class="n">width</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="n">start</span>
     <span class="k">if</span> <span class="n">index</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">rect</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">width</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'yellow'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'25yr CPF Loan @ 2.6%'</span><span class="p">)</span>
+        <span class="n">rect</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">width</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;25yr CPF Loan @ 2.6%&#39;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">rect</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">width</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'yellow'</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>    
+        <span class="n">rect</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">((</span><span class="n">start</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">width</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>    
     <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="mi">200000</span><span class="p">,</span> <span class="s1">r'(c) keith.ml'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="mi">180000</span><span class="p">,</span> <span class="s1">r'Resale Figures from HDB'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="mi">170000</span><span class="p">,</span> <span class="s1">r'Median Wages from MoM'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="mi">160000</span><span class="p">,</span> <span class="s1">r'(2005 data missing from source)'</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="mi">200000</span><span class="p">,</span> <span class="s1">r&#39;(c) keith.ml&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="mi">180000</span><span class="p">,</span> <span class="s1">r&#39;Resale Figures from HDB&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="mi">170000</span><span class="p">,</span> <span class="s1">r&#39;Median Wages from MoM&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2010</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="mi">160000</span><span class="p">,</span> <span class="s1">r&#39;(2005 data missing from source)&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABKgAAANeCAYAAAA2sTavAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3XlcV2Xax/HPDSIIApqKmEsgYiI7SGqmYeVSZipuWZNL
@@ -3952,18 +3985,22 @@ fMq+iwGsAa6sNrhWh9iHevodypL2rur4bcCEzNxazXZZQPmGrHsz89aWnowaV2c99ejzHGBeZl7Q
 qvNQe6j5+vS3wMWUbYLWApdn5lstOxfzCUmSJEmSJDXJJX6SJEmSJElqlAGVJEmSJEmSGmVAJUmS
 JEmSpEYZUEmSJEmSJKlRBlSSJEmSJElqlAGVJEmSJEmSGmVAJUmSJEmSpEb9H6AdWBIQp6SjAAAA
 AElFTkSuQmCC
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Notes:">Notes:<a class="anchor-link" href="#Notes:">¶</a></h2><ol>
+<h2 id="Notes:">Notes:<a class="anchor-link" href="#Notes:">&#182;</a></h2><ol>
 <li>For a 25 year CPF loan, the largest a typical median household in singapore can generally afford is a 3 room resale flat.</li>
 <li>Resale prices peaked between 2013 and 2014. </li>
 <li>This peak of 2014 exceeded the peak in 1997 (Asian financial crisis)</li>
@@ -3973,6 +4010,7 @@ AElFTkSuQmCC
 <li><strong>TODO</strong>: Integrate volume of transactions over time</li>
 <li><strong>TODO</strong>: See if there are any trends if we normalise the price by the area</li>
 </ol>
+
 </div>
 </div>
 </div>
@@ -3981,9 +4019,9 @@ AElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Annex">Annex<a class="anchor-link" href="#Annex">¶</a></h3><p><a href="http://www.todayonline.com/singapore/hdb-shortens-homebuyers-loan-tenure-25-years">http://www.todayonline.com/singapore/hdb-shortens-homebuyers-loan-tenure-25-years</a></p>
+<h3 id="Annex">Annex<a class="anchor-link" href="#Annex">&#182;</a></h3><p><a href="http://www.todayonline.com/singapore/hdb-shortens-homebuyers-loan-tenure-25-years">http://www.todayonline.com/singapore/hdb-shortens-homebuyers-loan-tenure-25-years</a></p>
 <p>Published  5:34 PM, August 27, 2013<br>
-Updated 9:50 AM, August 28, 2013</br></p>
+Updated 9:50 AM, August 28, 2013</p>
 <p>SINGAPORE — With immediate effect, the Housing and Development Board (HDB) has shortened its maximum loan tenure to 25 years and the mortgage servicing ratio (MSR) limit has also been cut to 30 per cent of the borrower’s gross monthly salary.</p>
 <p>Previously, HDB loan tenures were at 30 years and the MSR limit was at 35 per cent of the borrower’s gross monthly salary.</p>
 <p>From tomorrow (Aug 28), financial institutions will in tandem reduce the maximum tenure of new housing loans and re-financing facilities from 35 years to 30 years.</p>
@@ -3991,6 +4029,7 @@ Updated 9:50 AM, August 28, 2013</br></p>
 <p>Announcing these changes today, the HDB also provided more details of the extension of the Special Housing Grant (SHG) and the new step-up housing grant, which Prime Minster Lee Hsien Loong first announced during the National Day Rally.</p>
 <p>The income ceiling for SHG will be raised significantly, from S\$2,250 a month to S\$6,500 a month for families and S\$3,250 for singles. Mr Lee previously announced that the SHG would be extended to middle-income households and could be used for buying new four-room flats.</p>
 <p>Under the new step up grant, families who want to upgrade from a two-room to a three-room flat can get a housing grant of S$15,000.</p>
+
 </div>
 </div>
 </div>
@@ -3998,7 +4037,7 @@ Updated 9:50 AM, August 28, 2013</br></p>
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -4015,6 +4054,7 @@ Updated 9:50 AM, August 28, 2013</br></p>
         "        preview: 'TeX'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
         "    } " +
         "}); ";

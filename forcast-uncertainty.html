@@ -22,11 +22,11 @@
 
 
 <meta name="author" content="wykeith" />
-<meta name="description" content="How can we do forecasting in an environment of uncertainty?¶ This was one of questions brought up as a topic during a long overdue course on systems engineering I'm currently attending @ work. We were introduced to monte carlo simulations in excel (not for betting in casinos). It is basically a tool to guage the outcome/payout/projections with randomisations to input parameters over large multiple runs >1000 ." />
+<meta name="description" content="Forecasting Passenger Arrivals to Changi Airport" />
 <meta name="keywords" content="forcasting, uncertainty, montecarlo, Changi, matplotlib, facebook, prophet">
 <meta property="og:site_name" content="Data Thoughts"/>
 <meta property="og:title" content="How do we forecast in uncertainty"/>
-<meta property="og:description" content="How can we do forecasting in an environment of uncertainty?¶ This was one of questions brought up as a topic during a long overdue course on systems engineering I'm currently attending @ work. We were introduced to monte carlo simulations in excel (not for betting in casinos). It is basically a tool to guage the outcome/payout/projections with randomisations to input parameters over large multiple runs >1000 ."/>
+<meta property="og:description" content="Forecasting Passenger Arrivals to Changi Airport"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./forcast-uncertainty.html"/>
 <meta property="og:type" content="article"/>
@@ -1066,10 +1066,10 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="How-can-we-do-forecasting-in-an-environment-of-uncertainty?">How can we do forecasting in an environment of uncertainty?<a class="anchor-link" href="#How-can-we-do-forecasting-in-an-environment-of-uncertainty?">¶</a></h2><p><a href="https://en.wikipedia.org/wiki/Fan_chart_(time_series)"><img alt="Logo" src="https://upload.wikimedia.org/wikipedia/commons/8/83/FanChartInfl.jpg" title="Hypothetical Fan Chart of the Inflation Rate" /></a></p>
+<h2 id="How-can-we-do-forecasting-in-an-environment-of-uncertainty?">How can we do forecasting in an environment of uncertainty?<a class="anchor-link" href="#How-can-we-do-forecasting-in-an-environment-of-uncertainty?">&#182;</a></h2><p><a href="https://en.wikipedia.org/wiki/Fan_chart_(time_series)"><img src="https://upload.wikimedia.org/wikipedia/commons/8/83/FanChartInfl.jpg" alt="Logo" title="Hypothetical Fan Chart of the Inflation Rate"></a></p>
 <ol>
 <li>This was one of questions brought up as a topic during a long overdue course on systems engineering I'm currently attending @ work.</li>
-<li>We were introduced to monte carlo simulations in excel (not for betting in casinos). It is basically a tool to guage the outcome/payout/projections with randomisations to input parameters over large multiple runs >1000 .</li>
+<li>We were introduced to monte carlo simulations in excel (not for betting in casinos). It is basically a tool to guage the outcome/payout/projections with randomisations to input parameters over large multiple runs &gt;1000 .</li>
 <li>I'm curious to the effects of the selection of probability distributions on such outcomes.</li>
 <li>This will also be useful for my own notes on machine learning where sample data is fitted into a unknown assumed population distribution.</li>
 <li>There is a also recently released opensource Forecasting tool from facebook - Prophet that could be adapted for forcasting purposes, we shall benchmark against it.</li>
@@ -1077,14 +1077,15 @@ h6:hover .anchor-link {
 <li>Partly because aggregated monthly data since year 1961 is freely avaliable from data.gov.sg </li>
 <li>Welcome all views below in the comments section</li>
 </ol>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [1]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 
 <span class="kn">from</span> <span class="nn">scripts.wykeith</span> <span class="k">import</span> <span class="n">pulldatagov</span><span class="p">,</span><span class="n">plotexpdata</span>
@@ -1096,101 +1097,113 @@ h6:hover .anchor-link {
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">matplotlib.dates</span> <span class="k">as</span> <span class="nn">mdates</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">datauid</span> <span class="o">=</span> <span class="s2">"93b737b7-1f4d-4250-868a-11d1d649c12a"</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">datauid</span> <span class="o">=</span> <span class="s2">&quot;93b737b7-1f4d-4250-868a-11d1d649c12a&quot;</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pulldatagov</span><span class="p">(</span><span class="n">datauid</span><span class="p">)</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>month</th>
-<th>no_of_air_passenger_arrivals</th>
-</tr>
-<tr>
-<th>_id</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>1</th>
-<td>1961-01-01</td>
-<td>11814</td>
-</tr>
-<tr>
-<th>2</th>
-<td>1961-02-01</td>
-<td>11027</td>
-</tr>
-<tr>
-<th>3</th>
-<td>1961-03-01</td>
-<td>12703</td>
-</tr>
-<tr>
-<th>4</th>
-<td>1961-04-01</td>
-<td>13159</td>
-</tr>
-<tr>
-<th>5</th>
-<td>1961-05-01</td>
-<td>12221</td>
-</tr>
-</tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>month</th>
+      <th>no_of_air_passenger_arrivals</th>
+    </tr>
+    <tr>
+      <th>_id</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1961-01-01</td>
+      <td>11814</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1961-02-01</td>
+      <td>11027</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1961-03-01</td>
+      <td>12703</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1961-04-01</td>
+      <td>13159</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1961-05-01</td>
+      <td>12221</td>
+    </tr>
+  </tbody>
 </table>
 </div>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">mthrange</span><span class="o">=</span><span class="mi">20</span><span class="o">*</span><span class="mi">12</span>
 <span class="n">noofruns</span><span class="o">=</span><span class="mi">1000</span>
 <span class="n">seed</span><span class="o">=</span><span class="mi">2017</span>
 
-<span class="n">dates_list</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">([</span><span class="s1">'month'</span><span class="p">])</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">dates_list</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">([</span><span class="s1">&#39;month&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 <span class="n">date_start</span> <span class="o">=</span> <span class="n">dates_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">date_end</span> <span class="o">=</span> <span class="n">dates_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">relativedelta</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="n">mthrange</span><span class="p">)</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [4]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">xkcd</span><span class="p">()</span>
 
 <span class="c1"># Setup variables</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">([</span><span class="s1">'month'</span><span class="p">])</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">([</span><span class="s1">'no_of_air_passenger_arrivals'</span><span class="p">])</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">([</span><span class="s1">&#39;month&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">([</span><span class="s1">&#39;no_of_air_passenger_arrivals&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 
 <span class="c1"># Use Polynomial fit</span>
 <span class="c1"># Perhaps there is some inflection</span>
@@ -1206,32 +1219,38 @@ h6:hover .anchor-link {
 <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">((</span><span class="s2">"Year"</span><span class="p">),</span><span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">((</span><span class="s2">"Passenger Arrivals"</span><span class="p">),</span><span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">tick</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">1000000</span><span class="p">)</span><span class="o">+</span><span class="s1">'mil'</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">([</span><span class="s1">'no_of_air_passenger_arrivals'</span><span class="p">])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">((</span><span class="s2">&quot;Year&quot;</span><span class="p">),</span><span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">((</span><span class="s2">&quot;Passenger Arrivals&quot;</span><span class="p">),</span><span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">tick</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">/</span><span class="mi">1000000</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;mil&#39;</span><span class="p">))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">df</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">([</span><span class="s1">&#39;no_of_air_passenger_arrivals&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">*</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">ax2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">tick</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">+</span><span class="s1">'%'</span><span class="p">))</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">((</span><span class="s2">"Growth Mth-on-Mth"</span><span class="p">),</span><span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_major_formatter</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">FuncFormatter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">,</span> <span class="n">tick</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="mi">100</span><span class="p">)</span><span class="o">+</span><span class="s1">&#39;%&#39;</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">((</span><span class="s2">&quot;Growth Mth-on-Mth&quot;</span><span class="p">),</span><span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.4</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">((</span><span class="s2">"Frequency"</span><span class="p">),</span><span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">((</span><span class="s2">&quot;Frequency&quot;</span><span class="p">),</span><span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">plot_date</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'month'</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">'no_of_air_passenger_arrivals'</span><span class="p">],</span><span class="n">fmt</span><span class="o">=</span><span class="s1">'-'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="s1">'r--'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_date</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;no_of_air_passenger_arrivals&#39;</span><span class="p">],</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">)</span>
 
-<span class="n">ROC</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'no_of_air_passenger_arrivals'</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ROC</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;no_of_air_passenger_arrivals&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">pct_change</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">ROC</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">grid</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># Visualise the graph</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">'Actual'</span><span class="p">,</span> <span class="s1">'Trend'</span> <span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="s1">'upper left'</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Actual&#39;</span><span class="p">,</span> <span class="s1">&#39;Trend&#39;</span> <span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAdYAAAJECAYAAACrXAWPAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3Xd8U1X/wPFP0qQr6d4tUzYiQxBBEAFRkCFLhijyQxTH
@@ -2493,17 +2512,21 @@ caJSBeTl8OGHH3L37t3lPle/fv0Ki6hHovj85fjuu++4cuXKcp/r3bt3hUq9KnK53W6eOHHiigW6
 I6FY5fLBBx/wo48+Kve55OTkCguR1/T3o3BtodRjVfhTc/Hixf+ZQyculwtGo/H3FqMMV1uu/fv3
 Y//+/XjmmWeu2ntWhv/V70fhfw9FsSooKCgoKEQQ5fCSgoKCgoJCBFEUq4KCgoKCQgRRFKuCgoKC
 gkIEURSrgoKCgoJCBFEUq4KCgoKCQgRRFKuCgoKCgkIE+X9Mcj9ayrg+cQAAAABJRU5ErkJggg==
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">statistics</span>
 
 <span class="n">Pvar</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">pvariance</span><span class="p">(</span><span class="n">ROC</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
@@ -2512,14 +2535,18 @@ gkIEURSrgoKCgoJCBFEUq4KCgoKCQgRRFKuCgoKCgkIE+X9Mcj9ayrg+cQAAAABJRU5ErkJggg==
 <span class="n">Svar</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">variance</span><span class="p">(</span><span class="n">ROC</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
 <span class="n">Sstd</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">ROC</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Growth rates sample Mean is </span><span class="si">%.4f</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> Std Dev is </span><span class="si">%.4f</span><span class="s2">, Variance is </span><span class="si">%.4f</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">ROC</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="n">Sstd</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="n">Svar</span><span class="o">*</span><span class="mi">10000</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Growth rates est population Mean is </span><span class="si">%.4f</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> Std Dev is </span><span class="si">%.4f</span><span class="s2"> ,Variance is </span><span class="si">%.4f</span><span class="s2">"</span><span class="o">%</span><span class="p">(</span><span class="n">ROC</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="n">Pstd</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="n">Pvar</span><span class="o">*</span><span class="mi">10000</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Growth rates sample Mean is </span><span class="si">%.4f</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> Std Dev is </span><span class="si">%.4f</span><span class="s2">, Variance is </span><span class="si">%.4f</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">ROC</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="n">Sstd</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="n">Svar</span><span class="o">*</span><span class="mi">10000</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Growth rates est population Mean is </span><span class="si">%.4f</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> Std Dev is </span><span class="si">%.4f</span><span class="s2"> ,Variance is </span><span class="si">%.4f</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">ROC</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="n">Pstd</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="n">Pvar</span><span class="o">*</span><span class="mi">10000</span><span class="p">))</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Growth rates sample Mean is 1.3157 
@@ -2529,8 +2556,10 @@ Growth rates est population Mean is 1.3157
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -2541,15 +2570,16 @@ Growth rates est population Mean is 1.3157
 <li>We observe that the population of arrival passengers is growing exponentially</li>
 <li>The percentage growth month-on-month averages 1.32% with a Standard Deviation of -+ 9.9%</li>
 </ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [6]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">MOC</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'no_of_air_passenger_arrivals'</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">'no_of_air_passenger_arrivals'</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">MOC</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;no_of_air_passenger_arrivals&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;no_of_air_passenger_arrivals&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 
 <span class="n">Pvar</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">pvariance</span><span class="p">(</span><span class="n">MOC</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
 <span class="n">Pstd</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">pstdev</span><span class="p">(</span><span class="n">MOC</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
@@ -2557,14 +2587,18 @@ Growth rates est population Mean is 1.3157
 <span class="n">Svar</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">variance</span><span class="p">(</span><span class="n">MOC</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
 <span class="n">Sstd</span> <span class="o">=</span> <span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">MOC</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Passenger Growth sample Mean is </span><span class="si">%i</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> Std Dev is </span><span class="si">%i</span><span class="s2">, Variance is </span><span class="si">%i</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="n">MOC</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">Sstd</span><span class="p">,</span><span class="n">Svar</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Passenger Growth est population Mean is </span><span class="si">%i</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> Std Dev is </span><span class="si">%i</span><span class="s2"> ,Variance is </span><span class="si">%i</span><span class="s2">"</span><span class="o">%</span><span class="p">(</span><span class="n">MOC</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">Pstd</span><span class="p">,</span><span class="n">Pvar</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Passenger Growth sample Mean is </span><span class="si">%i</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> Std Dev is </span><span class="si">%i</span><span class="s2">, Variance is </span><span class="si">%i</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">MOC</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">Sstd</span><span class="p">,</span><span class="n">Svar</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Passenger Growth est population Mean is </span><span class="si">%i</span><span class="s2"> </span><span class="se">\n</span><span class="s2"> Std Dev is </span><span class="si">%i</span><span class="s2"> ,Variance is </span><span class="si">%i</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">MOC</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span><span class="n">Pstd</span><span class="p">,</span><span class="n">Pvar</span><span class="p">))</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Passenger Growth sample Mean is 3993 
@@ -2574,8 +2608,10 @@ Passenger Growth est population Mean is 3993
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -2585,14 +2621,15 @@ Passenger Growth est population Mean is 3993
 <ul>
 <li>The month-on-month change averages to 3993 with a standard deviation of -+ 87934 passengers</li>
 </ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [7]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Use of percentage as basis stepwise populating our forecast timeseries forward</span>
 <span class="k">def</span> <span class="nf">simulate_arrivals_pct</span><span class="p">(</span><span class="n">start</span><span class="p">,</span><span class="n">listrandmultipler</span><span class="p">):</span>
     <span class="n">total</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
@@ -2613,9 +2650,11 @@ Passenger Growth est population Mean is 3993
         <span class="n">total</span> <span class="o">=</span> <span class="n">projection</span>
     <span class="k">return</span> <span class="n">simulation</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -2625,6 +2664,7 @@ Passenger Growth est population Mean is 3993
 <ul>
 <li>Based on the sample parameters from the past observations of monthly passenger arrivals, we make some simple assumptions about the set of all possible future growth scenarios </li>
 </ul>
+
 </div>
 </div>
 </div>
@@ -2633,17 +2673,18 @@ Passenger Growth est population Mean is 3993
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Sample-our-growth-inputs-from-a-normal-distribution">Sample our growth inputs from a <em>normal</em> distribution<a class="anchor-link" href="#Sample-our-growth-inputs-from-a-normal-distribution">¶</a></h2><ul>
+<h2 id="Sample-our-growth-inputs-from-a-normal-distribution">Sample our growth inputs from a <em>normal</em> distribution<a class="anchor-link" href="#Sample-our-growth-inputs-from-a-normal-distribution">&#182;</a></h2><ul>
 <li>With the parameters mean = 3993 and Std Dev = 87934 from our sample population above</li>
 </ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Reset our data</span>
 <span class="n">collectlistOfForcast</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">collectlistOfRuns</span> <span class="o">=</span> <span class="p">[]</span>
@@ -2661,9 +2702,9 @@ Passenger Growth est population Mean is 3993
         <span class="n">listOfNumbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">generatednumber</span><span class="p">)</span>
         <span class="n">collectlistOfNumbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">generatednumber</span><span class="p">)</span>
     <span class="c1"># Do the monte Carlo here</span>
-    <span class="n">listOfForcast</span><span class="o">=</span><span class="n">simulate_arrivals_abs</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'no_of_air_passenger_arrivals'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">listOfNumbers</span><span class="p">)</span>
+    <span class="n">listOfForcast</span><span class="o">=</span><span class="n">simulate_arrivals_abs</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;no_of_air_passenger_arrivals&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">listOfNumbers</span><span class="p">)</span>
     <span class="c1"># Check if the end of MC sim is below our projected figures</span>
-    <span class="k">if</span> <span class="n">listOfForcast</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o"><=</span> <span class="n">y2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">listOfForcast</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">y2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
         <span class="n">countbelow</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="c1"># Collect Data to be plotted later</span>
     <span class="n">collectlistOfRuns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">listOfForcast</span><span class="p">)</span>
@@ -2672,12 +2713,18 @@ Passenger Growth est population Mean is 3993
 <span class="c1">#Plot our results</span>
 <span class="n">plotexpdata</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">mthrange</span><span class="p">,</span><span class="n">noofruns</span><span class="p">,</span><span class="n">collectlistOfForcast</span><span class="p">,</span><span class="n">collectlistOfRuns</span><span class="p">,</span><span class="n">collectlistOfNumbers</span><span class="p">,</span><span class="n">countbelow</span><span class="p">,</span><span class="n">pct</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmMAAAJHCAYAAADc9VFdAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXdYVMfXx7+7S2fpRRQBFRSMDRUVOzZiiYIKRkQFu0aN
@@ -5873,31 +5920,43 @@ eVG4wi+jsLAQWq221HCu0+mE0+mEVvvrzCiTRFFREdzc3B55Tlny+zXjcDgAABqNppLv5PlDkc3j
 UZ6rkjgcDqhUKqjVykYEpfFrt1dPg+KMKSgoKCgoKChUIop7r6CgoKCgoKBQiSjOmIKCgoKCgoJC
 JaI4YwoKCgoKCgoKlYjijCkoKCgoKCgoVCKKM6agoKCgoKCgUIn8P22P0W4KJEuPAAAAAElFTkSu
 QmCC
-">
-</img></div>
+"
+>
 </div>
+
+</div>
+
 <div class="output_area"><div class="prompt"></div>
+
+
 <div class="output_text output_subarea ">
-<pre><matplotlib.figure.figure at 0x7fed1047b1d0></pre>
+<pre>&lt;matplotlib.figure.Figure at 0x7fed1047b1d0&gt;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [10]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Lower bound of our forcasted passengers/mth at </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%.4f</span><span class="s2"> mil"</span> <span class="o">%</span><span class="p">(</span><span class="n">date_end</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Upper bound of our forcasted passengers/mth at </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%.4f</span><span class="s2"> mil"</span> <span class="o">%</span><span class="p">(</span><span class="n">date_end</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Range of values is </span><span class="si">%.4f</span><span class="s2"> mil"</span> <span class="o">%</span><span class="p">((</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lower bound of our forcasted passengers/mth at </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%.4f</span><span class="s2"> mil&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">date_end</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Upper bound of our forcasted passengers/mth at </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%.4f</span><span class="s2"> mil&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">date_end</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Range of values is </span><span class="si">%.4f</span><span class="s2"> mil&quot;</span> <span class="o">%</span><span class="p">((</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Lower bound of our forcasted passengers/mth at 2035 is -0.9337 mil
@@ -5906,25 +5965,28 @@ Range of values is 8.3772 mil
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Sample-our-growth-inputs-from-a-triangular-distribution">Sample our growth inputs from a <em>triangular</em> distribution<a class="anchor-link" href="#Sample-our-growth-inputs-from-a-triangular-distribution">¶</a></h2><ul>
+<h2 id="Sample-our-growth-inputs-from-a-triangular-distribution">Sample our growth inputs from a <em>triangular</em> distribution<a class="anchor-link" href="#Sample-our-growth-inputs-from-a-triangular-distribution">&#182;</a></h2><ul>
 <li>Observation from the normal disribution of abs growths rates above , we use upper/lower bound of +-200k with center 3993 as parameters for our triangular dist</li>
 </ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [11]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Reset our data</span>
 <span class="n">collectlistOfForcast</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">collectlistOfRuns</span> <span class="o">=</span> <span class="p">[]</span>
@@ -5942,9 +6004,9 @@ Range of values is 8.3772 mil
         <span class="n">listOfNumbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">generatednumber</span><span class="p">)</span>
         <span class="n">collectlistOfNumbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">generatednumber</span><span class="p">)</span>
     <span class="c1"># Do the monte Carlo here</span>
-    <span class="n">listOfForcast</span><span class="o">=</span><span class="n">simulate_arrivals_abs</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'no_of_air_passenger_arrivals'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">listOfNumbers</span><span class="p">)</span>
+    <span class="n">listOfForcast</span><span class="o">=</span><span class="n">simulate_arrivals_abs</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;no_of_air_passenger_arrivals&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">listOfNumbers</span><span class="p">)</span>
     <span class="c1"># Check if the end of MC sim is below our projected figures</span>
-    <span class="k">if</span> <span class="n">listOfForcast</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o"><=</span> <span class="n">y2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">listOfForcast</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">y2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
         <span class="n">countbelow</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="c1"># Collect Data to be plotted later</span>
     <span class="n">collectlistOfRuns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">listOfForcast</span><span class="p">)</span>
@@ -5953,12 +6015,18 @@ Range of values is 8.3772 mil
 <span class="c1">#Plot our results</span>
 <span class="n">plotexpdata</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">mthrange</span><span class="p">,</span><span class="n">noofruns</span><span class="p">,</span><span class="n">collectlistOfForcast</span><span class="p">,</span><span class="n">collectlistOfRuns</span><span class="p">,</span><span class="n">collectlistOfNumbers</span><span class="p">,</span><span class="n">countbelow</span><span class="p">,</span><span class="n">pct</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmIAAAJHCAYAAAAzNzpjAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXdYFMcbx79H770qAgoKIiCK2FFBxAYalcjPFuwlGqPR
@@ -9252,31 +9320,43 @@ tkH5uhZZu3YtGQwG0uv19NRTT1FxcXFLJ+mq4ocffuBLDN177720c+fOlk5SqyLqm34Lfh+BQABS
 qRRSacMJrKFQCKFQCDLZtTuC7Pf7IZPJGh2SDQQCiImJaXNDtpdLKBQCEYm9ViMQDAYBQNimCS70
 3l2LiHLTNESEQCAQNutScHEIISYQCAQCgUDQQoh1xAQCgUAgEAhaCCHEBAKBQCAQCFoIIcQEAoFA
 IBAIWgghxAQCgUAgEAhaCCHEBAKBQCAQCFqI/wPdM+WjXv3YcwAAAABJRU5ErkJggg==
-">
-</img></div>
+"
+>
 </div>
+
+</div>
+
 <div class="output_area"><div class="prompt"></div>
+
+
 <div class="output_text output_subarea ">
-<pre><matplotlib.figure.figure at 0x7fed1037bd30></pre>
+<pre>&lt;matplotlib.figure.Figure at 0x7fed1037bd30&gt;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [12]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Lower bound of our forcasted passengers/mth at </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%.4f</span><span class="s2"> mil"</span> <span class="o">%</span><span class="p">(</span><span class="n">date_end</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Upper bound of our forcasted passengers/mth at </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%.4f</span><span class="s2"> mil"</span> <span class="o">%</span><span class="p">(</span><span class="n">date_end</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Range of values is </span><span class="si">%.4f</span><span class="s2"> mil"</span> <span class="o">%</span><span class="p">((</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lower bound of our forcasted passengers/mth at </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%.4f</span><span class="s2"> mil&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">date_end</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Upper bound of our forcasted passengers/mth at </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%.4f</span><span class="s2"> mil&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">date_end</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Range of values is </span><span class="si">%.4f</span><span class="s2"> mil&quot;</span> <span class="o">%</span><span class="p">((</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Lower bound of our forcasted passengers/mth at 2035 is -1.0428 mil
@@ -9285,25 +9365,28 @@ Range of values is 7.9740 mil
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Sample-our-growth-inputs-from-a-uniform-distribution">Sample our growth inputs from a <em>uniform</em> distribution<a class="anchor-link" href="#Sample-our-growth-inputs-from-a-uniform-distribution">¶</a></h2><ul>
+<h2 id="Sample-our-growth-inputs-from-a-uniform-distribution">Sample our growth inputs from a <em>uniform</em> distribution<a class="anchor-link" href="#Sample-our-growth-inputs-from-a-uniform-distribution">&#182;</a></h2><ul>
 <li>Using similar +- 200k as parameters for our uniform distribution</li>
 </ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [13]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Reset our data</span>
 <span class="n">collectlistOfForcast</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">collectlistOfRuns</span> <span class="o">=</span> <span class="p">[]</span>
@@ -9321,9 +9404,9 @@ Range of values is 7.9740 mil
         <span class="n">listOfNumbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">generatednumber</span><span class="p">)</span>
         <span class="n">collectlistOfNumbers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">generatednumber</span><span class="p">)</span>
     <span class="c1"># Do the monte Carlo here</span>
-    <span class="n">listOfForcast</span><span class="o">=</span><span class="n">simulate_arrivals_abs</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'no_of_air_passenger_arrivals'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">listOfNumbers</span><span class="p">)</span>
+    <span class="n">listOfForcast</span><span class="o">=</span><span class="n">simulate_arrivals_abs</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;no_of_air_passenger_arrivals&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">listOfNumbers</span><span class="p">)</span>
     <span class="c1"># Check if the end of MC sim is below our projected figures</span>
-    <span class="k">if</span> <span class="n">listOfForcast</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o"><=</span> <span class="n">y2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">listOfForcast</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">y2</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
         <span class="n">countbelow</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="c1"># Collect Data to be plotted later</span>
     <span class="n">collectlistOfRuns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">listOfForcast</span><span class="p">)</span>
@@ -9332,12 +9415,18 @@ Range of values is 7.9740 mil
 <span class="c1">#Plot our results</span>
 <span class="n">plotexpdata</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">mthrange</span><span class="p">,</span><span class="n">noofruns</span><span class="p">,</span><span class="n">collectlistOfForcast</span><span class="p">,</span><span class="n">collectlistOfRuns</span><span class="p">,</span><span class="n">collectlistOfNumbers</span><span class="p">,</span><span class="n">countbelow</span><span class="p">,</span><span class="n">pct</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmAAAAJHCAYAAAA3wupeAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXdYFNfXx78LS+9dQAErEEWJscSCArHEYIuxxoIYTDT+
@@ -12334,31 +12423,43 @@ NvnZ6Y1JWDbjFrhy/H4/RCIRxOLaE1GJCD6fDzKZ7Crk7NqguroaUqk0ZMZSMD6fD2KxuE753cgE
 AgEEAoEm6V5raATZXBrhvaqNUG/qh/VX9bXXAnUjKGACAgICAgICAo2MMMwREBAQEBAQEGhkBAVM
 QEBAQEBAQKCRERQwAQEBAQEBAYFGRlDABAQEBAQEBAQaGUEBExAQEBAQEBBoZP4fC08pNRrXOWYA
 AAAASUVORK5CYII=
-">
-</img></div>
+"
+>
 </div>
+
+</div>
+
 <div class="output_area"><div class="prompt"></div>
+
+
 <div class="output_text output_subarea ">
-<pre><matplotlib.figure.figure at 0x7fed11746940></pre>
+<pre>&lt;matplotlib.figure.Figure at 0x7fed11746940&gt;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [14]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Lower bound of our forcasted passengers/mth at </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%.4f</span><span class="s2"> mil"</span> <span class="o">%</span><span class="p">(</span><span class="n">date_end</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Upper bound of our forcasted passengers/mth at </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%.4f</span><span class="s2"> mil"</span> <span class="o">%</span><span class="p">(</span><span class="n">date_end</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Range of values is </span><span class="si">%.4f</span><span class="s2"> mil"</span> <span class="o">%</span><span class="p">((</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lower bound of our forcasted passengers/mth at </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%.4f</span><span class="s2"> mil&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">date_end</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">min</span><span class="p">()</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Upper bound of our forcasted passengers/mth at </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%.4f</span><span class="s2"> mil&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">date_end</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Range of values is </span><span class="si">%.4f</span><span class="s2"> mil&quot;</span> <span class="o">%</span><span class="p">((</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">max</span><span class="p">()</span><span class="o">-</span><span class="n">collectlistOfForcast</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Lower bound of our forcasted passengers/mth at 2035 is -3.0960 mil
@@ -12367,177 +12468,202 @@ Range of values is 11.1662 mil
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Prophet:-Automatic-Forecasting-Procedure">Prophet: Automatic Forecasting Procedure<a class="anchor-link" href="#Prophet:-Automatic-Forecasting-Procedure">¶</a></h1><p>Prophet is a procedure for forecasting time series data.  It is based on an additive model where non-linear trends are fit with yearly and weekly seasonality, plus holidays.  It works best with daily periodicity data with at least one year of historical data.  Prophet is robust to missing data, shifts in the trend, and large outliers.</p>
+<h1 id="Prophet:-Automatic-Forecasting-Procedure">Prophet: Automatic Forecasting Procedure<a class="anchor-link" href="#Prophet:-Automatic-Forecasting-Procedure">&#182;</a></h1><p>Prophet is a procedure for forecasting time series data.  It is based on an additive model where non-linear trends are fit with yearly and weekly seasonality, plus holidays.  It works best with daily periodicity data with at least one year of historical data.  Prophet is robust to missing data, shifts in the trend, and large outliers.</p>
 <p>Prophet is open source software released by Facebook's Core Data Science team.</p>
 <p>Full documentation and examples available at the homepage:</p>
 <p><a href="https://facebookincubator.github.io/prophet/">https://facebookincubator.github.io/prophet/</a></p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [15]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">fbprophet</span> <span class="k">import</span> <span class="n">Prophet</span>
 
 <span class="n">fbtest</span> <span class="o">=</span> <span class="n">pulldatagov</span><span class="p">(</span><span class="n">datauid</span><span class="p">)</span>
-<span class="c1"># Format to Prophet's inputs ds , y</span>
-<span class="n">fbtest</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">"month"</span><span class="p">:</span> <span class="s2">"ds"</span><span class="p">,</span> <span class="s2">"no_of_air_passenger_arrivals"</span><span class="p">:</span> <span class="s2">"y"</span><span class="p">},</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1"># Format to Prophet&#39;s inputs ds , y</span>
+<span class="n">fbtest</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;month&quot;</span><span class="p">:</span> <span class="s2">&quot;ds&quot;</span><span class="p">,</span> <span class="s2">&quot;no_of_air_passenger_arrivals&quot;</span><span class="p">:</span> <span class="s2">&quot;y&quot;</span><span class="p">},</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">fbtest</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
+
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>ds</th>
-<th>y</th>
-</tr>
-<tr>
-<th>_id</th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>1</th>
-<td>1961-01-01</td>
-<td>11814</td>
-</tr>
-<tr>
-<th>2</th>
-<td>1961-02-01</td>
-<td>11027</td>
-</tr>
-<tr>
-<th>3</th>
-<td>1961-03-01</td>
-<td>12703</td>
-</tr>
-<tr>
-<th>4</th>
-<td>1961-04-01</td>
-<td>13159</td>
-</tr>
-<tr>
-<th>5</th>
-<td>1961-05-01</td>
-<td>12221</td>
-</tr>
-</tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ds</th>
+      <th>y</th>
+    </tr>
+    <tr>
+      <th>_id</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1961-01-01</td>
+      <td>11814</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1961-02-01</td>
+      <td>11027</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1961-03-01</td>
+      <td>12703</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1961-04-01</td>
+      <td>13159</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1961-05-01</td>
+      <td>12221</td>
+    </tr>
+  </tbody>
 </table>
 </div>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [16]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">Prophet</span><span class="p">(</span><span class="n">yearly_seasonality</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span><span class="n">weekly_seasonality</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">m</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">fbtest</span><span class="p">);</span>
 
 <span class="c1"># Make Monthly Forcast</span>
 
-<span class="n">future</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">make_future_dataframe</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="n">mthrange</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">'M'</span><span class="p">)</span>
+<span class="n">future</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">make_future_dataframe</span><span class="p">(</span><span class="n">periods</span><span class="o">=</span><span class="n">mthrange</span><span class="p">,</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;M&#39;</span><span class="p">)</span>
 <span class="n">forecast</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">future</span><span class="p">)</span>
-<span class="n">forecast</span><span class="p">[[</span><span class="s1">'ds'</span><span class="p">,</span> <span class="s1">'yhat'</span><span class="p">,</span> <span class="s1">'yhat_lower'</span><span class="p">,</span> <span class="s1">'yhat_upper'</span><span class="p">]]</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+<span class="n">forecast</span><span class="p">[[</span><span class="s1">&#39;ds&#39;</span><span class="p">,</span> <span class="s1">&#39;yhat&#39;</span><span class="p">,</span> <span class="s1">&#39;yhat_lower&#39;</span><span class="p">,</span> <span class="s1">&#39;yhat_upper&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt output_prompt">Out[16]:</div>
+
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>ds</th>
-<th>yhat</th>
-<th>yhat_lower</th>
-<th>yhat_upper</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>895</th>
-<td>2035-08-31</td>
-<td>4460387.801792</td>
-<td>4097527.012883</td>
-<td>4868463.361196</td>
-</tr>
-<tr>
-<th>896</th>
-<td>2035-09-30</td>
-<td>4469106.892066</td>
-<td>4110850.289404</td>
-<td>4849132.477056</td>
-</tr>
-<tr>
-<th>897</th>
-<td>2035-10-31</td>
-<td>4478116.618682</td>
-<td>4123542.529965</td>
-<td>4864027.260513</td>
-</tr>
-<tr>
-<th>898</th>
-<td>2035-11-30</td>
-<td>4486835.708955</td>
-<td>4129003.603249</td>
-<td>4893810.047504</td>
-</tr>
-<tr>
-<th>899</th>
-<td>2035-12-31</td>
-<td>4495845.435571</td>
-<td>4129818.321374</td>
-<td>4901824.529150</td>
-</tr>
-</tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ds</th>
+      <th>yhat</th>
+      <th>yhat_lower</th>
+      <th>yhat_upper</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>895</th>
+      <td>2035-08-31</td>
+      <td>4460387.801792</td>
+      <td>4097527.012883</td>
+      <td>4868463.361196</td>
+    </tr>
+    <tr>
+      <th>896</th>
+      <td>2035-09-30</td>
+      <td>4469106.892066</td>
+      <td>4110850.289404</td>
+      <td>4849132.477056</td>
+    </tr>
+    <tr>
+      <th>897</th>
+      <td>2035-10-31</td>
+      <td>4478116.618682</td>
+      <td>4123542.529965</td>
+      <td>4864027.260513</td>
+    </tr>
+    <tr>
+      <th>898</th>
+      <td>2035-11-30</td>
+      <td>4486835.708955</td>
+      <td>4129003.603249</td>
+      <td>4893810.047504</td>
+    </tr>
+    <tr>
+      <th>899</th>
+      <td>2035-12-31</td>
+      <td>4495845.435571</td>
+      <td>4129818.321374</td>
+      <td>4901824.529150</td>
+    </tr>
+  </tbody>
 </table>
 </div>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [20]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">forecast</span><span class="p">);</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAsAAAAGgCAYAAACkM9EoAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsvXmcFNW9//2ppfdtelYY9lUQCIIRxAUV3ImJ4nafSHJv
@@ -13731,26 +13857,34 @@ iLvvvhsFBQW5DDbDMIwUFOI3GhiGYTodAwcOxHfffYeioiLEYjHMmjUL1113Hex2e66DxjAMs9dh
 A8wwDNMJWb16NbxeLw477DAoimLM/MAwDNMZYAPMMAzDMAzDdCp4FgiGYRiGYRimU8EGmGEYhmEY
 hulUsAFmGIZhGIZhOhVsgBmGYRiGYZhOBRtghmEYhmEYplPx/wFT1M7z/XG+FgAAAABJRU5ErkJg
 gg==
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [21]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Lower bound of our forcasted passengers/mth at </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%.4f</span><span class="s2"> mil"</span> <span class="o">%</span><span class="p">(</span><span class="n">date_end</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">forecast</span><span class="p">[</span><span class="s1">'yhat_lower'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Upper bound of our forcasted passengers/mth at </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%.4f</span><span class="s2"> mil"</span> <span class="o">%</span><span class="p">(</span><span class="n">date_end</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">forecast</span><span class="p">[</span><span class="s1">'yhat_upper'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"Range of values is </span><span class="si">%.4f</span><span class="s2"> mil"</span> <span class="o">%</span><span class="p">((</span><span class="n">forecast</span><span class="p">[</span><span class="s1">'yhat_upper'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">forecast</span><span class="p">[</span><span class="s1">'yhat_lower'</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Lower bound of our forcasted passengers/mth at </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%.4f</span><span class="s2"> mil&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">date_end</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">forecast</span><span class="p">[</span><span class="s1">&#39;yhat_lower&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Upper bound of our forcasted passengers/mth at </span><span class="si">%s</span><span class="s2"> is </span><span class="si">%.4f</span><span class="s2"> mil&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">date_end</span><span class="o">.</span><span class="n">year</span><span class="p">,</span><span class="n">forecast</span><span class="p">[</span><span class="s1">&#39;yhat_upper&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Range of values is </span><span class="si">%.4f</span><span class="s2"> mil&quot;</span> <span class="o">%</span><span class="p">((</span><span class="n">forecast</span><span class="p">[</span><span class="s1">&#39;yhat_upper&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">-</span><span class="n">forecast</span><span class="p">[</span><span class="s1">&#39;yhat_lower&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">/</span><span class="mi">1000000</span><span class="p">))</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Lower bound of our forcasted passengers/mth at 2035 is 4.1298 mil
@@ -13759,8 +13893,10 @@ Range of values is 0.7720 mil
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -13768,7 +13904,7 @@ Range of values is 0.7720 mil
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h1 id="Notes">Notes<a class="anchor-link" href="#Notes">¶</a></h1><ol>
+<h1 id="Notes">Notes<a class="anchor-link" href="#Notes">&#182;</a></h1><ol>
 <li>Looking at the monte carlo results of course it does not make sense for the no. of arrival passengers to be negative, below zero. On a side note, data on departure passengers is tracked separately by the Civil Aviation Authority of Singapore. </li>
 <li>Passenger arrivals are  a function of air vehicle and terminal capacity as well as airport attractiveness / connectivity, this is not explored in this experiment.</li>
 <li>From the various shapes of the random distributions in our monte carlo exercises above, it shown that the polynomial projections of historial data tend to over-estimate the future, the spread of predictions of all simulations are similar.</li>
@@ -13776,20 +13912,21 @@ Range of values is 0.7720 mil
 <li>The tighter confidence interval range for Prophet's forecast indicates algorithm has more certainty than running monte carlo simulations.</li>
 <li>Check any interesting trends in the log transformation of passengers arrivals.</li>
 </ol>
-</hr></div>
+
+</div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [22]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Do Log transform</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pulldatagov</span><span class="p">(</span><span class="n">datauid</span><span class="p">)</span>
-<span class="n">df</span><span class="p">[</span><span class="s1">'no_of_air_passenger_arrivals'</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'no_of_air_passenger_arrivals'</span><span class="p">])</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;no_of_air_passenger_arrivals&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;no_of_air_passenger_arrivals&#39;</span><span class="p">])</span>
 
-<span class="n">x</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">([</span><span class="s1">'month'</span><span class="p">])</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">([</span><span class="s1">'no_of_air_passenger_arrivals'</span><span class="p">])</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">mdates</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">([</span><span class="s1">&#39;month&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">([</span><span class="s1">&#39;no_of_air_passenger_arrivals&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
 <span class="n">z</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">p</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">poly1d</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 <span class="n">x2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mdates</span><span class="o">.</span><span class="n">date2num</span><span class="p">(</span><span class="n">date_end</span><span class="p">))</span>
@@ -13797,19 +13934,25 @@ Range of values is 0.7720 mil
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">221</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">((</span><span class="s2">"Year"</span><span class="p">),</span><span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">((</span><span class="s2">"Log of Passenger Arrivals"</span><span class="p">),</span><span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot_date</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">'month'</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">'no_of_air_passenger_arrivals'</span><span class="p">],</span><span class="n">fmt</span><span class="o">=</span><span class="s1">'-'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="s1">'r--'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">'Actual'</span><span class="p">,</span> <span class="s1">'Trend'</span> <span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="s1">'upper left'</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">((</span><span class="s2">&quot;Year&quot;</span><span class="p">),</span><span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">((</span><span class="s2">&quot;Log of Passenger Arrivals&quot;</span><span class="p">),</span><span class="n">size</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot_date</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;month&#39;</span><span class="p">],</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;no_of_air_passenger_arrivals&#39;</span><span class="p">],</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x2</span><span class="p">,</span><span class="n">y2</span><span class="p">,</span><span class="s1">&#39;r--&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">([</span><span class="s1">&#39;Actual&#39;</span><span class="p">,</span> <span class="s1">&#39;Trend&#39;</span> <span class="p">],</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAi4AAAExCAYAAABbIikMAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd8U+X+x99p0zRp0r0oIEukFJGlIEP2EhFFkCvgBi4o
@@ -14487,17 +14630,21 @@ isK1a9cQExMDf39/PHr0iJMXxv4AnLgwxvTC3Nx83DF7e3usWrUK3t7eQlwul8PLywtmZmZCxdvq
 RGZmJpydnX+qjfb2dkRGRuLu3buYO3euVqyvrw+dnZ1YsmQJgNHpIxsbGxgZGQmvKSsrQ3x8PHbu
 3ImDBw/+fGcYY5OOExfG2JTQ39+PGTNmjFtnwxgzLJy4MMYYY8xgcOVcxhhjjBkMTlwYY4wxZjA4
 cWGMMcaYweDEhTHGGGMGgxMXxhhjjBmM/wGsgF3jKbCh8AAAAABJRU5ErkJggg==
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -14514,6 +14661,7 @@ cWGMMcaYweDEhTHGGGMGgxMXxhhjjBmM/wGsgF3jKbCh8AAAAABJRU5ErkJggg==
         "        preview: 'TeX'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
         "    } " +
         "}); ";

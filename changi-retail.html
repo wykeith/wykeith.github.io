@@ -22,11 +22,11 @@
 
 
 <meta name="author" content="wykeith" />
-<meta name="description" content="Where do people hangout at Changi Airport?¶ Since I'm putting together a generic benchmarking tool for the evaluation of a development project at work ... A buddy of mine does research work in retail sector esp for airports, so lets see if I can adapt this tool for the airport retail industry." />
+<meta name="description" content="Visualisation of Retail spaces in Changi Airport" />
 <meta name="keywords" content="retail, planning, Changi, matplotlib, foursquare">
 <meta property="og:site_name" content="Data Thoughts"/>
 <meta property="og:title" content="Where do people hangout at Changi Airport"/>
-<meta property="og:description" content="Where do people hangout at Changi Airport?¶ Since I'm putting together a generic benchmarking tool for the evaluation of a development project at work ... A buddy of mine does research work in retail sector esp for airports, so lets see if I can adapt this tool for the airport retail industry."/>
+<meta property="og:description" content="Visualisation of Retail spaces in Changi Airport"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./changi-retail.html"/>
 <meta property="og:type" content="article"/>
@@ -1064,13 +1064,14 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Where-do-people-hangout-at-Changi-Airport?">Where do people hangout at Changi Airport?<a class="anchor-link" href="#Where-do-people-hangout-at-Changi-Airport?">¶</a></h2><p><img alt="Changi Airport" src="https://wykeith.github.io/images/changi-layout.jpg" /></p>
+<h2 id="Where-do-people-hangout-at-Changi-Airport?">Where do people hangout at Changi Airport?<a class="anchor-link" href="#Where-do-people-hangout-at-Changi-Airport?">&#182;</a></h2><p><img src="https://wykeith.github.io/images/changi-layout.jpg" alt="Changi Airport"></p>
 <ol>
 <li>Since I'm putting together a generic benchmarking tool for the evaluation of a development project at work ...</li>
 <li>A buddy of mine does research work in retail sector esp for airports, so lets see if I can adapt this tool for the airport retail industry.</li>
 <li>Thus the research question above , lets see if we can derive some interesting insights!</li>
 <li>In the context of planning and urban design , through the analysis of space use patterns I hope to share some (retail) planning principles.</li>
 </ol>
+
 </div>
 </div>
 </div>
@@ -1079,40 +1080,45 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Fetch-Foursquare-location-links">Fetch Foursquare location links<a class="anchor-link" href="#Fetch-Foursquare-location-links">¶</a></h3><ol>
+<h3 id="Fetch-Foursquare-location-links">Fetch Foursquare location links<a class="anchor-link" href="#Fetch-Foursquare-location-links">&#182;</a></h3><ol>
 <li>Starting at Changi Airport as seed venue</li>
 <li>Fetching the 5 next venues</li>
 <li>For each of the 5 venues fetch the 5 next venues</li>
 <li>Repeat until saturation (no new locations)</li>
 </ol>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [2]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># bbox = [103.6182, 1.1158, 104.4085, 1.4706] # Bounding box for Singapore</span>
 <span class="n">bbox</span> <span class="o">=</span> <span class="p">[</span><span class="mf">103.975796</span><span class="p">,</span> <span class="mf">1.341720</span><span class="p">,</span> <span class="mf">104.000917</span><span class="p">,</span> <span class="mf">1.365318</span><span class="p">]</span> <span class="c1"># Bounding box for Changi Airport Terminals</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [3]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_crawl</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># list of locations to be crawled</span>
 <span class="n">done</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># list of crawled locations</span>
 <span class="n">links</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># list of tuples that represent links between locations</span>
-<span class="n">venues</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span> <span class="c1"># dictionary of locations id => meta-data on location</span>
+<span class="n">venues</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span> <span class="c1"># dictionary of locations id =&gt; meta-data on location</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1121,59 +1127,66 @@ h6:hover .anchor-link {
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Set seed values for Changi Airport and T1,T2,T3
 Depth is the number of recursive crawling processes.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [73]:</div>
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#,"4b0bd124f964a520e03323e3" : Changi Airport</span>
-<span class="c1">#,"4b1baa6bf964a52087fc23e3" : Terminal 1</span>
-<span class="c1">#,"4b1b9ec2f964a52041fc23e3" : Terminal 2</span>
-<span class="c1">#,"4b1baa07f964a52084fc23e3" : Terminal 3</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#,&quot;4b0bd124f964a520e03323e3&quot; : Changi Airport</span>
+<span class="c1">#,&quot;4b1baa6bf964a52087fc23e3&quot; : Terminal 1</span>
+<span class="c1">#,&quot;4b1b9ec2f964a52041fc23e3&quot; : Terminal 2</span>
+<span class="c1">#,&quot;4b1baa07f964a52084fc23e3&quot; : Terminal 3</span>
 
-<span class="n">to_crawl</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"4b0bd124f964a520e03323e3"</span><span class="p">,</span><span class="s2">"4b1baa6bf964a52087fc23e3"</span><span class="p">,</span><span class="s2">"4b1b9ec2f964a52041fc23e3"</span><span class="p">,</span><span class="s2">"4b1baa07f964a52084fc23e3"</span><span class="p">]</span>
+<span class="n">to_crawl</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;4b0bd124f964a520e03323e3&quot;</span><span class="p">,</span><span class="s2">&quot;4b1baa6bf964a52087fc23e3&quot;</span><span class="p">,</span><span class="s2">&quot;4b1b9ec2f964a52041fc23e3&quot;</span><span class="p">,</span><span class="s2">&quot;4b1baa07f964a52084fc23e3&quot;</span><span class="p">]</span>
 <span class="n">depth</span> <span class="o">=</span> <span class="mi">8</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [5]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">depth</span><span class="p">):</span>
     <span class="n">new_crawl</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">"Step "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">": "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">venues</span><span class="p">))</span> <span class="o">+</span> <span class="s2">" locations and "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">links</span><span class="p">))</span> <span class="o">+</span> <span class="s2">" links. "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">to_crawl</span><span class="p">))</span> <span class="o">+</span> <span class="s2">" venues to go."</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;: &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">venues</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; locations and &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">links</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; links. &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">to_crawl</span><span class="p">))</span> <span class="o">+</span> <span class="s2">&quot; venues to go.&quot;</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">to_crawl</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">venues</span><span class="p">:</span>
             <span class="n">res</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">venues</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-            <span class="n">venues</span> <span class="o">=</span> <span class="n">venues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"name"</span><span class="p">:</span><span class="n">res</span><span class="p">[</span><span class="s2">"venue"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">],</span><span class="s2">"users"</span><span class="p">:</span><span class="n">res</span><span class="p">[</span><span class="s2">"venue"</span><span class="p">][</span><span class="s2">"stats"</span><span class="p">][</span><span class="s2">"usersCount"</span><span class="p">],</span>
-            <span class="s2">"checkins"</span><span class="p">:</span><span class="n">res</span><span class="p">[</span><span class="s2">"venue"</span><span class="p">][</span><span class="s2">"stats"</span><span class="p">][</span><span class="s2">"checkinsCount"</span><span class="p">],</span> <span class="s2">"lat"</span><span class="p">:</span><span class="n">res</span><span class="p">[</span><span class="s2">"venue"</span><span class="p">][</span><span class="s2">"location"</span><span class="p">][</span><span class="s2">"lat"</span><span class="p">],</span> 
-            <span class="s2">"lng"</span><span class="p">:</span><span class="n">res</span><span class="p">[</span><span class="s2">"venue"</span><span class="p">][</span><span class="s2">"location"</span><span class="p">][</span><span class="s2">"lng"</span><span class="p">],</span><span class="s2">"cat"</span><span class="p">:</span><span class="n">res</span><span class="p">[</span><span class="s2">"venue"</span><span class="p">][</span><span class="s2">"categories"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"shortName"</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="p">]))</span>
+            <span class="n">venues</span> <span class="o">=</span> <span class="n">venues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="n">res</span><span class="p">[</span><span class="s2">&quot;venue&quot;</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">],</span><span class="s2">&quot;users&quot;</span><span class="p">:</span><span class="n">res</span><span class="p">[</span><span class="s2">&quot;venue&quot;</span><span class="p">][</span><span class="s2">&quot;stats&quot;</span><span class="p">][</span><span class="s2">&quot;usersCount&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;checkins&quot;</span><span class="p">:</span><span class="n">res</span><span class="p">[</span><span class="s2">&quot;venue&quot;</span><span class="p">][</span><span class="s2">&quot;stats&quot;</span><span class="p">][</span><span class="s2">&quot;checkinsCount&quot;</span><span class="p">],</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span><span class="n">res</span><span class="p">[</span><span class="s2">&quot;venue&quot;</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">][</span><span class="s2">&quot;lat&quot;</span><span class="p">],</span> 
+            <span class="s2">&quot;lng&quot;</span><span class="p">:</span><span class="n">res</span><span class="p">[</span><span class="s2">&quot;venue&quot;</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">][</span><span class="s2">&quot;lng&quot;</span><span class="p">],</span><span class="s2">&quot;cat&quot;</span><span class="p">:</span><span class="n">res</span><span class="p">[</span><span class="s2">&quot;venue&quot;</span><span class="p">][</span><span class="s2">&quot;categories&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;shortName&quot;</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="p">]))</span>
         <span class="n">next_venues</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">venues</span><span class="o">.</span><span class="n">nextvenues</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">nv</span> <span class="ow">in</span> <span class="n">next_venues</span><span class="p">[</span><span class="s1">'nextVenues'</span><span class="p">][</span><span class="s1">'items'</span><span class="p">]:</span>
-            <span class="k">if</span> <span class="p">((</span><span class="n">nv</span><span class="p">[</span><span class="s2">"location"</span><span class="p">][</span><span class="s2">"lat"</span><span class="p">]</span> <span class="o">></span> <span class="n">bbox</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&</span> <span class="p">(</span><span class="n">nv</span><span class="p">[</span><span class="s2">"location"</span><span class="p">][</span><span class="s2">"lat"</span><span class="p">]</span> <span class="o"><</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">&</span> 
-                <span class="p">(</span><span class="n">nv</span><span class="p">[</span><span class="s2">"location"</span><span class="p">][</span><span class="s2">"lng"</span><span class="p">]</span> <span class="o">></span> <span class="n">bbox</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&</span> <span class="p">(</span><span class="n">nv</span><span class="p">[</span><span class="s2">"location"</span><span class="p">][</span><span class="s2">"lng"</span><span class="p">]</span> <span class="o"><</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">2</span><span class="p">])):</span>
-                <span class="k">if</span> <span class="n">nv</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">venues</span><span class="p">:</span>
-                    <span class="n">venues</span> <span class="o">=</span> <span class="n">venues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">"name"</span><span class="p">:</span><span class="n">nv</span><span class="p">[</span><span class="s2">"name"</span><span class="p">],</span><span class="s2">"users"</span><span class="p">:</span><span class="n">nv</span><span class="p">[</span><span class="s2">"stats"</span><span class="p">][</span><span class="s2">"usersCount"</span><span class="p">],</span>
-                    <span class="s2">"checkins"</span><span class="p">:</span><span class="n">nv</span><span class="p">[</span><span class="s2">"stats"</span><span class="p">][</span><span class="s2">"checkinsCount"</span><span class="p">],</span> <span class="s2">"lat"</span><span class="p">:</span><span class="n">nv</span><span class="p">[</span><span class="s2">"location"</span><span class="p">][</span><span class="s2">"lat"</span><span class="p">],</span> 
-                    <span class="s2">"lng"</span><span class="p">:</span><span class="n">nv</span><span class="p">[</span><span class="s2">"location"</span><span class="p">][</span><span class="s2">"lng"</span><span class="p">],</span><span class="s2">"cat"</span><span class="p">:</span><span class="n">nv</span><span class="p">[</span><span class="s2">"categories"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"shortName"</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">nv</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]]))</span>
-                <span class="k">if</span> <span class="p">(</span><span class="n">nv</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">done</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="n">nv</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">to_crawl</span><span class="p">)</span> <span class="o">&</span> <span class="p">(</span><span class="n">nv</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">new_crawl</span><span class="p">):</span>
-                    <span class="n">new_crawl</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nv</span><span class="p">[</span><span class="s2">"id"</span><span class="p">])</span>
-                <span class="n">links</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">v</span><span class="p">,</span> <span class="n">nv</span><span class="p">[</span><span class="s2">"id"</span><span class="p">]))</span>
+        <span class="k">for</span> <span class="n">nv</span> <span class="ow">in</span> <span class="n">next_venues</span><span class="p">[</span><span class="s1">&#39;nextVenues&#39;</span><span class="p">][</span><span class="s1">&#39;items&#39;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="p">((</span><span class="n">nv</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">][</span><span class="s2">&quot;lat&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">nv</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">][</span><span class="s2">&quot;lat&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">&amp;</span> 
+                <span class="p">(</span><span class="n">nv</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">][</span><span class="s2">&quot;lng&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">nv</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">][</span><span class="s2">&quot;lng&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">bbox</span><span class="p">[</span><span class="mi">2</span><span class="p">])):</span>
+                <span class="k">if</span> <span class="n">nv</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">venues</span><span class="p">:</span>
+                    <span class="n">venues</span> <span class="o">=</span> <span class="n">venues</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="n">nv</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span><span class="s2">&quot;users&quot;</span><span class="p">:</span><span class="n">nv</span><span class="p">[</span><span class="s2">&quot;stats&quot;</span><span class="p">][</span><span class="s2">&quot;usersCount&quot;</span><span class="p">],</span>
+                    <span class="s2">&quot;checkins&quot;</span><span class="p">:</span><span class="n">nv</span><span class="p">[</span><span class="s2">&quot;stats&quot;</span><span class="p">][</span><span class="s2">&quot;checkinsCount&quot;</span><span class="p">],</span> <span class="s2">&quot;lat&quot;</span><span class="p">:</span><span class="n">nv</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">][</span><span class="s2">&quot;lat&quot;</span><span class="p">],</span> 
+                    <span class="s2">&quot;lng&quot;</span><span class="p">:</span><span class="n">nv</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">][</span><span class="s2">&quot;lng&quot;</span><span class="p">],</span><span class="s2">&quot;cat&quot;</span><span class="p">:</span><span class="n">nv</span><span class="p">[</span><span class="s2">&quot;categories&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;shortName&quot;</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="n">nv</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]]))</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">nv</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">done</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">nv</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">to_crawl</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">nv</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">new_crawl</span><span class="p">):</span>
+                    <span class="n">new_crawl</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">nv</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">])</span>
+                <span class="n">links</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">v</span><span class="p">,</span> <span class="n">nv</span><span class="p">[</span><span class="s2">&quot;id&quot;</span><span class="p">]))</span>
         <span class="n">done</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
     <span class="n">to_crawl</span> <span class="o">=</span> <span class="n">new_crawl</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Step 0: 0 locations and 0 links. 4 venues to go.
@@ -1187,171 +1200,193 @@ Step 7: 259 locations and 195 links. 9 venues to go.
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [13]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">venues</span> <span class="o">=</span> <span class="n">venues</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">'index'</span><span class="p">,</span><span class="n">keep</span><span class="o">=</span><span class="s1">'last'</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'index'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">'List of unique names:'</span><span class="o">+</span><span class="s1">'</span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="s1">','</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">" </span><span class="se">\'</span><span class="s2">"</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="s2">"</span><span class="se">\'</span><span class="s2">"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">venues</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'cat'</span><span class="p">)</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">unique</span><span class="p">()]))</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">venues</span> <span class="o">=</span> <span class="n">venues</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">,</span><span class="n">keep</span><span class="o">=</span><span class="s1">&#39;last&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;List of unique names:&#39;</span><span class="o">+</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="s1">&#39;,&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">&quot; </span><span class="se">\&#39;</span><span class="s2">&quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;</span><span class="se">\&#39;</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">venues</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;cat&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">cat</span><span class="o">.</span><span class="n">unique</span><span class="p">()]))</span>
 <span class="n">venues</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>List of unique names: 'Airport', 'American', 'Bakery', 'Bar', 'Bookstore', 'Bubble Tea', 'Burgers', 'Café', 'Candy Store', 'Cineplex', 'Coffee Shop', 'Cosmetics', 'Department Store', 'Donuts', 'Fast Food', 'Food Court', 'Garden', 'Gift Shop', 'Hong Kong', 'Hotel Bar', 'Indonesian', 'Italian', 'Japanese', 'Malay', 'Movie Theater', 'Museum', 'Music Venue', 'Other Outdoors', 'Pizza', 'Pub', 'Ramen', 'Restaurant', 'Sandwiches', 'Seafood', 'Shoes', 'Smoke Shop', 'Sports Bar', 'Steakhouse', 'Sushi', 'Terminal', 'Wine Bar', 'Wings'
+<pre>List of unique names: &#39;Airport&#39;, &#39;American&#39;, &#39;Bakery&#39;, &#39;Bar&#39;, &#39;Bookstore&#39;, &#39;Bubble Tea&#39;, &#39;Burgers&#39;, &#39;Café&#39;, &#39;Candy Store&#39;, &#39;Cineplex&#39;, &#39;Coffee Shop&#39;, &#39;Cosmetics&#39;, &#39;Department Store&#39;, &#39;Donuts&#39;, &#39;Fast Food&#39;, &#39;Food Court&#39;, &#39;Garden&#39;, &#39;Gift Shop&#39;, &#39;Hong Kong&#39;, &#39;Hotel Bar&#39;, &#39;Indonesian&#39;, &#39;Italian&#39;, &#39;Japanese&#39;, &#39;Malay&#39;, &#39;Movie Theater&#39;, &#39;Museum&#39;, &#39;Music Venue&#39;, &#39;Other Outdoors&#39;, &#39;Pizza&#39;, &#39;Pub&#39;, &#39;Ramen&#39;, &#39;Restaurant&#39;, &#39;Sandwiches&#39;, &#39;Seafood&#39;, &#39;Shoes&#39;, &#39;Smoke Shop&#39;, &#39;Sports Bar&#39;, &#39;Steakhouse&#39;, &#39;Sushi&#39;, &#39;Terminal&#39;, &#39;Wine Bar&#39;, &#39;Wings&#39;
 </pre>
 </div>
 </div>
+
 <div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
+
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <table border="1" class="dataframe">
-<thead>
-<tr style="text-align: right;">
-<th></th>
-<th>cat</th>
-<th>checkins</th>
-<th>lat</th>
-<th>lng</th>
-<th>name</th>
-<th>users</th>
-</tr>
-<tr>
-<th>index</th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<th>4b0bd124f964a520e03323e3</th>
-<td>Airport</td>
-<td>706121</td>
-<td>1.356443</td>
-<td>103.988897</td>
-<td>Singapore Changi Airport (SIN) (Singapore Chan...</td>
-<td>305444</td>
-</tr>
-<tr>
-<th>4b1baa6bf964a52087fc23e3</th>
-<td>Terminal</td>
-<td>239042</td>
-<td>1.362005</td>
-<td>103.990037</td>
-<td>Terminal 1</td>
-<td>113777</td>
-</tr>
-<tr>
-<th>4b1b9ec2f964a52041fc23e3</th>
-<td>Terminal</td>
-<td>214919</td>
-<td>1.354803</td>
-<td>103.989327</td>
-<td>Terminal 2</td>
-<td>87246</td>
-</tr>
-<tr>
-<th>4b1baa07f964a52084fc23e3</th>
-<td>Terminal</td>
-<td>226441</td>
-<td>1.357019</td>
-<td>103.986885</td>
-<td>Terminal 3</td>
-<td>87251</td>
-</tr>
-<tr>
-<th>4d33ba0c6c7c721e8f27bc56</th>
-<td>Japanese</td>
-<td>3457</td>
-<td>1.361223</td>
-<td>103.990042</td>
-<td>Saboten 勝博殿</td>
-<td>2347</td>
-</tr>
-</tbody>
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>cat</th>
+      <th>checkins</th>
+      <th>lat</th>
+      <th>lng</th>
+      <th>name</th>
+      <th>users</th>
+    </tr>
+    <tr>
+      <th>index</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4b0bd124f964a520e03323e3</th>
+      <td>Airport</td>
+      <td>706121</td>
+      <td>1.356443</td>
+      <td>103.988897</td>
+      <td>Singapore Changi Airport (SIN) (Singapore Chan...</td>
+      <td>305444</td>
+    </tr>
+    <tr>
+      <th>4b1baa6bf964a52087fc23e3</th>
+      <td>Terminal</td>
+      <td>239042</td>
+      <td>1.362005</td>
+      <td>103.990037</td>
+      <td>Terminal 1</td>
+      <td>113777</td>
+    </tr>
+    <tr>
+      <th>4b1b9ec2f964a52041fc23e3</th>
+      <td>Terminal</td>
+      <td>214919</td>
+      <td>1.354803</td>
+      <td>103.989327</td>
+      <td>Terminal 2</td>
+      <td>87246</td>
+    </tr>
+    <tr>
+      <th>4b1baa07f964a52084fc23e3</th>
+      <td>Terminal</td>
+      <td>226441</td>
+      <td>1.357019</td>
+      <td>103.986885</td>
+      <td>Terminal 3</td>
+      <td>87251</td>
+    </tr>
+    <tr>
+      <th>4d33ba0c6c7c721e8f27bc56</th>
+      <td>Japanese</td>
+      <td>3457</td>
+      <td>1.361223</td>
+      <td>103.990042</td>
+      <td>Saboten 勝博殿</td>
+      <td>2347</td>
+    </tr>
+  </tbody>
 </table>
 </div>
 </div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [19]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Drop the original seed nodes</span>
-<span class="n">filterlist</span><span class="o">=</span> <span class="p">[</span><span class="s1">'American'</span><span class="p">,</span> <span class="s1">'Bakery'</span><span class="p">,</span> <span class="s1">'Bar'</span><span class="p">,</span> <span class="s1">'Bookstore'</span><span class="p">,</span> <span class="s1">'Bubble Tea'</span><span class="p">,</span> <span class="s1">'Burgers'</span><span class="p">,</span> 
-             <span class="s1">'Café'</span><span class="p">,</span> <span class="s1">'Candy Store'</span><span class="p">,</span> <span class="s1">'Cineplex'</span><span class="p">,</span> <span class="s1">'Coffee Shop'</span><span class="p">,</span> <span class="s1">'Cosmetics'</span><span class="p">,</span> <span class="s1">'Department Store'</span><span class="p">,</span> <span class="s1">'Donuts'</span><span class="p">,</span> 
-             <span class="s1">'Fast Food'</span><span class="p">,</span> <span class="s1">'Food Court'</span><span class="p">,</span> <span class="s1">'Garden'</span><span class="p">,</span> <span class="s1">'Gift Shop'</span><span class="p">,</span> <span class="s1">'Hong Kong'</span><span class="p">,</span> <span class="s1">'Hotel Bar'</span><span class="p">,</span> <span class="s1">'Indonesian'</span><span class="p">,</span> <span class="s1">'Italian'</span><span class="p">,</span> 
-             <span class="s1">'Japanese'</span><span class="p">,</span> <span class="s1">'Malay'</span><span class="p">,</span> <span class="s1">'Movie Theater'</span><span class="p">,</span> <span class="s1">'Museum'</span><span class="p">,</span> <span class="s1">'Music Venue'</span><span class="p">,</span> <span class="s1">'Other Outdoors'</span><span class="p">,</span> <span class="s1">'Pizza'</span><span class="p">,</span> <span class="s1">'Pub'</span><span class="p">,</span> 
-             <span class="s1">'Ramen'</span><span class="p">,</span> <span class="s1">'Restaurant'</span><span class="p">,</span> <span class="s1">'Sandwiches'</span><span class="p">,</span> <span class="s1">'Seafood'</span><span class="p">,</span> <span class="s1">'Shoes'</span><span class="p">,</span> <span class="s1">'Smoke Shop'</span><span class="p">,</span> <span class="s1">'Sports Bar'</span><span class="p">,</span> <span class="s1">'Steakhouse'</span><span class="p">,</span> 
-             <span class="s1">'Sushi'</span><span class="p">,</span> <span class="s1">'Wine Bar'</span><span class="p">,</span> <span class="s1">'Wings'</span><span class="p">]</span>
+<span class="n">filterlist</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;American&#39;</span><span class="p">,</span> <span class="s1">&#39;Bakery&#39;</span><span class="p">,</span> <span class="s1">&#39;Bar&#39;</span><span class="p">,</span> <span class="s1">&#39;Bookstore&#39;</span><span class="p">,</span> <span class="s1">&#39;Bubble Tea&#39;</span><span class="p">,</span> <span class="s1">&#39;Burgers&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;Café&#39;</span><span class="p">,</span> <span class="s1">&#39;Candy Store&#39;</span><span class="p">,</span> <span class="s1">&#39;Cineplex&#39;</span><span class="p">,</span> <span class="s1">&#39;Coffee Shop&#39;</span><span class="p">,</span> <span class="s1">&#39;Cosmetics&#39;</span><span class="p">,</span> <span class="s1">&#39;Department Store&#39;</span><span class="p">,</span> <span class="s1">&#39;Donuts&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;Fast Food&#39;</span><span class="p">,</span> <span class="s1">&#39;Food Court&#39;</span><span class="p">,</span> <span class="s1">&#39;Garden&#39;</span><span class="p">,</span> <span class="s1">&#39;Gift Shop&#39;</span><span class="p">,</span> <span class="s1">&#39;Hong Kong&#39;</span><span class="p">,</span> <span class="s1">&#39;Hotel Bar&#39;</span><span class="p">,</span> <span class="s1">&#39;Indonesian&#39;</span><span class="p">,</span> <span class="s1">&#39;Italian&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;Japanese&#39;</span><span class="p">,</span> <span class="s1">&#39;Malay&#39;</span><span class="p">,</span> <span class="s1">&#39;Movie Theater&#39;</span><span class="p">,</span> <span class="s1">&#39;Museum&#39;</span><span class="p">,</span> <span class="s1">&#39;Music Venue&#39;</span><span class="p">,</span> <span class="s1">&#39;Other Outdoors&#39;</span><span class="p">,</span> <span class="s1">&#39;Pizza&#39;</span><span class="p">,</span> <span class="s1">&#39;Pub&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;Ramen&#39;</span><span class="p">,</span> <span class="s1">&#39;Restaurant&#39;</span><span class="p">,</span> <span class="s1">&#39;Sandwiches&#39;</span><span class="p">,</span> <span class="s1">&#39;Seafood&#39;</span><span class="p">,</span> <span class="s1">&#39;Shoes&#39;</span><span class="p">,</span> <span class="s1">&#39;Smoke Shop&#39;</span><span class="p">,</span> <span class="s1">&#39;Sports Bar&#39;</span><span class="p">,</span> <span class="s1">&#39;Steakhouse&#39;</span><span class="p">,</span> 
+             <span class="s1">&#39;Sushi&#39;</span><span class="p">,</span> <span class="s1">&#39;Wine Bar&#39;</span><span class="p">,</span> <span class="s1">&#39;Wings&#39;</span><span class="p">]</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [20]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
-<div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="n">venues</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="n">venues</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">to_dict</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Generating-the-network">Generating the network<a class="anchor-link" href="#Generating-the-network">¶</a></h2><p>We build the network out of our crawled venues (= nodes) and links between them.</p>
+<h2 id="Generating-the-network">Generating the network<a class="anchor-link" href="#Generating-the-network">&#182;</a></h2><p>We build the network out of our crawled venues (= nodes) and links between them.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [21]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
 <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
 <span class="n">G</span><span class="o">.</span><span class="n">add_nodes_from</span><span class="p">(</span><span class="n">venues</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">f</span><span class="p">,</span><span class="n">t</span> <span class="ow">in</span> <span class="n">links</span><span class="p">:</span>
     <span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [22]:</div>
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">nx</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">G</span><span class="p">))</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Name: 
@@ -1363,8 +1398,10 @@ Average out degree:   2.6500
 </pre>
 </div>
 </div>
+
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -1372,47 +1409,56 @@ Average out degree:   2.6500
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Calculate some useful metrics and visualize the most important venues</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [23]:</div>
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pagerank</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">pagerank</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
 <span class="n">betweenness</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">betweenness_centrality</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 
-<span class="n">venues</span><span class="p">[</span><span class="s1">'pagerank'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">pagerank</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">venues</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
-<span class="n">venues</span><span class="p">[</span><span class="s1">'betweenness'</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">betweenness</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">venues</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+<span class="n">venues</span><span class="p">[</span><span class="s1">&#39;pagerank&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">pagerank</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">venues</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
+<span class="n">venues</span><span class="p">[</span><span class="s1">&#39;betweenness&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">betweenness</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">venues</span><span class="o">.</span><span class="n">index</span><span class="p">]</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [26]:</div>
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">venues</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'users'</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1">#venues.set_index('name')[-20:].users.plot(kind='barh')</span>
-<span class="n">venues</span><span class="p">[</span><span class="n">venues</span><span class="p">[</span><span class="s1">'cat'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">filterlist</span><span class="p">)]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'barh'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Location'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Users'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Top 20 Locations by Users'</span><span class="p">)</span>
+<span class="n">venues</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#venues.set_index(&#39;name&#39;)[-20:].users.plot(kind=&#39;barh&#39;)</span>
+<span class="n">venues</span><span class="p">[</span><span class="n">venues</span><span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">filterlist</span><span class="p">)]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]</span><span class="o">.</span><span class="n">users</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Location&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Users&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Top 20 Locations by Users&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoIAAAJoCAYAAADyL4DxAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3XmcHWWZ/v/PxRpIWEUbGCUIAz+NrGERBYYjKAPiijAi
@@ -1890,33 +1936,43 @@ D4D1gf7AHcDJpeslDalUr6RBwMsRMQ64jCyYNLNuwlPDZmZWcixwkaTzyKaERwPPARPT2kAB50fE
 G5J+AvxG0iyypMJc4OAKdTYBp0t6B1iY2jCzbkIRVX1agJmZmZnVCU8Nm5mZmRWUA0EzMzOzgnIg
 aGZmZlZQDgTNzMzMCsqBoJmZmVlBORA0MzMzKygHgmZmZmYF5UDQzMzMrKD+H9o81tf9KYEEAAAA
 AElFTkSuQmCC
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [28]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">venues</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'checkins'</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1">#venues.set_index('name')[-20:].checkins.plot(kind='barh')</span>
-<span class="n">venues</span><span class="p">[</span><span class="n">venues</span><span class="p">[</span><span class="s1">'cat'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">filterlist</span><span class="p">)]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]</span><span class="o">.</span><span class="n">checkins</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'barh'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Location'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Checkins'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Top 20 Locations by User Checkins'</span><span class="p">)</span>
+<span class="n">venues</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;checkins&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#venues.set_index(&#39;name&#39;)[-20:].checkins.plot(kind=&#39;barh&#39;)</span>
+<span class="n">venues</span><span class="p">[</span><span class="n">venues</span><span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">filterlist</span><span class="p">)]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]</span><span class="o">.</span><span class="n">checkins</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Location&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Checkins&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Top 20 Locations by User Checkins&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnsAAAJoCAYAAAAedieiAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3XmYHWWZ/vHvzb7EsIg0uBAUYTSyBoLIMrSAjIqiIoyK
@@ -2395,11 +2451,15 @@ E+CNiBgLXEnLwaKZVZmDPTOz7usAYPf0cEQT2T14rzc7JwAi4l/AQcC5aWl3KrB9OucI4ARJ04FH
 gLpllSPeBPYBLpY0vFzbZfYbgOmSpgD/CVy4yjM0s3ZTREc9oW9mZmZmXY0ze2ZmZmYF5mDPzMzM
 rMAc7JmZmZkVmIM9MzMzswJzsGdmZmZWYA72zMzMzArMwZ6ZmZlZgTnYMzMzMyuw/w9HZXu2tv1U
 XwAAAABJRU5ErkJggg==
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -2407,29 +2467,36 @@ XwAAAABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>PageRank has been used to rank spaces or streets to predict how many people (pedestrians or vehicles) come to the individual spaces or streets. The networks of urban spaces in London, for instance, have up to 20,000 nodes and 100,000 links. In these networks, weighted PageRank best predicts human mobility in a case study of movement within London. Individuals and businesses are likely to colocate in places with high connectivity.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [29]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">venues</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'pagerank'</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">venues</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]</span><span class="o">.</span><span class="n">pagerank</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'barh'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Location'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Pagerank'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Top 20 Locations by Pagerank'</span><span class="p">)</span>
+<span class="n">venues</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;pagerank&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">venues</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]</span><span class="o">.</span><span class="n">pagerank</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Location&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Pagerank&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Top 20 Locations by Pagerank&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAnYAAAJoCAYAAADriKwSAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3XmcHlWZ9vHfxRr2RaARwfDCgAw7YZGX5aUFQZRREEHZ
@@ -2874,11 +2941,15 @@ N8b2kibIxE6SZp6R7jg9F9ggybXAPwA/BKiqX7b3C+hN294E/Lb1OQTYOcniJNcAbxtlf58D3phk
 IbAty1fzRour2v4PATZMcswYj03SBKTKO9IlqcuSbFJVd7Vp1K8BJ1TVN6Y6LkmTz4qdJHXfUa3a
 tgT4qUmd1F1W7CRJkjrCip0kSVJHmNhJkiR1hImdJElSR5jYSZIkdYSJnSRJUkeY2EmSJHXE/w9e
 ROJcS6FHmAAAAABJRU5ErkJggg==
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -2886,29 +2957,36 @@ ROJcS6FHmAAAAABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Betweenness centrality finds wide application in network theory: it represents the degree of which nodes stand between each other. For example, in a telecommunications network, a node with higher betweenness centrality would have more control over the network, because more information will pass through that node. Betweenness centrality was devised as a general measure of centrality it applies to a wide range of problems in network theory, including problems related to social networks, biology, transport and scientific cooperation.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [31]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">venues</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'betweenness'</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">venues</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]</span><span class="o">.</span><span class="n">betweenness</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'barh'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Location'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Pagerank'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Top 20 Locations by Betweenness Centrality'</span><span class="p">)</span>
+<span class="n">venues</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;betweenness&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">venues</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]</span><span class="o">.</span><span class="n">betweenness</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Location&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Pagerank&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Top 20 Locations by Betweenness Centrality&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmMAAAJoCAYAAAAqD+a+AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3XeYXVXZ/vHvDUQChFBERlAIiiDSCUFQVEZQXxVFULCA
@@ -3361,11 +3439,15 @@ KgZtJG0caeVvG9MW9L5EftQ/ACurape2huz3fedu7du+g7v+/+BM4Gn0RtIkrWWuGZOkdWe85Gor
 teu/AViQ5H1TvDdJayhVfopZkmajJJtV1U1tivF44DNV9Y2u45I0WI6MSdLsdVgb1VoBXGEiJq2f
 HBmTJEnqkCNjkiRJHTIZkyRJ6pDJmCRJUodMxiRJkjpkMiZJktQhkzFJkqQO/X8c0Y0GqIseagAA
 AABJRU5ErkJggg==
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
@@ -3373,29 +3455,36 @@ AABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Visualizing our network</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [52]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
 <span class="n">graph_pos</span><span class="o">=</span><span class="n">nx</span><span class="o">.</span><span class="n">spring_layout</span><span class="p">(</span><span class="n">G</span><span class="p">)</span>
 <span class="n">nodesize</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10000</span><span class="o">*</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">betweenness</span><span class="o">.</span><span class="n">values</span><span class="p">()]</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">graph_pos</span><span class="p">,</span><span class="n">node_size</span><span class="o">=</span><span class="n">nodesize</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">graph_pos</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">edge_color</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">)</span>
-<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">graph_pos</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">font_family</span><span class="o">=</span><span class="s1">'Arial'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_nodes</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">graph_pos</span><span class="p">,</span><span class="n">node_size</span><span class="o">=</span><span class="n">nodesize</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">node_color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_edges</span><span class="p">(</span><span class="n">G</span><span class="p">,</span><span class="n">graph_pos</span><span class="p">,</span><span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">edge_color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">nx</span><span class="o">.</span><span class="n">draw_networkx_labels</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">graph_pos</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">font_family</span><span class="o">=</span><span class="s1">&#39;Arial&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABI4AAAK+CAYAAADEwVUOAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3XeYVeX19vHvOnOmd2DovUgREaSIBiOg2Csajb13o8be
@@ -7708,49 +7797,60 @@ IiIiIiIiIiKxFByJiIiIiIiIiEgsBUciIiIiIiIiIhJLwZGIiIiIiIiIiMRScCQiIiIiIiIiIrEU
 HImIiIiIiIiISCwFRyIiIiIiIiIiEkvBkYiIiIiIiIiIxFJwJCIiIiIiIiIisRQciYiIiIiIiIhI
 LAVHIiIiIiIiIiISS8GRiIiIiIiIiIjEUnAkIiIiIiIiIiKxFByJiIiIiIiIiEgsBUciIiIiIiIi
 IhJLwZGIiIiIiIiIiMRScCQiIiIiIiIiIrH+HwsIeck2txb4AAAAAElFTkSuQmCC
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Notes:">Notes:<a class="anchor-link" href="#Notes:">¶</a></h2><ol>
+<h2 id="Notes:">Notes:<a class="anchor-link" href="#Notes:">&#182;</a></h2><ol>
 <li>Looks like people love drinking coffee and smoking at our airports</li>
 <li>Butterfly garden is more popular than sunflower garden! (I personally like sunflowers) </li>
-<li>Besides food & beverages, spending time shopping at DFS is important according to pagerank</li>
+<li>Besides food &amp; beverages, spending time shopping at DFS is important according to pagerank</li>
 <li>Fastfood joints are good common meeting spaces were most people traffic will intersect, as observed from the network graph above. When planning spaces , put them in the center of floor plans as they are also key people magnets (people attract people!)</li>
 </ol>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [71]:</div>
+<div class="prompt input_prompt">In&nbsp;[71]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">pivot</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">venues</span><span class="p">[</span><span class="n">venues</span><span class="p">[</span><span class="s1">'cat'</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">filterlist</span><span class="p">)],</span> <span class="n">values</span><span class="o">=</span><span class="s1">'users'</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">'cat'</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
+<span class="n">pivot</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">venues</span><span class="p">[</span><span class="n">venues</span><span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">filterlist</span><span class="p">)],</span> <span class="n">values</span><span class="o">=</span><span class="s1">&#39;users&#39;</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">],</span> <span class="n">aggfunc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">)</span><span class="o">.</span><span class="n">to_frame</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
 <span class="c1"># plot chart</span>
-<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">'equal'</span><span class="p">)</span>
-<span class="n">pivot</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'users'</span><span class="p">)[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'pie'</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">'users'</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">'</span><span class="si">%1.1f%%</span><span class="s1">'</span><span class="p">,</span> 
+<span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">121</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">pivot</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;users&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">20</span><span class="p">:]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;pie&#39;</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;users&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">autopct</span><span class="o">=</span><span class="s1">&#39;</span><span class="si">%1.1f%%</span><span class="s1">&#39;</span><span class="p">,</span> 
  <span class="n">startangle</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">shadow</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">legend</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">14</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Top 20 Retail Mix by Users'</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">'off'</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Top 20 Retail Mix by Users&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAhQAAAGzCAYAAAB3i44uAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXd8FHX6x9+f3SSbTaEpRVCpgoXeBUQQG1awYUdQUe88
@@ -8801,28 +8901,34 @@ hTHGGGOSZgmFMcYYY5JmCYUxxhhjkmYJhTHGGGOSZgmFMcYYY5JmCYUxxhhjkmYJhTHGGGOSZgmF
 McYYY5JmCYUxxhhjkmYJhTHGGGOSZgmFMcYYY5JmCYUxxhhjkmYJhTHGGGOSZgmFMcYYY5JmCYUx
 xhhjkmYJhTHGGGOSZgmFMcYYY5JmCYUxxhhjkmYJhTHGGGOS9v8bbCAKNe5rlgAAAABJRU5ErkJg
 gg==
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -8839,6 +8945,7 @@ gg==
         "        preview: 'TeX'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
         "    } " +
         "}); ";

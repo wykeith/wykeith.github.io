@@ -22,11 +22,11 @@
 
 
 <meta name="author" content="wykeith" />
-<meta name="description" content="There is a common saying : the past does not define our future Previously I patched together a simple trend analysis model of passenger throughput based on past observations of similar data (to the availability of publicly accessible data) and subsequently projecting them forward into the future with a confidence interval." />
+<meta name="description" content="Causal loop Diagrams for Airport" />
 <meta name="keywords" content="casual loops, changi, system engineering, airport">
 <meta property="og:site_name" content="Data Thoughts"/>
 <meta property="og:title" content="How should we plan and size our airports?"/>
-<meta property="og:description" content="There is a common saying : the past does not define our future Previously I patched together a simple trend analysis model of passenger throughput based on past observations of similar data (to the availability of publicly accessible data) and subsequently projecting them forward into the future with a confidence interval."/>
+<meta property="og:description" content="Causal loop Diagrams for Airport"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./causal-loop.html"/>
 <meta property="og:type" content="article"/>
@@ -1063,7 +1063,7 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img alt="Causal loop diagram" src="https://wykeith.github.io/images/CL-Slide1.JPG" title="Causal loop diagram of Changi Airport" /></p>
+<p><img src="https://wykeith.github.io/images/CL-Slide1.JPG" alt="Causal loop diagram" title="Causal loop diagram of Changi Airport"></p>
 <ol>
 <li>There is a common saying : the past does not define our future</li>
 <li>Previously I patched together a simple trend analysis model of passenger throughput based on past observations of similar data (to the availability of publicly accessible data) and subsequently projecting them forward into the future with a confidence interval. </li>
@@ -1072,52 +1072,65 @@ h6:hover .anchor-link {
 <li>Above shows an initial causal loop sketch for changi airport strung together manually in powerpoint. Blue indicates positive relationships, red implies a inverse relatioship.</li>
 <li>The relationships are subsequently coded into a graph database for my further analysis</li>
 </ol>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [27]:</div>
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pos_relationship</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">[</span><span class="s1">'Airport Tax'</span><span class="p">,</span><span class="s1">'Infrastructure Investment'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Passenger Volume'</span><span class="p">,</span><span class="s1">'Airport Tax'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Infrastructure Investment'</span><span class="p">,</span><span class="s1">'Excess Terminal Capacity'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Excess of Demand for Air Travel'</span><span class="p">,</span><span class="s1">'Air-ticket Price'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Quality of Service'</span><span class="p">,</span><span class="s1">'Air Travel (Demand)'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Local Population'</span><span class="p">,</span><span class="s1">'Air Travel (Demand)'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Excess Terminal Capacity'</span><span class="p">,</span><span class="s1">'Quality of Service'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Excess Terminal Capacity'</span><span class="p">,</span><span class="s1">'Attractiveness of Terminal'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Air Travel (Demand)'</span><span class="p">,</span><span class="s1">'Passenger Volume'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Passenger Volume'</span><span class="p">,</span><span class="s1">'Airport Tax'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Passenger Volume'</span><span class="p">,</span><span class="s1">'Excess of Demand for Air Travel'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Passenger Volume'</span><span class="p">,</span><span class="s1">'Growth of Region'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Attractiveness of Terminal'</span><span class="p">,</span><span class="s1">'New Entrants'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Air Travel Services (Supply)'</span><span class="p">,</span><span class="s1">'Avaliable Destinations'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Avaliable Destinations'</span><span class="p">,</span><span class="s1">'Excess of Demand for Air Travel'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Growth of Region'</span><span class="p">,</span><span class="s1">'Avaliable Destinations'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'New Entrants'</span><span class="p">,</span><span class="s1">'Number of Airplanes'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'New Entrants'</span><span class="p">,</span><span class="s1">'Quality of Service'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Number of Airplanes'</span><span class="p">,</span><span class="s1">'Air Travel Services (Supply)'</span><span class="p">]</span>
+    <span class="p">[</span><span class="s1">&#39;Airport Tax&#39;</span><span class="p">,</span><span class="s1">&#39;Infrastructure Investment&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Passenger Volume&#39;</span><span class="p">,</span><span class="s1">&#39;Airport Tax&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Infrastructure Investment&#39;</span><span class="p">,</span><span class="s1">&#39;Excess Terminal Capacity&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Excess of Demand for Air Travel&#39;</span><span class="p">,</span><span class="s1">&#39;Air-ticket Price&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Quality of Service&#39;</span><span class="p">,</span><span class="s1">&#39;Air Travel (Demand)&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Local Population&#39;</span><span class="p">,</span><span class="s1">&#39;Air Travel (Demand)&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Excess Terminal Capacity&#39;</span><span class="p">,</span><span class="s1">&#39;Quality of Service&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Excess Terminal Capacity&#39;</span><span class="p">,</span><span class="s1">&#39;Attractiveness of Terminal&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Air Travel (Demand)&#39;</span><span class="p">,</span><span class="s1">&#39;Passenger Volume&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Passenger Volume&#39;</span><span class="p">,</span><span class="s1">&#39;Airport Tax&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Passenger Volume&#39;</span><span class="p">,</span><span class="s1">&#39;Excess of Demand for Air Travel&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Passenger Volume&#39;</span><span class="p">,</span><span class="s1">&#39;Growth of Region&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Attractiveness of Terminal&#39;</span><span class="p">,</span><span class="s1">&#39;New Entrants&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Air Travel Services (Supply)&#39;</span><span class="p">,</span><span class="s1">&#39;Avaliable Destinations&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Avaliable Destinations&#39;</span><span class="p">,</span><span class="s1">&#39;Excess of Demand for Air Travel&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Growth of Region&#39;</span><span class="p">,</span><span class="s1">&#39;Avaliable Destinations&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;New Entrants&#39;</span><span class="p">,</span><span class="s1">&#39;Number of Airplanes&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;New Entrants&#39;</span><span class="p">,</span><span class="s1">&#39;Quality of Service&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Number of Airplanes&#39;</span><span class="p">,</span><span class="s1">&#39;Air Travel Services (Supply)&#39;</span><span class="p">]</span>
 <span class="p">]</span>
 
 <span class="n">neg_relationship</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">[</span><span class="s1">'Air-ticket Price'</span><span class="p">,</span><span class="s1">'Air Travel (Demand)'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Air Travel Services (Supply)'</span><span class="p">,</span><span class="s1">'Excess Terminal Capacity'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Air Travel Services (Supply)'</span><span class="p">,</span><span class="s1">'Excess of Demand for Air Travel'</span><span class="p">],</span>
-    <span class="p">[</span><span class="s1">'Excess of Demand for Air Travel'</span><span class="p">,</span><span class="s1">'Quality of Service'</span><span class="p">]</span>
+    <span class="p">[</span><span class="s1">&#39;Air-ticket Price&#39;</span><span class="p">,</span><span class="s1">&#39;Air Travel (Demand)&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Air Travel Services (Supply)&#39;</span><span class="p">,</span><span class="s1">&#39;Excess Terminal Capacity&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Air Travel Services (Supply)&#39;</span><span class="p">,</span><span class="s1">&#39;Excess of Demand for Air Travel&#39;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s1">&#39;Excess of Demand for Air Travel&#39;</span><span class="p">,</span><span class="s1">&#39;Quality of Service&#39;</span><span class="p">]</span>
 <span class="p">]</span>
 
 <span class="k">for</span> <span class="n">relation</span> <span class="ow">in</span> <span class="n">pos_relationship</span><span class="p">:</span>
-    <span class="n">re</span> <span class="o">=</span> <span class="n">Relationship</span><span class="p">(</span><span class="n">Node</span><span class="p">(</span><span class="s1">'item'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">relation</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s2">"S"</span><span class="p">,</span> <span class="n">Node</span><span class="p">(</span><span class="s1">'item'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">relation</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">Direction</span><span class="o">=+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">re</span> <span class="o">=</span> <span class="n">Relationship</span><span class="p">(</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">relation</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s2">&quot;S&quot;</span><span class="p">,</span> <span class="n">Node</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">relation</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">Direction</span><span class="o">=+</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">graph</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">re</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">relation</span> <span class="ow">in</span> <span class="n">neg_relationship</span><span class="p">:</span>
-    <span class="n">re</span> <span class="o">=</span> <span class="n">Relationship</span><span class="p">(</span><span class="n">Node</span><span class="p">(</span><span class="s1">'item'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">relation</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s2">"O"</span><span class="p">,</span> <span class="n">Node</span><span class="p">(</span><span class="s1">'item'</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">relation</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">Direction</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">re</span> <span class="o">=</span> <span class="n">Relationship</span><span class="p">(</span><span class="n">Node</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">relation</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="s2">&quot;O&quot;</span><span class="p">,</span> <span class="n">Node</span><span class="p">(</span><span class="s1">&#39;item&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="n">relation</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">Direction</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
     <span class="n">graph</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">re</span><span class="p">)</span>
 </pre></div>
+
 </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://wykeith.github.io/images/CL-Slide2.JPG" alt="Causal loop diagram" title="Causal loop diagram of Changi Airport"></p>
+
 </div>
 </div>
 </div>
@@ -1126,7 +1139,9 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><img alt="Causal loop diagram" src="https://wykeith.github.io/images/CL-Slide2.JPG" title="Causal loop diagram of Changi Airport" /></p>
+<h2 id="Longest-chain-in-the-network">Longest chain in the network<a class="anchor-link" href="#Longest-chain-in-the-network">&#182;</a></h2><p><img src="https://wykeith.github.io/images/CL-Slide3.png" alt="Causal loop diagram" title="Longest loop Chain">
+Just for fun , I wanted to know what is the longest path I can walk, not re-visiting any nodes and arriving back to the same place without changing direction of the relationships. 11 nodes is the longest discovered by the graph query.</p>
+
 </div>
 </div>
 </div>
@@ -1135,18 +1150,9 @@ h6:hover .anchor-link {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Longest-chain-in-the-network">Longest chain in the network<a class="anchor-link" href="#Longest-chain-in-the-network">¶</a></h2><p><img alt="Causal loop diagram" src="https://wykeith.github.io/images/CL-Slide3.png" title="Longest loop Chain">
-Just for fun , I wanted to know what is the longest path I can walk, not re-visiting any nodes and arriving back to the same place without changing direction of the relationships. 11 nodes is the longest discovered by the graph query.</img></p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Look-for-a-reinforcing-or-virtuous-loop">Look for a reinforcing or virtuous loop<a class="anchor-link" href="#Look-for-a-reinforcing-or-virtuous-loop">¶</a></h2><p><img alt="Causal loop diagram" src="https://wykeith.github.io/images/CL-Slide4.png" title="Virtuous loop Chain" /></p>
+<h2 id="Look-for-a-reinforcing-or-virtuous-loop">Look for a reinforcing or virtuous loop<a class="anchor-link" href="#Look-for-a-reinforcing-or-virtuous-loop">&#182;</a></h2><p><img src="https://wykeith.github.io/images/CL-Slide4.png" alt="Causal loop diagram" title="Virtuous loop Chain"></p>
 <p>When there is an investment in airport infrastucture it leads to increase in airport capacity which then improves services levels. Better service levels brings in more passengers and hence increase in revenue for the airport to improve infrastructure. Improvement in airport infrastructre will also attract new airlines to fly through, this increases competition which will also bring up service levels to attact more customers</p>
+
 </div>
 </div>
 </div>
@@ -1155,8 +1161,9 @@ Just for fun , I wanted to know what is the longest path I can walk, not re-visi
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Then-a-balancing-or-vicious-loop">Then a balancing or vicious loop<a class="anchor-link" href="#Then-a-balancing-or-vicious-loop">¶</a></h2><p><img alt="Causal loop diagram" src="https://wykeith.github.io/images/CL-Slide5.png" title="Vicious loop Chain" /></p>
+<h2 id="Then-a-balancing-or-vicious-loop">Then a balancing or vicious loop<a class="anchor-link" href="#Then-a-balancing-or-vicious-loop">&#182;</a></h2><p><img src="https://wykeith.github.io/images/CL-Slide5.png" alt="Causal loop diagram" title="Vicious loop Chain"></p>
 <p>On the other hand , increasing passenger volumes will lead to crowding of the airports bringing down the excess demand for travelling and the lowering of quality of service provided. This provides a counter-balance to the revenue/investment loop above.</p>
+
 </div>
 </div>
 </div>
@@ -1165,93 +1172,112 @@ Just for fun , I wanted to know what is the longest path I can walk, not re-visi
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Graph-analysis---Centrality">Graph analysis - Centrality<a class="anchor-link" href="#Graph-analysis---Centrality">¶</a></h2><p>Centrality measures give us relative measures of importance in the network. There are many different centrality measures and each measures a different type of “importance. In graph theory, eigenvector centrality (also called eigencentrality) is a measure of the influence of a node in a network. It assigns relative scores to all nodes in the network based on the concept that connections to high-scoring nodes contribute more to the score of the node in question than equal connections to low-scoring nodes.</p>
+<h2 id="Graph-analysis---Centrality">Graph analysis - Centrality<a class="anchor-link" href="#Graph-analysis---Centrality">&#182;</a></h2><p>Centrality measures give us relative measures of importance in the network. There are many different centrality measures and each measures a different type of “importance. In graph theory, eigenvector centrality (also called eigencentrality) is a measure of the influence of a node in a network. It assigns relative scores to all nodes in the network based on the concept that connections to high-scoring nodes contribute more to the score of the node in question than equal connections to low-scoring nodes.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [28]:</div>
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">igraph</span> <span class="k">import</span> <span class="n">Graph</span> <span class="k">as</span> <span class="n">IGraph</span>
 
-<span class="n">query</span> <span class="o">=</span> <span class="s1">'''</span>
-<span class="s1">MATCH (c1)-[r]->(c2)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">MATCH (c1)-[r]-&gt;(c2)</span>
 <span class="s1">RETURN ID(c1), ID(c2), r.Direction AS weight</span>
-<span class="s1">'''</span>
+<span class="s1">&#39;&#39;&#39;</span>
 
 <span class="n">ig</span> <span class="o">=</span> <span class="n">IGraph</span><span class="o">.</span><span class="n">TupleList</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">query</span><span class="p">),</span> <span class="n">weights</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [29]:</div>
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#pg = ig.personalized_pagerank(niter=10000)</span>
 <span class="n">pg</span> <span class="o">=</span> <span class="n">ig</span><span class="o">.</span><span class="n">eigenvector_centrality</span><span class="p">()</span>
 <span class="n">pgvs</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ig</span><span class="o">.</span><span class="n">vs</span><span class="p">,</span> <span class="n">pg</span><span class="p">):</span>
-    <span class="n">pgvs</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">"ID"</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">"name"</span><span class="p">],</span> <span class="s2">"pg"</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
+    <span class="n">pgvs</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;ID&quot;</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;name&quot;</span><span class="p">],</span> <span class="s2">&quot;pg&quot;</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]})</span>
 
-<span class="n">write_clusters_query</span> <span class="o">=</span> <span class="s1">'''</span>
+<span class="n">write_clusters_query</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span>
 <span class="s1">UNWIND </span><span class="si">{nodes}</span><span class="s1"> AS n</span>
 <span class="s1">MATCH (c) WHERE ID(c) = n.ID</span>
 <span class="s1">SET c.value = n.pg</span>
-<span class="s1">'''</span>
+<span class="s1">&#39;&#39;&#39;</span>
 
 <span class="n">graph</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">write_clusters_query</span><span class="p">,</span> <span class="n">nodes</span><span class="o">=</span><span class="n">pgvs</span><span class="p">)</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt output_prompt">Out[29]:</div>
+
+
 <div class="output_text output_subarea output_execute_result">
-<pre><py2neo.database.cursor at 0x7fccfc042320></pre>
+<pre>&lt;py2neo.database.Cursor at 0x7fccfc042320&gt;</pre>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
-</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Important-Nodes-in-our-Causal-Loops">Important Nodes in our Causal Loops<a class="anchor-link" href="#Important-Nodes-in-our-Causal-Loops">¶</a></h2><p><img alt="Causal loop diagram" src="https://wykeith.github.io/images/CL-Slide6.png" title="Centrai" /></p>
+<h2 id="Important-Nodes-in-our-Causal-Loops">Important Nodes in our Causal Loops<a class="anchor-link" href="#Important-Nodes-in-our-Causal-Loops">&#182;</a></h2><p><img src="https://wykeith.github.io/images/CL-Slide6.png" alt="Causal loop diagram" title="Centrai"></p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [9]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Bar chart to compare the relative importance of each node</span>
-<span class="n">query</span> <span class="o">=</span> <span class="s2">"MATCH (a) RETURN a.title AS title, a.value AS value"</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;MATCH (a) RETURN a.title AS title, a.value AS value&quot;</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">graph</span><span class="o">.</span><span class="n">data</span><span class="p">(</span><span class="n">query</span><span class="p">))</span>
 
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">'value'</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'title'</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">'barh'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Centrality Values'</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">'Ranking of Factors'</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="s1">&#39;value&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">value</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Centrality Values&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Ranking of Factors&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
+
 </div>
 </div>
 </div>
+
 <div class="output_wrapper">
 <div class="output">
+
+
 <div class="output_area"><div class="prompt"></div>
+
+
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgkAAAEZCAYAAAAdXLb+AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXeYFtX1xz9fsTfsNYqI3YioYDT6E2I3JhYM1igqRlPV
@@ -1606,42 +1632,49 @@ WuBeSQ8W0iYDcyLijy3O6Wbgo6w7kJgODMjhnS8GHm2sMyLeAS4C5pHCIxfbeCpwRl7E+QT19Qf/
 LGlx7qM5EbG4RbvM1uFQ0WZmm5CkacAVETGru9titrE8k2BmtglIGirpGeB1DxCsr/BMgpmZmZXy
 TIKZmZmV8iDBzMzMSnmQYGZmZqU8SDAzM7NSHiSYmZlZKQ8SzMzMrNT/A6Urm6VO6Mz2AAAAAElF
 TkSuQmCC
-">
-</img></div>
+"
+>
+</div>
+
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Notes:">Notes:<a class="anchor-link" href="#Notes:">¶</a></h3><ol>
+<h3 id="Notes:">Notes:<a class="anchor-link" href="#Notes:">&#182;</a></h3><ol>
 <li>Pertaining to the development of airports , this model shows the most important factors that can influence our planning.</li>
 <li>It seems that local population is not a key dominant determinant in airport planning , due to it's limited relationship with the other factors. If I create more links to the other nodes , then it's centrality value or importance will increase.</li>
 <li>Casual Loops can help us to identify systemic risks or unintended effects, ie the reinforcing loop and balancing loops both impacting capacity and quality of service differently</li>
 <li>Quantitative econometric models can then be built based on these diagrams, which I hope to explore futher.</li>
 </ol>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
-<div class="input_area">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
+
 </div>
 </div>
 </div>
+
 </div>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
     mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript.src = '//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
     mathjaxscript[(window.opera ? "innerHTML" : "text")] =
         "MathJax.Hub.Config({" +
         "    config: ['MMLorHTML.js']," +
@@ -1658,6 +1691,7 @@ TkSuQmCC
         "        preview: 'TeX'," +
         "    }, " +
         "    'HTML-CSS': { " +
+        " linebreaks: { automatic: true, width: '95% container' }, " +
         "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
         "    } " +
         "}); ";
