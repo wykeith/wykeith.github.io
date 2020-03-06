@@ -2154,7 +2154,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Govtech-Chinese-New-Year-Code-breaking-challenge"&gt;Govtech Chinese New Year Code breaking challenge&lt;a class="anchor-link" href="#Govtech-Chinese-New-Year-Code-breaking-challenge"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;img alt="Govtech Challenge" src="http://oi67.tinypic.com/5ug55d.jpg" /&gt;&lt;/p&gt;
+&lt;h1 id="Govtech-Chinese-New-Year-Code-breaking-challenge"&gt;Govtech Chinese New Year Code breaking challenge&lt;a class="anchor-link" href="#Govtech-Chinese-New-Year-Code-breaking-challenge"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;&lt;img alt="Govtech Challenge" src="https://wykeith.github.io/images/govtech_codechallenge.jpg" /&gt;&lt;/p&gt;
 &lt;h2 id="Govtech-is-running-a-coding-challenge-to-give-away-some-prizes"&gt;Govtech is running a coding challenge to give away some prizes&lt;a class="anchor-link" href="#Govtech-is-running-a-coding-challenge-to-give-away-some-prizes"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;Decided to give it a shot since I'm bored with CNY festivities in lala land.
 Answer to the code is at the end of the post =), you can also
 submit your answer by 11:59 pm, February 8 here: &lt;a href="https://bit.ly/2RUVNBG"&gt;https://bit.ly/2RUVNBG&lt;/a&gt;.&lt;/p&gt;
@@ -6313,10 +6313,10 @@ h6:hover .anchor-link {
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="60c9edb5-3cfd-47fa-ba7a-8d69bb668895"&gt;&lt;/div&gt;
+&lt;div id="75d2199d-3582-4f9d-8add-fbd673c1d77b"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#60c9edb5-3cfd-47fa-ba7a-8d69bb668895');
+var element = $('#75d2199d-3582-4f9d-8add-fbd673c1d77b');
 IPython.OutputArea.prototype._should_scroll = function(lines) {
     return false;
 }
@@ -8619,10 +8619,10 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ce06b845-7729-41eb-925c-c56761728923"&gt;&lt;/div&gt;
+&lt;div id="e2689967-f191-4706-bdaa-c39bed6d020a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ce06b845-7729-41eb-925c-c56761728923');
+var element = $('#e2689967-f191-4706-bdaa-c39bed6d020a');
 
 (function(global) {
   function now() {
