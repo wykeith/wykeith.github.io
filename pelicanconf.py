@@ -28,7 +28,7 @@ AUTHOR_FEED_RSS = None
 
 # Blogroll
 LINKS = (('Email', 'mailto:wykeith@gmail.com'),
-         ('Resume', '/pdfs/resume-jan2017.pdf'),
+         ('Resume', '/pdfs/resume-may2019.pdf'),
          ('Thesis', 'https://sites.google.com/site/wykeith/Thesis'),)
 
 # Social widget
