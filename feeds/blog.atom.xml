@@ -6313,10 +6313,10 @@ h6:hover .anchor-link {
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="38f98d14-6a73-494d-89dd-c3e150d8f460"&gt;&lt;/div&gt;
+&lt;div id="0c791e36-536c-4439-93be-bdf478c9c7a4"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#38f98d14-6a73-494d-89dd-c3e150d8f460');
+var element = $('#0c791e36-536c-4439-93be-bdf478c9c7a4');
 IPython.OutputArea.prototype._should_scroll = function(lines) {
     return false;
 }
@@ -8619,10 +8619,10 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="output_area"&gt;&lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="5e9a697f-e10f-4605-a29c-8d6740e08515"&gt;&lt;/div&gt;
+&lt;div id="4aad03df-44d5-496c-b7f5-969535d0448a"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript "&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5e9a697f-e10f-4605-a29c-8d6740e08515');
+var element = $('#4aad03df-44d5-496c-b7f5-969535d0448a');
 
 (function(global) {
   function now() {
