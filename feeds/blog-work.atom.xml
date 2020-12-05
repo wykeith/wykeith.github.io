@@ -1126,7 +1126,7 @@ h6:hover .anchor-link {
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;p&gt;So the question begs: Do higher rents lead to lower diversity in a public space (hence dull). By scoping the study around our heartlands, allows a quick and simple regression analysis of the two aspects of our public space to prove or disprove the claimed relationship between rent and diversity of a place.&lt;/p&gt;
+&lt;h1 id="Do-higher-rents-lead-to-lower-diversity-in-a-public-space-(and-hence-dull)?"&gt;Do higher rents lead to lower diversity in a public space (and hence dull)?&lt;a class="anchor-link" href="#Do-higher-rents-lead-to-lower-diversity-in-a-public-space-(and-hence-dull)?"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;By scoping the study around our heartlands, allows a quick and simple regression analysis of the two aspects of our public space to prove or disprove the claimed relationship between rent and diversity of a place.&lt;/p&gt;
 &lt;p&gt;Datasets used are publicly avalible so readers can also test this claim independently as well. HDB website provides a rich source of data for analysis, although it takes some effort to do the ETL.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Rent data ($ per sqm) from &lt;a href="https://services2.hdb.gov.sg/webapp/place2lease/p2l/public/index/pld/index.jspa"&gt;Place2lease&lt;/a&gt; app&lt;/li&gt;
