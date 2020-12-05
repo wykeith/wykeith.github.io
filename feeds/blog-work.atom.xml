@@ -1264,7 +1264,7 @@ the value ranges between 0 and 1, with 1 representing infinite diversity and 0 n
 &lt;li&gt;HDB also control the trades of the businesses who get to participate in the bidding for the spaces&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id="Recommendation"&gt;Recommendation&lt;a class="anchor-link" href="#Recommendation"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;Quite a number of postal codes have zero diversity see treemap visualisation of trades of each postal code below. Sizes of the rectangles indicate the frequency, singleton trades are mono-colored. The authority may wish to consider allowing for more rent controlled spaces for non-profits/NGOs uses under void-deck spaces, similar to Community/Sports Facilities Scheme (CSFS) spaces for commerical malls to improve diversity.&lt;/li&gt;
+&lt;li&gt;Quite a number of postal codes have zero diversity see treemap visualisation of trades of each postal code below. Sizes of the rectangles indicate relative frequency, singleton trades are mono-colored. HDB may wish to consider allowing for more rent controlled spaces for non-profits/NGOs uses under void-deck spaces, similar to Community/Sports Facilities Scheme (CSFS) spaces for commerical malls to improve diversity.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id="Notes"&gt;Notes&lt;a class="anchor-link" href="#Notes"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;ul&gt;
 &lt;li&gt;There are certain implicit assumptions that my quickfire analysis makes:&lt;ul&gt;

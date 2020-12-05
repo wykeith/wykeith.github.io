@@ -6871,10 +6871,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="ebed199f-5b7b-4672-877a-55f2fb3bb7fb"&gt;&lt;/div&gt;
+&lt;div id="036ce188-cda5-46ce-8379-d6abae7f33c2"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#ebed199f-5b7b-4672-877a-55f2fb3bb7fb');
+var element = $('#036ce188-cda5-46ce-8379-d6abae7f33c2');
 IPython.OutputArea.prototype._should_scroll = function(lines) {
     return false;
 }
@@ -9454,10 +9454,10 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="794bae75-0f4b-493b-a7d0-20bfab88905c"&gt;&lt;/div&gt;
+&lt;div id="2a99f8e1-7553-46d9-b1fe-5736e39c71f2"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#794bae75-0f4b-493b-a7d0-20bfab88905c');
+var element = $('#2a99f8e1-7553-46d9-b1fe-5736e39c71f2');
 
 (function(global) {
   function now() {
@@ -12411,10 +12411,10 @@ factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="b57312cb-fc46-44c7-a04b-7670ac140afe"&gt;&lt;/div&gt;
+&lt;div id="e8dc623e-3aef-4304-adb3-f93088e85672"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#b57312cb-fc46-44c7-a04b-7670ac140afe');
+var element = $('#e8dc623e-3aef-4304-adb3-f93088e85672');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "15761b0dc82746688d7e24327d4f69e6"}
