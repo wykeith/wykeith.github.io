@@ -1114,7 +1114,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;&lt;img alt="Top10mostexpensivecities" src="https://wykeith.github.io/images/HDB_rent_diversity.png" /&gt;&lt;/p&gt;
-&lt;p&gt;I remember during my graduate years finding a dissertation topic to write 10,000 words for, was a labourous affair. Grateful for my supervisor who was patient and enlightened to point me towards a direction to look but still not show me what I should 'see'. During time in academia, most tutors were deterministic rather than probabilistic and students were trained for specific skills with a mindset on what is good architecture. There were many ideas and interests given to explore, one could get 'lost'. The ability to distill multiple ideas into a singular captivating &amp; writable topic does takes considerable discipline in the both the arts and sciences to master.&lt;/p&gt;
+&lt;p&gt;I remember during my graduate years finding a dissertation topic to write 10,000 words for, was a labourous affair. Grateful for my supervisor who was patient and enlightened to point me towards a direction to look but still not show me what I should 'see'. During time in academia, most tutors were deterministic rather than probabilistic and students were trained for specific skills with a mindset on what is good architecture. There were many ideas and interests given to explore, one could get 'lost'. The ability to distill multiple ideas into a singular captivating &amp; writable topic does take considerable discipline in the both the arts and sciences to master.&lt;/p&gt;
 &lt;p&gt;Recently a part of my work involves studying lovable public spaces in singapore, and love is a simple spellbinding yet complex topic in the most humanistic sense of the word. Since I didnt know how to start, I just asked teacher Google :-) This landed on an &lt;a href="https://www.archify.com/sg/archifynow/the-problem-of-public-space-singapore-as-case-study"&gt;article&lt;/a&gt; that claims that public spaces in singapore are to say the very least boring or unlovable, in addition to many other strong claims.&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;... high rents make boring cities ...&lt;/p&gt;
 &lt;p&gt;'' ...most Housing &amp; Development Board (HDB) blocks. Every estate contains a series of nested zones at different scales, which are intended for recreation and social activities. &lt;b&gt;Many may be dull or programmatically depleted&lt;/b&gt; — and could do with a redesign—but it would be hard to argue that they go unused. If anything, perhaps, Singapore may have too many public spaces. If we are to critique this condition according to rules of urban design, we could say that a glut of open space in our estates distributes activity over too large an area, spreading it thin and making it feel anaemic.''&lt;/p&gt;
@@ -1128,7 +1128,7 @@ h6:hover .anchor-link {
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;p&gt;So..&lt;/p&gt;
-&lt;h1 id="Do-higher-rents-lead-to-lower-diversity-in-a-public-space-and-hence-boring?"&gt;Do higher rents lead to lower diversity in a public space and hence boring?&lt;a class="anchor-link" href="#Do-higher-rents-lead-to-lower-diversity-in-a-public-space-and-hence-boring?"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;By scoping the study in our heartlands, I conducted a simple regression analysis of the two aspects of our public space to uncover the relationship between rent and diversity of a place.&lt;/p&gt;
+&lt;h1 id="Do-higher-rents-lead-to-lower-diversity-in-a-public-space-and-hence-become-boring?"&gt;Do higher rents lead to lower diversity in a public space and hence become boring?&lt;a class="anchor-link" href="#Do-higher-rents-lead-to-lower-diversity-in-a-public-space-and-hence-become-boring?"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;By scoping the study in our heartlands, I conducted a simple regression analysis of the two aspects of our public space to uncover the relationship between rent and diversity of a place.&lt;/p&gt;
 &lt;p&gt;Datasets used are publicly avalible so readers can also test this claim independently as well. HDB website provides a rich source of data for analysis, although it takes some effort to do the ETL.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Rent data ($ per sqm) from &lt;a href="https://services2.hdb.gov.sg/webapp/place2lease/p2l/public/index/pld/index.jspa"&gt;Place2lease&lt;/a&gt; app&lt;/li&gt;
@@ -8240,10 +8240,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="1c4a6c22-4a84-4a24-b05f-609e6989defb"&gt;&lt;/div&gt;
+&lt;div id="2b919981-c94c-41ef-a3e1-fcc2629bbd50"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#1c4a6c22-4a84-4a24-b05f-609e6989defb');
+var element = $('#2b919981-c94c-41ef-a3e1-fcc2629bbd50');
 IPython.OutputArea.prototype._should_scroll = function(lines) {
     return false;
 }
@@ -10823,10 +10823,10 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="7de02558-6da4-49b0-a71e-075bc14f3be2"&gt;&lt;/div&gt;
+&lt;div id="0f6f7ff9-d41d-45e8-9029-faf2bbc2b5f5"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7de02558-6da4-49b0-a71e-075bc14f3be2');
+var element = $('#0f6f7ff9-d41d-45e8-9029-faf2bbc2b5f5');
 
 (function(global) {
   function now() {
@@ -13780,10 +13780,10 @@ factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="6211f213-5fe3-455e-a0f9-890780e8d6b7"&gt;&lt;/div&gt;
+&lt;div id="2b44ffb0-cd4e-4873-beb4-70aad48b83cf"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#6211f213-5fe3-455e-a0f9-890780e8d6b7');
+var element = $('#2b44ffb0-cd4e-4873-beb4-70aad48b83cf');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "15761b0dc82746688d7e24327d4f69e6"}
