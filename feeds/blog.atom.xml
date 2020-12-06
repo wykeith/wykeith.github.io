@@ -1117,16 +1117,18 @@ h6:hover .anchor-link {
 &lt;p&gt;I remember during my graduate years finding a dissertation topic to write 10,000 words for, was a labourous affair. Grateful for my supervisor who was patient and enlightened to point me towards a direction to look but still not show me what I should 'see'. During time in academia, most tutors were deterministic rather than probabilistic and students were trained for specific skills with a mindset on what is good architecture. There were many ideas and interests given to explore, one could get 'lost'. The ability to distill multiple ideas into a singular captivating &amp; writable topic does takes considerable discipline in the both the arts and sciences to master.&lt;/p&gt;
 &lt;p&gt;Recently a part of my work involves studying lovable public spaces in singapore, and love is a simple spellbinding yet complex topic in the most humanistic sense of the word. Since I didnt know how to start, I just asked teacher Google :-) This landed on an &lt;a href="https://www.archify.com/sg/archifynow/the-problem-of-public-space-singapore-as-case-study"&gt;article&lt;/a&gt; that claims that public spaces in singapore are to say the very least boring or unlovable, in addition to many other strong claims.&lt;/p&gt;
 &lt;blockquote&gt;&lt;p&gt;... high rents make boring cities ...&lt;/p&gt;
-&lt;p&gt;'' ...most Housing &amp; Development Board (HDB) blocks. Every estate contains a series of nested zones at different scales, which are intended for recreation and social activities. &lt;b&gt;Many may be dull or programmatically depleted&lt;/b&gt; — and could do with a redesign—but it would be hard to argue that they go unused. If anything, perhaps, Singapore may have too many public spaces. If we are to critique this condition according to rules of urban design, we could say that a glut of open space in our estates distributes activity over too large an area, spreading it thin and making it feel anaemic.'' note: &lt;b&gt;emphasis&lt;/b&gt; mine&lt;/p&gt;
+&lt;p&gt;'' ...most Housing &amp; Development Board (HDB) blocks. Every estate contains a series of nested zones at different scales, which are intended for recreation and social activities. &lt;b&gt;Many may be dull or programmatically depleted&lt;/b&gt; — and could do with a redesign—but it would be hard to argue that they go unused. If anything, perhaps, Singapore may have too many public spaces. If we are to critique this condition according to rules of urban design, we could say that a glut of open space in our estates distributes activity over too large an area, spreading it thin and making it feel anaemic.''&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Source &lt;a href="https://www.archify.com/sg/archifynow/the-problem-of-public-space-singapore-as-case-study"&gt;https://www.archify.com/sg/archifynow/the-problem-of-public-space-singapore-as-case-study&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Source: &lt;a href="https://www.archify.com/sg/archifynow/the-problem-of-public-space-singapore-as-case-study"&gt;https://www.archify.com/sg/archifynow/the-problem-of-public-space-singapore-as-case-study&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Note: &lt;b&gt;emphasis&lt;/b&gt; mine&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h1 id="Do-higher-rents-lead-to-lower-diversity-in-a-public-space-(and-hence-dull)?"&gt;Do higher rents lead to lower diversity in a public space (and hence dull)?&lt;a class="anchor-link" href="#Do-higher-rents-lead-to-lower-diversity-in-a-public-space-(and-hence-dull)?"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;By scoping the study around our heartlands, allows a quick and simple regression analysis of the two aspects of our public space to prove or disprove the claimed relationship between rent and diversity of a place.&lt;/p&gt;
+&lt;p&gt;So...&lt;/p&gt;
+&lt;h1 id="Do-higher-rents-lead-to-lower-diversity-in-a-public-space-(and-hence-boring)?"&gt;Do higher rents lead to lower diversity in a public space (and hence boring)?&lt;a class="anchor-link" href="#Do-higher-rents-lead-to-lower-diversity-in-a-public-space-(and-hence-boring)?"&gt;¶&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;By scoping the study to our HDB heartlands, I conducted a simple regression analysis of the two aspects of our public space to prove (or disprove) the claimed relationship between rent and diversity of a place.&lt;/p&gt;
 &lt;p&gt;Datasets used are publicly avalible so readers can also test this claim independently as well. HDB website provides a rich source of data for analysis, although it takes some effort to do the ETL.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Rent data ($ per sqm) from &lt;a href="https://services2.hdb.gov.sg/webapp/place2lease/p2l/public/index/pld/index.jspa"&gt;Place2lease&lt;/a&gt; app&lt;/li&gt;
@@ -1214,7 +1216,7 @@ the value ranges between 0 and 1, with 1 representing infinite diversity and 0 n
 &lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="Regression-Plot-Rent-against-Diversity"&gt;Regression Plot Rent against Diversity&lt;a class="anchor-link" href="#Regression-Plot-Rent-against-Diversity"&gt;¶&lt;/a&gt;&lt;/h2&gt;
+&lt;h2 id="Rent-against-Diversity-Regression-Plot"&gt;Rent against Diversity Regression Plot&lt;a class="anchor-link" href="#Rent-against-Diversity-Regression-Plot"&gt;¶&lt;/a&gt;&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -1261,7 +1263,7 @@ the value ranges between 0 and 1, with 1 representing infinite diversity and 0 n
 &lt;li&gt;From the charts the median rent is around $30 / sqm and most HDB blocks have a diversity index of 0.9 , ie lower diversity scores arising from those mom n pop shop at the void decks.&lt;/li&gt;
 &lt;li&gt;Ploting the two variables together in a regression plot, we note that there is a positive relationship between rent and diversity within each postal code. Implying that spaces that command higher rents does have more diversity, quite the opposite of what the above article claimed.&lt;/li&gt;
 &lt;li&gt;One reason could be that there is higher competition for the vibrant spaces that are already sucessful (ie Town centres )&lt;/li&gt;
-&lt;li&gt;HDB also control the trades of the businesses who get to participate in the bidding for the spaces&lt;/li&gt;
+&lt;li&gt;On the place2lease app, HDB also control the trades of the businesses who get to participate in the bidding for the spaces&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id="Recommendation"&gt;Recommendation&lt;a class="anchor-link" href="#Recommendation"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;Quite a number of postal codes have zero diversity see treemap visualisation of trades of each postal code below. Sizes of the rectangles indicate relative frequency, singleton trades are mono-colored. HDB may wish to consider allowing for more rent controlled spaces for non-profits/NGOs uses under void-deck spaces, similar to Community/Sports Facilities Scheme (CSFS) spaces for commerical malls to improve diversity.&lt;/li&gt;
@@ -1311,7 +1313,7 @@ the value ranges between 0 and 1, with 1 representing infinite diversity and 0 n
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [1]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;%%writefile&lt;/span&gt; 2020-12-03-NWK-HDB_Rent_vs_Diversity.ipynb-meta
@@ -1326,14 +1328,14 @@ the value ranges between 0 and 1, with 1 representing infinite diversity and 0 n
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
+&lt;div class="output_wrapper"&gt;
+&lt;div class="output"&gt;
+&lt;div class="output_area"&gt;
+&lt;div class="prompt"&gt;&lt;/div&gt;
+&lt;div class="output_subarea output_stream output_stdout output_text"&gt;
+&lt;pre&gt;Overwriting 2020-12-03-NWK-HDB_Rent_vs_Diversity.ipynb-meta
+&lt;/pre&gt;
 &lt;/div&gt;
-&lt;div class="cell border-box-sizing code_cell rendered"&gt;
-&lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [ ]:&lt;/div&gt;
-&lt;div class="inner_cell"&gt;
-&lt;div class="input_area"&gt;
-&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; 
-&lt;/pre&gt;&lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
@@ -8238,10 +8240,10 @@ h6:hover .anchor-link {
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="9f032b98-ea48-420a-bba3-75e0e56eb7b5"&gt;&lt;/div&gt;
+&lt;div id="42b0cae4-b2ca-4d6d-ad04-c545611e24a6"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#9f032b98-ea48-420a-bba3-75e0e56eb7b5');
+var element = $('#42b0cae4-b2ca-4d6d-ad04-c545611e24a6');
 IPython.OutputArea.prototype._should_scroll = function(lines) {
     return false;
 }
@@ -10821,10 +10823,10 @@ h6:hover .anchor-link {
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="5ae01f78-fdd0-49d1-a29d-07bde798fc97"&gt;&lt;/div&gt;
+&lt;div id="b995c855-5c19-4c5c-bdbd-f11fe1afe1e9"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#5ae01f78-fdd0-49d1-a29d-07bde798fc97');
+var element = $('#b995c855-5c19-4c5c-bdbd-f11fe1afe1e9');
 
 (function(global) {
   function now() {
@@ -13778,10 +13780,10 @@ factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="250f1774-a4e3-4b77-a6a4-bdad684b8adc"&gt;&lt;/div&gt;
+&lt;div id="50a62c3c-5392-4cfe-955e-40aae1334da6"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#250f1774-a4e3-4b77-a6a4-bdad684b8adc');
+var element = $('#50a62c3c-5392-4cfe-955e-40aae1334da6');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "15761b0dc82746688d7e24327d4f69e6"}

@@ -1204,16 +1204,18 @@ h6:hover .anchor-link {
 <p>I remember during my graduate years finding a dissertation topic to write 10,000 words for, was a labourous affair. Grateful for my supervisor who was patient and enlightened to point me towards a direction to look but still not show me what I should 'see'. During time in academia, most tutors were deterministic rather than probabilistic and students were trained for specific skills with a mindset on what is good architecture. There were many ideas and interests given to explore, one could get 'lost'. The ability to distill multiple ideas into a singular captivating & writable topic does takes considerable discipline in the both the arts and sciences to master.</p>
 <p>Recently a part of my work involves studying lovable public spaces in singapore, and love is a simple spellbinding yet complex topic in the most humanistic sense of the word. Since I didnt know how to start, I just asked teacher Google :-) This landed on an <a href="https://www.archify.com/sg/archifynow/the-problem-of-public-space-singapore-as-case-study">article</a> that claims that public spaces in singapore are to say the very least boring or unlovable, in addition to many other strong claims.</p>
 <blockquote><p>... high rents make boring cities ...</p>
-<p>'' ...most Housing & Development Board (HDB) blocks. Every estate contains a series of nested zones at different scales, which are intended for recreation and social activities. <b>Many may be dull or programmatically depleted</b> — and could do with a redesign—but it would be hard to argue that they go unused. If anything, perhaps, Singapore may have too many public spaces. If we are to critique this condition according to rules of urban design, we could say that a glut of open space in our estates distributes activity over too large an area, spreading it thin and making it feel anaemic.'' note: <b>emphasis</b> mine</p>
+<p>'' ...most Housing & Development Board (HDB) blocks. Every estate contains a series of nested zones at different scales, which are intended for recreation and social activities. <b>Many may be dull or programmatically depleted</b> — and could do with a redesign—but it would be hard to argue that they go unused. If anything, perhaps, Singapore may have too many public spaces. If we are to critique this condition according to rules of urban design, we could say that a glut of open space in our estates distributes activity over too large an area, spreading it thin and making it feel anaemic.''</p>
 </blockquote>
-<p>Source <a href="https://www.archify.com/sg/archifynow/the-problem-of-public-space-singapore-as-case-study">https://www.archify.com/sg/archifynow/the-problem-of-public-space-singapore-as-case-study</a></p>
+<p>Source: <a href="https://www.archify.com/sg/archifynow/the-problem-of-public-space-singapore-as-case-study">https://www.archify.com/sg/archifynow/the-problem-of-public-space-singapore-as-case-study</a></p>
+<p>Note: <b>emphasis</b> mine</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Do-higher-rents-lead-to-lower-diversity-in-a-public-space-(and-hence-dull)?">Do higher rents lead to lower diversity in a public space (and hence dull)?<a class="anchor-link" href="#Do-higher-rents-lead-to-lower-diversity-in-a-public-space-(and-hence-dull)?">¶</a></h1><p>By scoping the study around our heartlands, allows a quick and simple regression analysis of the two aspects of our public space to prove or disprove the claimed relationship between rent and diversity of a place.</p>
+<p>So...</p>
+<h1 id="Do-higher-rents-lead-to-lower-diversity-in-a-public-space-(and-hence-boring)?">Do higher rents lead to lower diversity in a public space (and hence boring)?<a class="anchor-link" href="#Do-higher-rents-lead-to-lower-diversity-in-a-public-space-(and-hence-boring)?">¶</a></h1><p>By scoping the study to our HDB heartlands, I conducted a simple regression analysis of the two aspects of our public space to prove (or disprove) the claimed relationship between rent and diversity of a place.</p>
 <p>Datasets used are publicly avalible so readers can also test this claim independently as well. HDB website provides a rich source of data for analysis, although it takes some effort to do the ETL.</p>
 <ul>
 <li>Rent data ($ per sqm) from <a href="https://services2.hdb.gov.sg/webapp/place2lease/p2l/public/index/pld/index.jspa">Place2lease</a> app</li>
@@ -1301,7 +1303,7 @@ the value ranges between 0 and 1, with 1 representing infinite diversity and 0 n
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Regression-Plot-Rent-against-Diversity">Regression Plot Rent against Diversity<a class="anchor-link" href="#Regression-Plot-Rent-against-Diversity">¶</a></h2>
+<h2 id="Rent-against-Diversity-Regression-Plot">Rent against Diversity Regression Plot<a class="anchor-link" href="#Rent-against-Diversity-Regression-Plot">¶</a></h2>
 </div>
 </div>
 </div>
@@ -1348,7 +1350,7 @@ the value ranges between 0 and 1, with 1 representing infinite diversity and 0 n
 <li>From the charts the median rent is around $30 / sqm and most HDB blocks have a diversity index of 0.9 , ie lower diversity scores arising from those mom n pop shop at the void decks.</li>
 <li>Ploting the two variables together in a regression plot, we note that there is a positive relationship between rent and diversity within each postal code. Implying that spaces that command higher rents does have more diversity, quite the opposite of what the above article claimed.</li>
 <li>One reason could be that there is higher competition for the vibrant spaces that are already sucessful (ie Town centres )</li>
-<li>HDB also control the trades of the businesses who get to participate in the bidding for the spaces</li>
+<li>On the place2lease app, HDB also control the trades of the businesses who get to participate in the bidding for the spaces</li>
 </ol>
 <h2 id="Recommendation">Recommendation<a class="anchor-link" href="#Recommendation">¶</a></h2><ol>
 <li>Quite a number of postal codes have zero diversity see treemap visualisation of trades of each postal code below. Sizes of the rectangles indicate relative frequency, singleton trades are mono-colored. HDB may wish to consider allowing for more rent controlled spaces for non-profits/NGOs uses under void-deck spaces, similar to Community/Sports Facilities Scheme (CSFS) spaces for commerical malls to improve diversity.</li>
@@ -1398,7 +1400,7 @@ the value ranges between 0 and 1, with 1 representing infinite diversity and 0 n
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
+<div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> 2020-12-03-NWK-HDB_Rent_vs_Diversity.ipynb-meta
@@ -1413,14 +1415,14 @@ the value ranges between 0 and 1, with 1 representing infinite diversity and 0 n
 </div>
 </div>
 </div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Overwriting 2020-12-03-NWK-HDB_Rent_vs_Diversity.ipynb-meta
+</pre>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In [ ]:</div>
-<div class="inner_cell">
-<div class="input_area">
-<div class="highlight hl-ipython3"><pre><span></span> 
-</pre></div>
 </div>
 </div>
 </div>
