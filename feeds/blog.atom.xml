@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Data Thoughts</title><link href="https://keith.ml/" rel="alternate"></link><link href="https://keith.ml/feeds/blog.atom.xml" rel="self"></link><id>https://keith.ml/</id><updated>2023-03-04T12:00:00+08:00</updated><subtitle>Urbanist - Geek - Maker</subtitle><entry><title>What is the future of LLMs?</title><link href="https://keith.ml/google-t5-llm.html" rel="alternate"></link><published>2023-03-04T12:00:00+08:00</published><updated>2023-03-04T12:00:00+08:00</updated><author><name>wykeith</name></author><id>tag:keith.ml,2023-03-04:google-t5-llm.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Data Thoughts</title><link href="https://keith.ml/" rel="alternate"></link><link href="https://keith.ml/feeds/blog.atom.xml" rel="self"></link><id>https://keith.ml/</id><updated>2023-03-04T12:00:00+08:00</updated><subtitle>Urbanist - Geek - Maker</subtitle><entry><title>Future of LLMs</title><link href="https://keith.ml/google-t5-llm.html" rel="alternate"></link><published>2023-03-04T12:00:00+08:00</published><updated>2023-03-04T12:00:00+08:00</updated><author><name>wykeith</name></author><id>tag:keith.ml,2023-03-04:google-t5-llm.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1122,22 +1122,22 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Chatgpt is the latest popular tech buzz around the block&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;It was published in singapores &lt;a href="https://www.straitstimes.com/tech/civil-servants-to-soon-use-chatgpt-to-help-with-research-speech-writing"&gt;mainstream paper&lt;/a&gt; that all civil servants will be using chatgpt for writing reports &amp; speeches&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;It was published in singapore's &lt;a href="https://www.straitstimes.com/tech/civil-servants-to-soon-use-chatgpt-to-help-with-research-speech-writing"&gt;mainstream paper&lt;/a&gt; that all civil servants will be using chatgpt for writing reports &amp; speeches&lt;/p&gt;
 &lt;/li&gt;
-&lt;li&gt;&lt;p&gt;It was also mentioned in parliment by Education Minister Chan Chun Sing quote "... artificial intelligence (AI) tool ChatGPT could be a useful tool for learning ... when students have mastered basic concepts and thinking skills" unquote&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;It was also mentioned in &lt;a href="https://www.moe.gov.sg/news/parliamentary-replies/20230206-artificial-intelligence-technologies-chatgpt"&gt;parliament&lt;/a&gt; by Education Minister Chan Chun Sing quote "... artificial intelligence (AI) tool ChatGPT could be a useful tool for learning ... when students have mastered basic concepts and thinking skills" unquote&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Chatgpt in essence is a Large Language Model (LLM) that is built for a dialogue setting (hence the prefix chat) by using reinforcement learning techniques with human feedback loops. In simple english it is self-taught to learn natural langauge with human feedback&lt;/p&gt;
-&lt;p&gt;Its parameters (or the number internal representational variables in layman terms) are massive at 175 billion, hence the label Large Language Model.&lt;/p&gt;
+&lt;p&gt;Its parameters (or the number of internal representational variables in layman terms) are massive at 175 billion, hence the label Large Language Model.&lt;/p&gt;
 &lt;p&gt;LLMs are often cited as foundational models because they are the basic building block for various Natural Language Understanding applications, of which I'm evaluating and exploiting for this post.&lt;/p&gt;
-&lt;p&gt;Currently due to massiveness of the model, it is almost difficult or impossible for users to run such models on consumer-grade desktops or laptops. These models require specialised AI hardware accelerators (GPUs or TPUs) in order be to performant. The bigger models will require larger memory specs in order to keep track of the billions of parameters.&lt;/p&gt;
-&lt;p&gt;I'm grateful and fortunate that I undertook training under AI Singapore's AI apprecticeship programme to be exposed to developing and operating these complex AI models for real-world applications. Allowing me to put together this basic demonstration of the potential of LLM as a useful toolkit.&lt;/p&gt;
+&lt;p&gt;Currently due to the massiveness of the model, it is almost difficult or impossible for users to run such models on consumer-grade desktops or laptops. These models require specialized AI hardware accelerators (GPUs or TPUs) in order be to performant. The bigger models will require larger memory specs in order to keep track of the billions of parameters.&lt;/p&gt;
+&lt;p&gt;I'm grateful and fortunate that I undertook training under AI Singapore's AI apprenticeship programme to be exposed to developing and operating these complex AI models for real-world applications at scale. Allowing me to put together this basic demonstration of the potential of LLM as a useful toolkit.&lt;/p&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [40]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [2]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# Setup + configs for lambdacloud instance&lt;/span&gt;
@@ -1147,7 +1147,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     &lt;span class="n"&gt;client_connection&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"http://localhost:5000"&lt;/span&gt;
 &lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"LLM model type:&lt;/span&gt;&lt;span class="se"&gt;\n\t&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;lambdacloud&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_model_params&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
-&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"LLM model parameters:&lt;/span&gt;&lt;span class="se"&gt;\n\t&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;lambdacloud&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_model_inputs&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
+&lt;span class="nb"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;"LLM model arguments:&lt;/span&gt;&lt;span class="se"&gt;\n\t&lt;/span&gt;&lt;span class="s2"&gt;"&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;lambdacloud&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get_model_inputs&lt;/span&gt;&lt;span class="p"&gt;())&lt;/span&gt;
 
 &lt;span class="n"&gt;llm&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;create_model&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;lambdacloud&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;llm_kwargs&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="s2"&gt;"temperature"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mf"&gt;0.2&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;"max_tokens"&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;4096&lt;/span&gt;&lt;span class="p"&gt;})&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
@@ -1161,7 +1161,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="output_subarea output_stream output_stdout output_text"&gt;
 &lt;pre&gt;LLM model type:
 	 {'model_name': 'google/flan-t5-xxl', 'model_path': 'google/flan-t5-xxl'}
-LLM model parameters:
+LLM model arguments:
 	 ['temperature', 'max_tokens', 'n', 'top_p', 'top_k', 'repetition_penalty', 'do_sample', 'client_timeout']
 &lt;/pre&gt;
 &lt;/div&gt;
@@ -1372,11 +1372,11 @@ LLM model parameters:
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Summary-thoughts"&gt;Summary thoughts&lt;a class="anchor-link" href="#Summary-thoughts"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;As demonstated above, an open-sourced pre-trainted google t5 LLM (11B parameters) can effectively provide answers to comprehension exam questions (abet at PSLE for now), using customised prompting templates.&lt;/li&gt;
+&lt;li&gt;As demonstrated above, an open-sourced pre-trained google t5 LLM (11B parameters) can effectively provide answers to comprehension exam questions (abet at PSLE for now), using customized prompting templates.&lt;/li&gt;
 &lt;li&gt;Such LLM can be quickly reprogrammed to perform different task using various prompts. Given this flexibility, the possibilities for the developers are unlimited.&lt;/li&gt;
-&lt;li&gt;What I will like to build is a personalised assistant that can read through all emails and provide summerization assistance. Using a more intutive dialogue UI, LLM assistants can scan private emails and provide concise answers to directed queries, all in the safety of a trusted compute environment.&lt;/li&gt;
-&lt;li&gt;From a knowledge managment/documentation perspective, it can also help officers improve productivity especially during handovers, especially when incumbent officers need to get up to speed on the details of pertinent terms and conditions regarding the history of the project.&lt;/li&gt;
-&lt;li&gt;As shared in my &lt;a href="http://keith.ml/lognmetrics.html"&gt;previous post&lt;/a&gt;, in my past life I used to spend at least 2h everyday reading and writing emails, these 2hours can be effectively cut down by half to 1hour instead.&lt;/li&gt;
+&lt;li&gt;What I will like to build is a personalized assistant that can read through all emails and provide summarization assistance. Using a more intuitive dialogue UI, LLM assistants can scan private emails and provide concise answers to directed queries, all in the safety of a trusted compute environment.&lt;/li&gt;
+&lt;li&gt;From a knowledge management/documentation perspective, it can also help officers improve productivity especially during handovers, especially when incumbent officers need to get up to speed on the details of pertinent terms and conditions regarding the history of the project.&lt;/li&gt;
+&lt;li&gt;As shared in my &lt;a href="http://keith.ml/lognmetrics.html"&gt;previous post&lt;/a&gt;, in my past life I used to spend at least 2 hours everyday reading and writing emails, these 2 hours can be effectively cut down by half to 1 hour instead.&lt;/li&gt;
 &lt;li&gt;Excited that Meta Research has offered selected interested parties limited access to their 65B &lt;a href="https://github.com/facebookresearch/llama"&gt;LLAMA&lt;/a&gt; model. Hopefully that will be for another post.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
@@ -1434,7 +1434,7 @@ LLM model parameters:
     (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
 }
 &lt;/script&gt;
-</summary><category term="Govtech"></category><category term="chatbot"></category><category term="mlops"></category><category term="llm"></category><category term="nlp"></category></entry><entry><title>Keeping logs</title><link href="https://keith.ml/lognmetrics.html" rel="alternate"></link><published>2022-04-04T20:00:00+08:00</published><updated>2022-04-04T20:00:00+08:00</updated><author><name>wykeith</name></author><id>tag:keith.ml,2022-04-04:lognmetrics.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+</summary><category term="Govtech"></category><category term="mlops"></category><category term="chatgpt"></category><category term="llm"></category><category term="nlu"></category></entry><entry><title>Keeping logs</title><link href="https://keith.ml/lognmetrics.html" rel="alternate"></link><published>2022-04-04T20:00:00+08:00</published><updated>2022-04-04T20:00:00+08:00</updated><author><name>wykeith</name></author><id>tag:keith.ml,2022-04-04:lognmetrics.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -10853,10 +10853,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="6ed57ce8-ba32-440d-98e4-499872c1caef"&gt;&lt;/div&gt;
+&lt;div id="0ebda5bd-9a95-4e91-ba0c-37711be4bc10"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#6ed57ce8-ba32-440d-98e4-499872c1caef');
+var element = $('#0ebda5bd-9a95-4e91-ba0c-37711be4bc10');
 IPython.OutputArea.prototype._should_scroll = function(lines) {
     return false;
 }
@@ -13446,10 +13446,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="6936b01b-c279-4b77-a847-85678c808e12"&gt;&lt;/div&gt;
+&lt;div id="7e3f54c3-4ba2-45b5-9529-b3d6645247a2"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#6936b01b-c279-4b77-a847-85678c808e12');
+var element = $('#7e3f54c3-4ba2-45b5-9529-b3d6645247a2');
 
 (function(global) {
   function now() {
@@ -16403,10 +16403,10 @@ factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="7ceb0e35-e991-4ea4-a8d6-68dec7f30d86"&gt;&lt;/div&gt;
+&lt;div id="3c0cff0a-061a-4793-bc13-7da1841d3709"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7ceb0e35-e991-4ea4-a8d6-68dec7f30d86');
+var element = $('#3c0cff0a-061a-4793-bc13-7da1841d3709');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "15761b0dc82746688d7e24327d4f69e6"}

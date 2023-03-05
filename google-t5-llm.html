@@ -22,11 +22,11 @@
 
 
 <meta name="author" content="wykeith" />
-<meta name="description" content="What is the future of AI models like chatgpt?¶ Chatgpt is the latest popular tech buzz around the block It was published in singapores mainstream paper that all civil servants will be using chatgpt for writing reports & speeches It was also mentioned in parliment by Education Minister Chan Chun Sing quote "... artificial intelligence (AI) tool ChatGPT could be a useful tool for learning ... when students have mastered basic concepts and thinking skills" unquote" />
-<meta name="keywords" content="Govtech, chatbot, mlops, llm, nlp">
+<meta name="description" content="What is the future of AI models like chatgpt?¶ Chatgpt is the latest popular tech buzz around the block It was published in singapore's mainstream paper that all civil servants will be using chatgpt for writing reports & speeches It was also mentioned in parliament by Education Minister Chan Chun Sing quote "... artificial intelligence (AI) tool ChatGPT could be a useful tool for learning ... when students have mastered basic concepts and thinking skills" unquote" />
+<meta name="keywords" content="Govtech, mlops, chatgpt, llm, nlu">
 <meta property="og:site_name" content="Data Thoughts"/>
-<meta property="og:title" content="What is the future of LLMs?"/>
-<meta property="og:description" content="What is the future of AI models like chatgpt?¶ Chatgpt is the latest popular tech buzz around the block It was published in singapores mainstream paper that all civil servants will be using chatgpt for writing reports & speeches It was also mentioned in parliment by Education Minister Chan Chun Sing quote "... artificial intelligence (AI) tool ChatGPT could be a useful tool for learning ... when students have mastered basic concepts and thinking skills" unquote"/>
+<meta property="og:title" content="Future of LLMs"/>
+<meta property="og:description" content="What is the future of AI models like chatgpt?¶ Chatgpt is the latest popular tech buzz around the block It was published in singapore's mainstream paper that all civil servants will be using chatgpt for writing reports & speeches It was also mentioned in parliament by Education Minister Chan Chun Sing quote "... artificial intelligence (AI) tool ChatGPT could be a useful tool for learning ... when students have mastered basic concepts and thinking skills" unquote"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:url" content="./google-t5-llm.html"/>
 <meta property="og:type" content="article"/>
@@ -35,13 +35,13 @@
 <meta property="article:author" content="./author/wykeith.html">
 <meta property="article:section" content="Blog"/>
 <meta property="article:tag" content="Govtech"/>
-<meta property="article:tag" content="chatbot"/>
 <meta property="article:tag" content="mlops"/>
+<meta property="article:tag" content="chatgpt"/>
 <meta property="article:tag" content="llm"/>
-<meta property="article:tag" content="nlp"/>
+<meta property="article:tag" content="nlu"/>
 <meta property="og:image" content="/images/avatar.jpeg">
 
-  <title>Data Thoughts &ndash; What is the future of LLMs?</title>
+  <title>Data Thoughts &ndash; Future of LLMs</title>
 
 </head>
 <body>
@@ -77,7 +77,7 @@
 
 <article class="single">
   <header>
-    <h1 id="google-t5-llm">What is the future of LLMs?</h1>
+    <h1 id="google-t5-llm">Future of LLMs</h1>
     <p>
           Posted on Sat 04 March 2023 in <a href="./category/blog.html">Blog</a>
 
@@ -1210,22 +1210,22 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <ul>
 <li><p>Chatgpt is the latest popular tech buzz around the block</p>
 </li>
-<li><p>It was published in singapores <a href="https://www.straitstimes.com/tech/civil-servants-to-soon-use-chatgpt-to-help-with-research-speech-writing">mainstream paper</a> that all civil servants will be using chatgpt for writing reports & speeches</p>
+<li><p>It was published in singapore's <a href="https://www.straitstimes.com/tech/civil-servants-to-soon-use-chatgpt-to-help-with-research-speech-writing">mainstream paper</a> that all civil servants will be using chatgpt for writing reports & speeches</p>
 </li>
-<li><p>It was also mentioned in parliment by Education Minister Chan Chun Sing quote "... artificial intelligence (AI) tool ChatGPT could be a useful tool for learning ... when students have mastered basic concepts and thinking skills" unquote</p>
+<li><p>It was also mentioned in <a href="https://www.moe.gov.sg/news/parliamentary-replies/20230206-artificial-intelligence-technologies-chatgpt">parliament</a> by Education Minister Chan Chun Sing quote "... artificial intelligence (AI) tool ChatGPT could be a useful tool for learning ... when students have mastered basic concepts and thinking skills" unquote</p>
 </li>
 </ul>
 <p>Chatgpt in essence is a Large Language Model (LLM) that is built for a dialogue setting (hence the prefix chat) by using reinforcement learning techniques with human feedback loops. In simple english it is self-taught to learn natural langauge with human feedback</p>
-<p>Its parameters (or the number internal representational variables in layman terms) are massive at 175 billion, hence the label Large Language Model.</p>
+<p>Its parameters (or the number of internal representational variables in layman terms) are massive at 175 billion, hence the label Large Language Model.</p>
 <p>LLMs are often cited as foundational models because they are the basic building block for various Natural Language Understanding applications, of which I'm evaluating and exploiting for this post.</p>
-<p>Currently due to massiveness of the model, it is almost difficult or impossible for users to run such models on consumer-grade desktops or laptops. These models require specialised AI hardware accelerators (GPUs or TPUs) in order be to performant. The bigger models will require larger memory specs in order to keep track of the billions of parameters.</p>
-<p>I'm grateful and fortunate that I undertook training under AI Singapore's AI apprecticeship programme to be exposed to developing and operating these complex AI models for real-world applications. Allowing me to put together this basic demonstration of the potential of LLM as a useful toolkit.</p>
+<p>Currently due to the massiveness of the model, it is almost difficult or impossible for users to run such models on consumer-grade desktops or laptops. These models require specialized AI hardware accelerators (GPUs or TPUs) in order be to performant. The bigger models will require larger memory specs in order to keep track of the billions of parameters.</p>
+<p>I'm grateful and fortunate that I undertook training under AI Singapore's AI apprenticeship programme to be exposed to developing and operating these complex AI models for real-world applications at scale. Allowing me to put together this basic demonstration of the potential of LLM as a useful toolkit.</p>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In [40]:</div>
+<div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Setup + configs for lambdacloud instance</span>
@@ -1235,7 +1235,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
     <span class="n">client_connection</span> <span class="o">=</span> <span class="s2">"http://localhost:5000"</span>
 <span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">"LLM model type:</span><span class="se">\n\t</span><span class="s2">"</span><span class="p">,</span><span class="n">lambdacloud</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get_model_params</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">"LLM model parameters:</span><span class="se">\n\t</span><span class="s2">"</span><span class="p">,</span><span class="n">lambdacloud</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get_model_inputs</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"LLM model arguments:</span><span class="se">\n\t</span><span class="s2">"</span><span class="p">,</span><span class="n">lambdacloud</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">get_model_inputs</span><span class="p">())</span>
 
 <span class="n">llm</span> <span class="o">=</span> <span class="n">create_model</span><span class="p">(</span><span class="n">client</span><span class="o">=</span><span class="n">lambdacloud</span><span class="p">,</span> <span class="n">llm_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s2">"temperature"</span><span class="p">:</span> <span class="mf">0.2</span><span class="p">,</span> <span class="s2">"max_tokens"</span><span class="p">:</span> <span class="mi">4096</span><span class="p">})</span>
 </pre></div>
@@ -1249,7 +1249,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>LLM model type:
 	 {'model_name': 'google/flan-t5-xxl', 'model_path': 'google/flan-t5-xxl'}
-LLM model parameters:
+LLM model arguments:
 	 ['temperature', 'max_tokens', 'n', 'top_p', 'top_k', 'repetition_penalty', 'do_sample', 'client_timeout']
 </pre>
 </div>
@@ -1460,11 +1460,11 @@ LLM model parameters:
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Summary-thoughts">Summary thoughts<a class="anchor-link" href="#Summary-thoughts">¶</a></h2><ol>
-<li>As demonstated above, an open-sourced pre-trainted google t5 LLM (11B parameters) can effectively provide answers to comprehension exam questions (abet at PSLE for now), using customised prompting templates.</li>
+<li>As demonstrated above, an open-sourced pre-trained google t5 LLM (11B parameters) can effectively provide answers to comprehension exam questions (abet at PSLE for now), using customized prompting templates.</li>
 <li>Such LLM can be quickly reprogrammed to perform different task using various prompts. Given this flexibility, the possibilities for the developers are unlimited.</li>
-<li>What I will like to build is a personalised assistant that can read through all emails and provide summerization assistance. Using a more intutive dialogue UI, LLM assistants can scan private emails and provide concise answers to directed queries, all in the safety of a trusted compute environment.</li>
-<li>From a knowledge managment/documentation perspective, it can also help officers improve productivity especially during handovers, especially when incumbent officers need to get up to speed on the details of pertinent terms and conditions regarding the history of the project.</li>
-<li>As shared in my <a href="http://keith.ml/lognmetrics.html">previous post</a>, in my past life I used to spend at least 2h everyday reading and writing emails, these 2hours can be effectively cut down by half to 1hour instead.</li>
+<li>What I will like to build is a personalized assistant that can read through all emails and provide summarization assistance. Using a more intuitive dialogue UI, LLM assistants can scan private emails and provide concise answers to directed queries, all in the safety of a trusted compute environment.</li>
+<li>From a knowledge management/documentation perspective, it can also help officers improve productivity especially during handovers, especially when incumbent officers need to get up to speed on the details of pertinent terms and conditions regarding the history of the project.</li>
+<li>As shared in my <a href="http://keith.ml/lognmetrics.html">previous post</a>, in my past life I used to spend at least 2 hours everyday reading and writing emails, these 2 hours can be effectively cut down by half to 1 hour instead.</li>
 <li>Excited that Meta Research has offered selected interested parties limited access to their 65B <a href="https://github.com/facebookresearch/llama">LLAMA</a> model. Hopefully that will be for another post.</li>
 </ol>
 </div>
@@ -1527,10 +1527,10 @@ LLM model parameters:
   <div class="tag-cloud">
     <p>
       <a href="./tag/govtech.html">Govtech</a>
-      <a href="./tag/chatbot.html">chatbot</a>
       <a href="./tag/mlops.html">mlops</a>
+      <a href="./tag/chatgpt.html">chatgpt</a>
       <a href="./tag/llm.html">llm</a>
-      <a href="./tag/nlp.html">nlp</a>
+      <a href="./tag/nlu.html">nlu</a>
     </p>
   </div>
 
