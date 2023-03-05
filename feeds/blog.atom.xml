@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Data Thoughts</title><link href="https://keith.ml/" rel="alternate"></link><link href="https://keith.ml/feeds/blog.atom.xml" rel="self"></link><id>https://keith.ml/</id><updated>2023-03-04T12:00:00+08:00</updated><subtitle>Urbanist - Geek - Maker</subtitle><entry><title>Future of LLMs</title><link href="https://keith.ml/google-t5-llm.html" rel="alternate"></link><published>2023-03-04T12:00:00+08:00</published><updated>2023-03-04T12:00:00+08:00</updated><author><name>wykeith</name></author><id>tag:keith.ml,2023-03-04:google-t5-llm.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Data Thoughts</title><link href="https://keith.ml/" rel="alternate"></link><link href="https://keith.ml/feeds/blog.atom.xml" rel="self"></link><id>https://keith.ml/</id><updated>2023-03-04T12:00:00+08:00</updated><subtitle>Urbanist - Geek - Maker</subtitle><entry><title>Future with LLMs</title><link href="https://keith.ml/google-t5-llm.html" rel="alternate"></link><published>2023-03-04T12:00:00+08:00</published><updated>2023-03-04T12:00:00+08:00</updated><author><name>wykeith</name></author><id>tag:keith.ml,2023-03-04:google-t5-llm.html</id><summary type="html">&lt;style type="text/css"&gt;/*!
 *
 * IPython notebook
 *
@@ -1174,7 +1174,9 @@ LLM model arguments:
 &lt;div class="prompt input_prompt"&gt;In [3]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
-&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# PSLE passage taken from https://static1.squarespace.com/static/5a8433dffe54efed2118456f/t/60ab98e365ffd53bbdce87af/1621858531970/PSLE+English+OE+Comprehension+-+Questions+Only.pdf&lt;/span&gt;
+&lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# PSLE passage extracted from &lt;/span&gt;
+&lt;span class="c1"&gt;# https://static1.squarespace.com/static/5a8433dffe54efed2118456f/t/60ab98e365ffd53bbdce87af/1621858531970/PSLE+English+OE+Comprehension+-+Questions+Only.pdf&lt;/span&gt;
+
 &lt;span class="n"&gt;PSLE_passage&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;"""&lt;/span&gt;
 &lt;span class="s2"&gt;        “Jinhang! How many times have I told you not to use the computer&lt;/span&gt;
 &lt;span class="s2"&gt;        for so long? Do you want thicker lenses for your glasses?” Mother’s voice&lt;/span&gt;
@@ -1384,7 +1386,7 @@ LLM model arguments:
 &lt;/div&gt;
 &lt;div class="cell border-box-sizing code_cell rendered"&gt;
 &lt;div class="input"&gt;
-&lt;div class="prompt input_prompt"&gt;In [69]:&lt;/div&gt;
+&lt;div class="prompt input_prompt"&gt;In [11]:&lt;/div&gt;
 &lt;div class="inner_cell"&gt;
 &lt;div class="input_area"&gt;
 &lt;div class="highlight hl-ipython3"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;## Lastly why not lets ask the model about itself&lt;/span&gt;
@@ -1396,7 +1398,7 @@ LLM model arguments:
 &lt;div class="output_wrapper"&gt;
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
-&lt;div class="prompt output_prompt"&gt;Out[69]:&lt;/div&gt;
+&lt;div class="prompt output_prompt"&gt;Out[11]:&lt;/div&gt;
 &lt;div class="output_text output_subarea output_execute_result"&gt;
 &lt;pre&gt;[[{'text': 'The future of large language models is to be used in a variety of applications, including speech recognition, speech synthesis, and natural language processing.',
    'generation_info': None}],
@@ -10853,10 +10855,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="0ebda5bd-9a95-4e91-ba0c-37711be4bc10"&gt;&lt;/div&gt;
+&lt;div id="777d402d-0060-4f17-9d99-ed9d388eb47c"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#0ebda5bd-9a95-4e91-ba0c-37711be4bc10');
+var element = $('#777d402d-0060-4f17-9d99-ed9d388eb47c');
 IPython.OutputArea.prototype._should_scroll = function(lines) {
     return false;
 }
@@ -13446,10 +13448,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="7e3f54c3-4ba2-45b5-9529-b3d6645247a2"&gt;&lt;/div&gt;
+&lt;div id="9a16b064-2385-4e9e-b154-3dfc71756064"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#7e3f54c3-4ba2-45b5-9529-b3d6645247a2');
+var element = $('#9a16b064-2385-4e9e-b154-3dfc71756064');
 
 (function(global) {
   function now() {
@@ -16403,10 +16405,10 @@ factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="3c0cff0a-061a-4793-bc13-7da1841d3709"&gt;&lt;/div&gt;
+&lt;div id="72ff0e74-00cd-43d3-a292-4753c63bd6a9"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#3c0cff0a-061a-4793-bc13-7da1841d3709');
+var element = $('#72ff0e74-00cd-43d3-a292-4753c63bd6a9');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "15761b0dc82746688d7e24327d4f69e6"}
