@@ -91,9 +91,124 @@
 * IPython notebook
 *
 */
-/* CSS font colors for translated ANSI colors. */
+/* CSS font colors for translated ANSI escape sequences */
+/* The color values are a mix of
+   http://www.xcolors.net/dl/baskerville-ivorylight and
+   http://www.xcolors.net/dl/euphrasia */
+.ansi-black-fg {
+  color: #3E424D;
+}
+.ansi-black-bg {
+  background-color: #3E424D;
+}
+.ansi-black-intense-fg {
+  color: #282C36;
+}
+.ansi-black-intense-bg {
+  background-color: #282C36;
+}
+.ansi-red-fg {
+  color: #E75C58;
+}
+.ansi-red-bg {
+  background-color: #E75C58;
+}
+.ansi-red-intense-fg {
+  color: #B22B31;
+}
+.ansi-red-intense-bg {
+  background-color: #B22B31;
+}
+.ansi-green-fg {
+  color: #00A250;
+}
+.ansi-green-bg {
+  background-color: #00A250;
+}
+.ansi-green-intense-fg {
+  color: #007427;
+}
+.ansi-green-intense-bg {
+  background-color: #007427;
+}
+.ansi-yellow-fg {
+  color: #DDB62B;
+}
+.ansi-yellow-bg {
+  background-color: #DDB62B;
+}
+.ansi-yellow-intense-fg {
+  color: #B27D12;
+}
+.ansi-yellow-intense-bg {
+  background-color: #B27D12;
+}
+.ansi-blue-fg {
+  color: #208FFB;
+}
+.ansi-blue-bg {
+  background-color: #208FFB;
+}
+.ansi-blue-intense-fg {
+  color: #0065CA;
+}
+.ansi-blue-intense-bg {
+  background-color: #0065CA;
+}
+.ansi-magenta-fg {
+  color: #D160C4;
+}
+.ansi-magenta-bg {
+  background-color: #D160C4;
+}
+.ansi-magenta-intense-fg {
+  color: #A03196;
+}
+.ansi-magenta-intense-bg {
+  background-color: #A03196;
+}
+.ansi-cyan-fg {
+  color: #60C6C8;
+}
+.ansi-cyan-bg {
+  background-color: #60C6C8;
+}
+.ansi-cyan-intense-fg {
+  color: #258F8F;
+}
+.ansi-cyan-intense-bg {
+  background-color: #258F8F;
+}
+.ansi-white-fg {
+  color: #C5C1B4;
+}
+.ansi-white-bg {
+  background-color: #C5C1B4;
+}
+.ansi-white-intense-fg {
+  color: #A1A6B2;
+}
+.ansi-white-intense-bg {
+  background-color: #A1A6B2;
+}
+.ansi-default-inverse-fg {
+  color: #FFFFFF;
+}
+.ansi-default-inverse-bg {
+  background-color: #000000;
+}
+.ansi-bold {
+  font-weight: bold;
+}
+.ansi-underline {
+  text-decoration: underline;
+}
+/* The following styles are deprecated an will be removed in a future version */
 .ansibold {
   font-weight: bold;
+}
+.ansi-inverse {
+  outline: 0.5px dotted;
 }
 /* use dark versions for foreground, to improve visibility */
 .ansiblack {
@@ -172,12 +287,20 @@ div.cell {
   /* This acts as a spacer between cells, that is outside the border */
   margin: 0px;
   outline: none;
-  border-left-width: 1px;
-  padding-left: 5px;
-  background: linear-gradient(to right, transparent -40px, transparent 1px, transparent 1px, transparent 100%);
+  position: relative;
+  overflow: visible;
+}
+div.cell:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: transparent;
 }
 div.cell.jupyter-soft-selected {
-  border-left-color: #90CAF9;
   border-left-color: #E3F2FD;
   border-left-width: 1px;
   padding-left: 5px;
@@ -190,27 +313,39 @@ div.cell.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected {
+div.cell.selected,
+div.cell.selected.jupyter-soft-selected {
   border-color: #ababab;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 5px, transparent 5px, transparent 100%);
+}
+div.cell.selected:before,
+div.cell.selected.jupyter-soft-selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #42A5F5;
 }
 @media print {
-  div.cell.selected {
+  div.cell.selected,
+  div.cell.selected.jupyter-soft-selected {
     border-color: transparent;
   }
 }
-div.cell.selected.jupyter-soft-selected {
-  border-left-width: 0;
-  padding-left: 6px;
-  background: linear-gradient(to right, #42A5F5 -40px, #42A5F5 7px, #E3F2FD 7px, #E3F2FD 100%);
-}
 .edit_mode div.cell.selected {
   border-color: #66BB6A;
-  border-left-width: 0px;
-  padding-left: 6px;
-  background: linear-gradient(to right, #66BB6A -40px, #66BB6A 5px, transparent 5px, transparent 100%);
+}
+.edit_mode div.cell.selected:before {
+  position: absolute;
+  display: block;
+  top: -1px;
+  left: -1px;
+  width: 5px;
+  height: calc(100% +  2px);
+  content: '';
+  background: #66BB6A;
 }
 @media print {
   .edit_mode div.cell.selected {
@@ -243,6 +378,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -263,11 +399,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -410,7 +541,9 @@ div.input_area > div.highlight > pre {
 .CodeMirror-lines {
   /* In CM2, this used to be 0.4em, but in CM3 it went to 4px. We need the em value because */
   /* we have set a different line-height and want this to scale with that. */
-  padding: 0.4em;
+  /* Note that this should set vertical padding only, since CodeMirror assumes
+       that horizontal padding will be set on CodeMirror pre */
+  padding: 0.4em 0;
 }
 .CodeMirror-linenumber {
   padding: 0 8px 0 4px;
@@ -420,11 +553,24 @@ div.input_area > div.highlight > pre {
   border-top-left-radius: 2px;
 }
 .CodeMirror pre {
-  /* In CM3 this went to 4px from 0 in CM2. We need the 0 value because of how we size */
-  /* .CodeMirror-lines */
-  padding: 0;
+  /* In CM3 this went to 4px from 0 in CM2. This sets horizontal padding only,
+    use .CodeMirror-lines for vertical */
+  padding: 0 0.4em;
   border: 0;
   border-radius: 0;
+}
+.CodeMirror-cursor {
+  border-left: 1.4px solid black;
+}
+@media screen and (min-width: 2138px) and (max-width: 4319px) {
+  .CodeMirror-cursor {
+    border-left: 2px solid black;
+  }
+}
+@media screen and (min-width: 4320px) {
+  .CodeMirror-cursor {
+    border-left: 4px solid black;
+  }
 }
 /*
 
@@ -672,6 +818,9 @@ div.output_area img.unconfined,
 div.output_area svg.unconfined {
   max-width: none;
 }
+div.output_area .mglyph > img {
+  max-width: none;
+}
 /* This is needed to protect the pre formating from global settings such
    as that of bootstrap */
 .output {
@@ -710,7 +859,7 @@ div.output_area svg.unconfined {
 }
 div.output_area pre {
   margin: 0;
-  padding: 0;
+  padding: 1px 0 1px 0;
   border: 0;
   vertical-align: baseline;
   color: black;
@@ -832,6 +981,10 @@ div.output_unrecognized a:hover {
 .rendered_html h6:first-child {
   margin-top: 1em;
 }
+.rendered_html ul:not(.list-inline),
+.rendered_html ol:not(.list-inline) {
+  padding-left: 2em;
+}
 
 
 
@@ -848,16 +1001,24 @@ div.output_unrecognized a:hover {
 }
 
 
+
+
+
 .rendered_html pre,
+
 
 
 
 .rendered_html tr,
 .rendered_html th,
 
-.rendered_html td,
 
-
+.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
 .rendered_html * + table {
   margin-top: 1em;
 }
@@ -873,6 +1034,11 @@ div.output_unrecognized a:hover {
 
 .rendered_html img.unconfined,
 
+
+.rendered_html * + .alert {
+  margin-top: 1em;
+}
+[dir="rtl"] 
 div.text_cell {
   /* Old browsers */
   display: -webkit-box;
@@ -923,8 +1089,15 @@ h6:hover .anchor-link {
   display: none;
 }
 .text_cell.rendered 
+.text_cell.rendered .rendered_html tr,
+.text_cell.rendered .rendered_html th,
+.text_cell.rendered 
 .text_cell.unrendered .text_cell_render {
   display: none;
+}
+.text_cell .dropzone .input_area {
+  border: 2px dashed #bababa;
+  margin: -1px;
 }
 .cm-header-1,
 .cm-header-2,
@@ -956,24 +1129,29 @@ h6:hover .anchor-link {
   font-style: italic;
 }
 </style>
-<style type="text/css">.highlight .hll { background-color: #ffffcc }
-.highlight  { background: #f8f8f8; }
-.highlight .c { color: #408080; font-style: italic } /* Comment */
+<style type="text/css">pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+.highlight .hll { background-color: #ffffcc }
+.highlight { background: #f8f8f8; }
+.highlight .c { color: #3D7B7B; font-style: italic } /* Comment */
 .highlight .err { border: 1px solid #FF0000 } /* Error */
 .highlight .k { color: #008000; font-weight: bold } /* Keyword */
 .highlight .o { color: #666666 } /* Operator */
-.highlight .ch { color: #408080; font-style: italic } /* Comment.Hashbang */
-.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
-.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
-.highlight .cpf { color: #408080; font-style: italic } /* Comment.PreprocFile */
-.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
-.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .ch { color: #3D7B7B; font-style: italic } /* Comment.Hashbang */
+.highlight .cm { color: #3D7B7B; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #9C6500 } /* Comment.Preproc */
+.highlight .cpf { color: #3D7B7B; font-style: italic } /* Comment.PreprocFile */
+.highlight .c1 { color: #3D7B7B; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #3D7B7B; font-style: italic } /* Comment.Special */
 .highlight .gd { color: #A00000 } /* Generic.Deleted */
 .highlight .ge { font-style: italic } /* Generic.Emph */
-.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gr { color: #E40000 } /* Generic.Error */
 .highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
-.highlight .gi { color: #00A000 } /* Generic.Inserted */
-.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gi { color: #008400 } /* Generic.Inserted */
+.highlight .go { color: #717171 } /* Generic.Output */
 .highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
 .highlight .gs { font-weight: bold } /* Generic.Strong */
 .highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
@@ -986,15 +1164,15 @@ h6:hover .anchor-link {
 .highlight .kt { color: #B00040 } /* Keyword.Type */
 .highlight .m { color: #666666 } /* Literal.Number */
 .highlight .s { color: #BA2121 } /* Literal.String */
-.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .na { color: #687822 } /* Name.Attribute */
 .highlight .nb { color: #008000 } /* Name.Builtin */
 .highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
 .highlight .no { color: #880000 } /* Name.Constant */
 .highlight .nd { color: #AA22FF } /* Name.Decorator */
-.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
-.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .ni { color: #717171; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #CB3F38; font-weight: bold } /* Name.Exception */
 .highlight .nf { color: #0000FF } /* Name.Function */
-.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nl { color: #767600 } /* Name.Label */
 .highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
 .highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
 .highlight .nv { color: #19177C } /* Name.Variable */
@@ -1005,63 +1183,27 @@ h6:hover .anchor-link {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
-.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .se { color: #AA5D1F; font-weight: bold } /* Literal.String.Escape */
 .highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
-.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .si { color: #A45A77; font-weight: bold } /* Literal.String.Interpol */
 .highlight .sx { color: #008000 } /* Literal.String.Other */
-.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .sr { color: #A45A77 } /* Literal.String.Regex */
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
-<style type="text/css">
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-</style>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="What-are-some-of-the-posting-patterns-on-the-DS-Connect-group-?">What are some of the posting patterns on the DS-Connect group ?<a class="anchor-link" href="#What-are-some-of-the-posting-patterns-on-the-DS-Connect-group-?">¶</a></h1><p><img alt="Bokeh" src="https://wykeith.github.io/images/ds-graph.png" /></p>
 <ol>
@@ -1088,18 +1230,18 @@ h6:hover .anchor-link {
 <div class="prompt input_prompt">In [1]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<div class="highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">datetime</span> <span class="k">as</span> <span class="nn">dt</span>
-<span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">pi</span>
+<span class="kn">from</span> <span class="nn">math</span> <span class="kn">import</span> <span class="n">pi</span>
 
-<span class="kn">from</span> <span class="nn">bokeh.palettes</span> <span class="k">import</span> <span class="n">d3</span>
-<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="k">import</span> <span class="n">interact</span>
-<span class="kn">from</span> <span class="nn">bokeh.io</span> <span class="k">import</span> <span class="n">push_notebook</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">output_notebook</span>
-<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="k">import</span> <span class="n">figure</span>
-<span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="k">import</span> <span class="p">(</span>
+<span class="kn">from</span> <span class="nn">bokeh.palettes</span> <span class="kn">import</span> <span class="n">d3</span>
+<span class="kn">from</span> <span class="nn">ipywidgets</span> <span class="kn">import</span> <span class="n">interact</span>
+<span class="kn">from</span> <span class="nn">bokeh.io</span> <span class="kn">import</span> <span class="n">push_notebook</span><span class="p">,</span> <span class="n">show</span><span class="p">,</span> <span class="n">output_notebook</span>
+<span class="kn">from</span> <span class="nn">bokeh.plotting</span> <span class="kn">import</span> <span class="n">figure</span>
+<span class="kn">from</span> <span class="nn">bokeh.models</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">ColumnDataSource</span><span class="p">,</span>
     <span class="n">HoverTool</span><span class="p">,</span>
     <span class="n">DatetimeTickFormatter</span><span class="p">,</span>
@@ -1116,19 +1258,21 @@ h6:hover .anchor-link {
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea">
 <div class="bk-root">
 <a class="bk-logo bk-logo-small bk-logo-notebook" href="http://bokeh.pydata.org" target="_blank"></a>
 <span id="237c6ad1-3175-482b-b70d-bf32f5cae826">Loading BokehJS ...</span>
 </div>
 </div>
 </div>
-<div class="output_area"><div class="prompt"></div>
-<div id="5e9a697f-e10f-4605-a29c-8d6740e08515"></div>
-<div class="output_subarea output_javascript ">
+<div class="output_area">
+<div class="prompt"></div>
+<div id="860c3436-44cb-4878-9cd6-0ff31221538e"></div>
+<div class="output_subarea output_javascript">
 <script type="text/javascript">
-var element = $('#5e9a697f-e10f-4605-a29c-8d6740e08515');
+var element = $('#860c3436-44cb-4878-9cd6-0ff31221538e');
 
 (function(global) {
   function now() {
@@ -1283,7 +1427,7 @@ var element = $('#5e9a697f-e10f-4605-a29c-8d6740e08515');
 <div class="prompt input_prompt">In [2]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import the group feed</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import the group feed</span>
 <span class="n">feed</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'data/feed.csv'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s2">"ISO-8859-1"</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span> <span class="p">[</span><span class="s1">'Time'</span><span class="p">])</span>
 <span class="n">feed</span><span class="p">[</span><span class="s1">'Time'</span><span class="p">]</span><span class="o">=</span><span class="n">feed</span><span class="p">[</span><span class="s1">'Time'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="s1">'UTC'</span><span class="p">)</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">tz_convert</span><span class="p">(</span><span class="s1">'Asia/Singapore'</span><span class="p">)</span>
 
@@ -1294,7 +1438,8 @@ var element = $('#5e9a697f-e10f-4605-a29c-8d6740e08515');
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[2]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1393,7 +1538,7 @@ var element = $('#5e9a697f-e10f-4605-a29c-8d6740e08515');
 <div class="prompt input_prompt">In [3]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Import the user data</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Import the user data</span>
 
 <span class="n">members</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'data/member.csv'</span><span class="p">,</span> <span class="n">encoding</span> <span class="o">=</span> <span class="s2">"ISO-8859-1"</span><span class="p">)</span>
 <span class="c1">#members['Agency'] = members['Agency'].astype("category")</span>
@@ -1404,7 +1549,8 @@ var element = $('#5e9a697f-e10f-4605-a29c-8d6740e08515');
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[3]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1473,7 +1619,7 @@ var element = $('#5e9a697f-e10f-4605-a29c-8d6740e08515');
 <div class="prompt input_prompt">In [4]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Cross-reference the user ID against User's name and agency</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Cross-reference the user ID against User's name and agency</span>
 
 <span class="n">merged</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">feed</span><span class="p">,</span> <span class="n">members</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">'User ID'</span><span class="p">)</span>
 <span class="n">merged</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -1483,7 +1629,8 @@ var element = $('#5e9a697f-e10f-4605-a29c-8d6740e08515');
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[4]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[4]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1594,7 +1741,7 @@ var element = $('#5e9a697f-e10f-4605-a29c-8d6740e08515');
 <div class="prompt input_prompt">In [5]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## Clean up the data and aggregate stats</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">## Clean up the data and aggregate stats</span>
 <span class="n">merged</span><span class="p">[</span><span class="s1">'wordcount'</span><span class="p">]</span> <span class="o">=</span> <span class="n">merged</span><span class="o">.</span><span class="n">Message</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">' '</span><span class="p">)))</span>
 <span class="n">merged</span><span class="p">[</span><span class="s1">'Interactions'</span><span class="p">]</span> <span class="o">=</span> <span class="n">merged</span><span class="p">[</span><span class="s1">'Likes'</span><span class="p">]</span> <span class="o">+</span> <span class="n">merged</span><span class="p">[</span><span class="s1">'Reactions'</span><span class="p">]</span> <span class="o">+</span> <span class="n">merged</span><span class="p">[</span><span class="s1">'Comments'</span><span class="p">]</span>
 <span class="n">merged</span><span class="p">[</span><span class="s1">'Letter_count'</span><span class="p">]</span> <span class="o">=</span> <span class="n">merged</span><span class="p">[</span><span class="s1">'Message'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">len</span><span class="p">()</span>
@@ -1611,7 +1758,8 @@ var element = $('#5e9a697f-e10f-4605-a29c-8d6740e08515');
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[5]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -1740,7 +1888,7 @@ var element = $('#5e9a697f-e10f-4605-a29c-8d6740e08515');
 <div class="prompt input_prompt">In [6]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### In descending order post counts shares per agency</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">### In descending order post counts shares per agency</span>
 
 <span class="n">posts_merge</span> <span class="o">=</span> <span class="n">merged</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Agency'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="s1">'Agency'</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">posts_merge</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
@@ -1752,7 +1900,8 @@ var element = $('#5e9a697f-e10f-4605-a29c-8d6740e08515');
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Agency
 tech.gov.sg           121
@@ -1782,8 +1931,9 @@ Name: Agency, dtype: int64
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt"></div>
-<div class="output_png output_subarea ">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_png output_subarea">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAo0AAAIuCAYAAADaJTINAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3Xd83XX1+PHXuTd7dyTp3i0ddNEG6C5DGSIqIlARAQUk
 zu9PUcE4cETBouAiLKFQ8LIcYNlYuls66N67dI+02fPe8/vj8wm9SZPcNKM34zwfjz6afD7vz/tz
@@ -2796,8 +2946,8 @@ S6MkSZKasjRKkiSpKUujJEmSmrI0SpIkqSlLoyRJkpqyNEqSJKlmqcdWAAAAgklEQVQpS6MkSZKa
 sjRKkiSpKUujJEmSmrI0SpIkqSlLoyRJkpqyNEqSJKkpS6MkSZKasjRKkiSpKUujJEmSmrI0SpIk
 qSlLoyRJkpqyNEqSJKkpS6MkSZKasjRKkiSpKUujJEmSmrI0SpIkqSlLoyRJkpqyNEqSJKkpS6Mk
 SZKa+v/L+ztCJ0DoKAAAAABJRU5ErkJggg==
-">
-</img></div>
+" />
+</div>
 </div>
 </div>
 </div>
@@ -2807,7 +2957,7 @@ SZKa+v/L+ztCJ0DoKAAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [7]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">### In descending order total likes share per agency</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">### In descending order total likes share per agency</span>
 
 <span class="n">interactions_merge</span> <span class="o">=</span> <span class="p">(</span><span class="n">merged</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Agency'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="s1">'Likes'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">interactions_merge</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
@@ -2819,7 +2969,8 @@ SZKa+v/L+ztCJ0DoKAAAAABJRU5ErkJggg==
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>Agency
 tech.gov.sg           760
@@ -2849,8 +3000,9 @@ Name: Likes, dtype: int64
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt"></div>
-<div class="output_png output_subarea ">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_png output_subarea">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAmcAAAIuCAYAAAD65a+1AAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzsnXl4m9WV/z9HkuXdcfZ9c1gSSEIgARIISxvadB/a0gLd
 At0Gt1PaTj2dX/B0Y6ZQ2s5MobRlurmFFrOVAoWWQFkDIQuBrCZlScISIAlJvO/S+f1xr2zF2JIS
@@ -3782,8 +3934,8 @@ zkRERESKiMqZiIiISBFRORMREREpIipnIiIiIkVE5UxERESkiKiciYiIiBQRlTMRERGRIqJyJiIi
 IlJEVM5EREREiojKmYiIiEgRUTkTERERKSIqZyIiIiJFROVMREREpIionImIiIgUEZUzERERkSKi
 ciYiIiJSRFTORERERIqIypmIiIhIEVE5ExERESkiKmciIiIiRUTlTERERKSIqJyJiIiIFBGVMxER
 EZEionImIiIiUkRUzkRERESKyP8HT6CgF49D7f0AAAAASUVORK5CYII=
-">
-</img></div>
+" />
+</div>
 </div>
 </div>
 </div>
@@ -3793,7 +3945,7 @@ EZEionImIiIiUkRUzkRERESKyP8HT6CgF49D7f0AAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [8]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">base</span> <span class="o">=</span> <span class="mi">25</span><span class="p">):</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">df</span><span class="p">,</span><span class="n">base</span> <span class="o">=</span> <span class="mi">25</span><span class="p">):</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="n">result</span> <span class="o">=</span> <span class="p">(</span><span class="n">df</span> <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">())</span> <span class="o">/</span> <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">min</span><span class="p">())</span><span class="o">*</span><span class="mi">2</span><span class="o">*</span><span class="n">base</span><span class="o">+</span><span class="n">base</span>
     <span class="k">return</span> <span class="n">result</span>
@@ -3807,7 +3959,7 @@ EZEionImIiIiUkRUzkRERESKyP8HT6CgF49D7f0AAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [9]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">DAYS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Mon'</span><span class="p">,</span> <span class="s1">'Tue'</span><span class="p">,</span> <span class="s1">'Wed'</span><span class="p">,</span> <span class="s1">'Thu'</span><span class="p">,</span> <span class="s1">'Fri'</span><span class="p">,</span> <span class="s1">'Sat'</span><span class="p">,</span> <span class="s1">'Sun'</span><span class="p">]</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">DAYS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Mon'</span><span class="p">,</span> <span class="s1">'Tue'</span><span class="p">,</span> <span class="s1">'Wed'</span><span class="p">,</span> <span class="s1">'Thu'</span><span class="p">,</span> <span class="s1">'Fri'</span><span class="p">,</span> <span class="s1">'Sat'</span><span class="p">,</span> <span class="s1">'Sun'</span><span class="p">]</span>
 <span class="n">AGENCY</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'tech.gov.sg'</span><span class="p">,</span> <span class="s1">'cpf.gov.sg'</span><span class="p">,</span> <span class="s1">'sport.gov.sg'</span><span class="p">,</span> <span class="s1">'pmo.gov.sg'</span><span class="p">,</span>
        <span class="s1">'scdf.gov.sg'</span><span class="p">,</span> <span class="s1">'pub.gov.sg'</span><span class="p">,</span> <span class="s1">'vital.gov.sg'</span><span class="p">,</span> <span class="s1">'csa.gov.sg'</span><span class="p">,</span> <span class="s1">'rp.edu.sg'</span><span class="p">,</span>
        <span class="s1">'moe.gov.sg'</span><span class="p">,</span> <span class="s1">'cscollege.gov.sg'</span><span class="p">,</span> <span class="s1">'defence.gov.sg'</span><span class="p">,</span> <span class="s1">'psd.gov.sg'</span><span class="p">,</span>
@@ -3886,7 +4038,8 @@ EZEionImIiIiUkRUzkRERESKyP8HT6CgF49D7f0AAAAASUVORK5CYII=
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>/opt/conda/lib/python3.6/site-packages/bokeh/models/mappers.py:56: UserWarning: Palette length does not match number of
 factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.gov.sg', 'mom.gov.sg', 'tp.edu.sg', 'mha.gov.sg', 'scei.a-star.edu.sg', 'spf.gov.sg', 'spring.gov.sg', 'caas.gov.sg', 'agd.gov.sg'] will be assigned to `nan_color` gray
@@ -3894,8 +4047,9 @@ factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt"></div>
-<div class="output_html rendered_html output_subarea ">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_html rendered_html output_subarea">
 <div class="bk-root">
 <div class="bk-plotdiv" id="ab441cd3-6cab-4f94-bf92-11dfef0699ac"></div>
 </div>
@@ -4053,7 +4207,7 @@ factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.
 <div class="prompt input_prompt">In [10]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Some buttons to change the visualised values , you wont be able to see this rendered on the blog.</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Some buttons to change the visualised values , you wont be able to see this rendered on the blog.</span>
 <span class="c1"># Download the jupyter notebook on my github to test</span>
 
 <span class="n">interact</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">Type</span><span class="o">=</span><span class="p">[</span><span class="s2">"Wordcount"</span><span class="p">,</span> <span class="s2">"Likes"</span><span class="p">,</span> <span class="s2">"Reactions"</span><span class="p">,</span> <span class="s2">"Comments"</span><span class="p">,</span> <span class="s2">"Shares"</span><span class="p">],</span> <span class="n">Month</span><span class="o">=</span><span class="p">{</span><span class="s1">'All Months'</span><span class="p">:</span><span class="mi">13</span><span class="p">,</span><span class="s1">'Jan'</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span><span class="s1">'Feb'</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span><span class="s1">'Mar'</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span><span class="s1">'Apr'</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span><span class="s1">'May'</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span><span class="s1">'Jun'</span><span class="p">:</span><span class="mi">6</span><span class="p">,</span><span class="s1">'Jul'</span><span class="p">:</span><span class="mi">7</span><span class="p">,</span><span class="s1">'Aug'</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="s1">'Sep'</span><span class="p">:</span><span class="mi">9</span><span class="p">,</span><span class="s1">'Oct'</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="s1">'Nov'</span><span class="p">:</span><span class="mi">11</span><span class="p">,</span><span class="s1">'Dec'</span><span class="p">:</span><span class="mi">12</span><span class="p">},</span> <span class="n">Base</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="mi">50</span><span class="p">))</span>
@@ -4063,15 +4217,27 @@ factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>Widget Javascript not detected.  It may not be installed or enabled properly.
 </pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt"></div>
+<div class="output_area">
+<div class="prompt"></div>
+<div id="3d4f106f-82eb-4430-8133-72df1b4e5fd0"></div>
+<div class="output_subarea output_widget_view">
+<script type="text/javascript">
+var element = $('#3d4f106f-82eb-4430-8133-72df1b4e5fd0');
+</script>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "15761b0dc82746688d7e24327d4f69e6"}
+</script>
 </div>
-<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
+</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[10]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre><function __main__.source></pre>
 </div>
@@ -4084,7 +4250,7 @@ factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.
 <div class="prompt input_prompt">In [11]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Office Hour Posters Weekdays only</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Office Hour Posters Weekdays only</span>
 <span class="n">df_officehr</span> <span class="o">=</span> <span class="n">merged</span><span class="p">[</span><span class="n">merged</span><span class="o">.</span><span class="n">day_of_week</span> <span class="o"><=</span> <span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'hour_of_day'</span><span class="p">)</span><span class="o">.</span><span class="n">between_time</span><span class="p">(</span><span class="s2">"0800"</span><span class="p">,</span><span class="s2">"1800"</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Agency'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="s1">'Agency'</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 <span class="c1"># After office Posters Weekdays only</span>
 <span class="n">df_afterhr</span> <span class="o">=</span> <span class="n">merged</span><span class="p">[</span><span class="n">merged</span><span class="o">.</span><span class="n">day_of_week</span> <span class="o"><=</span> <span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'hour_of_day'</span><span class="p">)</span><span class="o">.</span><span class="n">between_time</span><span class="p">(</span><span class="s2">"1800"</span><span class="p">,</span><span class="s2">"0800"</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Agency'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="s1">'Agency'</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
@@ -4096,7 +4262,8 @@ factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[11]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[11]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -4159,7 +4326,7 @@ factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.
 <div class="prompt input_prompt">In [12]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># AM posts</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># AM posts</span>
 <span class="n">df1</span> <span class="o">=</span> <span class="n">merged</span><span class="p">[</span><span class="n">merged</span><span class="o">.</span><span class="n">day_of_week</span> <span class="o"><=</span> <span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'hour_of_day'</span><span class="p">)</span><span class="o">.</span><span class="n">between_time</span><span class="p">(</span><span class="s2">"0000"</span><span class="p">,</span><span class="s2">"1200"</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Agency'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="s1">'Letter_count'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 <span class="c1"># PM posts</span>
 <span class="n">df2</span> <span class="o">=</span> <span class="n">merged</span><span class="p">[</span><span class="n">merged</span><span class="o">.</span><span class="n">day_of_week</span> <span class="o"><=</span> <span class="mi">5</span><span class="p">]</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'hour_of_day'</span><span class="p">)</span><span class="o">.</span><span class="n">between_time</span><span class="p">(</span><span class="s2">"1200"</span><span class="p">,</span><span class="s2">"0000"</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Agency'</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="s1">'Letter_count'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -4171,7 +4338,8 @@ factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[12]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[12]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -4234,7 +4402,7 @@ factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.
 <div class="prompt input_prompt">In [13]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># For Weekdays only</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># For Weekdays only</span>
 <span class="n">combined_result</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">result_hr</span><span class="p">,</span><span class="n">result_size</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">combined_result</span><span class="p">[</span><span class="s1">'pct_off'</span><span class="p">]</span> <span class="o">=</span> <span class="n">combined_result</span><span class="o">.</span><span class="n">count_officehr</span> <span class="o">/</span> <span class="p">(</span><span class="n">combined_result</span><span class="o">.</span><span class="n">count_officehr</span> <span class="o">+</span> <span class="n">combined_result</span><span class="o">.</span><span class="n">count_afterhr</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
 <span class="n">combined_result</span><span class="p">[</span><span class="s1">'pct_aft'</span><span class="p">]</span> <span class="o">=</span> <span class="n">combined_result</span><span class="o">.</span><span class="n">count_afterhr</span> <span class="o">/</span> <span class="p">(</span><span class="n">combined_result</span><span class="o">.</span><span class="n">count_officehr</span> <span class="o">+</span> <span class="n">combined_result</span><span class="o">.</span><span class="n">count_afterhr</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
@@ -4245,7 +4413,8 @@ factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[13]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[13]:</div>
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
 <style>
@@ -4485,7 +4654,7 @@ factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.
 <div class="prompt input_prompt">In [14]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Plotout percentage office hours posters VS after hours posters</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Plotout percentage office hours posters VS after hours posters</span>
 <span class="n">combined_result</span><span class="p">[[</span><span class="s1">'pct_off'</span><span class="p">,</span><span class="s1">'pct_aft'</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -4493,13 +4662,15 @@ factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[14]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[14]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre><matplotlib.axes._subplots.axessubplot at 0x7fdbe23cfb70></pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt"></div>
-<div class="output_png output_subarea ">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_png output_subarea">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjAAAAJCCAYAAADeG/2lAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3WmYlNWZ//HvD1BaBBujxoCJtjGoiQKtNo64ohKTiNmE
 2C5J0GgI6mgy/zEzJDMSRicRRydRQ1zQGHdt0bgEjCRB0eACNNIsbniNaUchTlxZAhjE+/+iTpuy
@@ -4892,8 +5063,8 @@ B1rPaa7TjdfRdXkD8InybqS9gNWtt5oaJR9k10dJOojaX7ZNwMW2v9HLU6ocSeOBO4Fl/HW/xr9S
 biBJXwEmUXs34iLgM9T2ZOQ6XU+SpgMTqH3r9JPAl4Hraee6LEHxfGrvWnoeOM52S0PnlwATERER
 VZNbSBEREVE5CTARERFROQkwERERUTkJMBEREVE5CTARERFROQkwERERUTkJMBEREVE5CTARERFR
 Of8fZbbSeMjM0DcAAAAASUVORK5CYII=
-">
-</img></div>
+" />
+</div>
 </div>
 </div>
 </div>
@@ -4903,7 +5074,7 @@ Of8fZbbSeMjM0DcAAAAASUVORK5CYII=
 <div class="prompt input_prompt">In [15]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Post sizes in morning VS Post sizes in afternoon , weekdays only</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#Post sizes in morning VS Post sizes in afternoon , weekdays only</span>
 <span class="n">combined_result</span><span class="p">[[</span><span class="s1">'AM_postsize'</span><span class="p">,</span><span class="s1">'PM_postsize'</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">barh</span><span class="p">(</span><span class="n">stacked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">10</span><span class="p">),</span> <span class="n">width</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'k'</span><span class="p">,</span> <span class="n">ls</span><span class="o">=</span><span class="s1">'dashdot'</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
 </pre></div>
@@ -4912,13 +5083,15 @@ Of8fZbbSeMjM0DcAAAAASUVORK5CYII=
 </div>
 <div class="output_wrapper">
 <div class="output">
-<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
+<div class="output_area">
+<div class="prompt output_prompt">Out[15]:</div>
 <div class="output_text output_subarea output_execute_result">
 <pre><matplotlib.lines.line2d at 0x7fdbe234f710></pre>
 </div>
 </div>
-<div class="output_area"><div class="prompt"></div>
-<div class="output_png output_subarea ">
+<div class="output_area">
+<div class="prompt"></div>
+<div class="output_png output_subarea">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAw8AAAJCCAYAAACGbfvQAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
 AAALEgAACxIB0t1+/AAAIABJREFUeJzs3XmUVdWZ9/HvTywFxVej0kakFTWCA0OphS2tDBpn1Kio
 gCKCAy9i1AzQIeEVaZMoBjsd0wQVSURFATGNGnEeEDAIFFgMDo2JgQQ16QITFIQI+Lx/3AO5FlXU
@@ -5387,8 +5560,8 @@ afqZlGvbjv0yya7tnvjX4e/vaaVTr9VrewW6j6l70PvHeBfwG+Cn9H6hjBw7lt6q/e/Q9wkM9D7R
 LWmPW0auI717nC8Fbm8/N2vlAf6jXfNlPPpT9v66/T++Azh80OfmowDOpHe7yoPttfoNk3ltgSF6
 f5B+FziB9kXAPqbNte7Ma7XfMC1JkiRpQrxtSZIkSdKEmDxIkiRJmhCTB0mSJEkTYvIgSZIkaUJM
 HiRJkiRNiMmDJEmSpAkxeZAkSZI0ISYPkiRJkibk/weyfSRQu36JEwAAAABJRU5ErkJggg==
-">
-</img></div>
+" />
+</div>
 </div>
 </div>
 </div>
@@ -5398,12 +5571,13 @@ HiRJkiRNiMmDJEmSpAkxeZAkSZI0ISYPkiRJkibk/weyfSRQu36JEwAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In [ ]:</div>
 <div class="inner_cell">
 <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span> 
+<div class="highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 </div>
 </div>
 </div>
 </div>
+
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var mathjaxscript = document.createElement('script');
     mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
