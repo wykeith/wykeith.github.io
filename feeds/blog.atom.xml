@@ -1118,7 +1118,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */&lt;/style&gt;&lt;div class="cell border-box-sizing text_cell rendered"&gt;&lt;div class="prompt input_prompt"&gt;
 &lt;/div&gt;&lt;div class="inner_cell"&gt;
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
-&lt;h2 id="What-is-the-future-of-&amp;#x27;chatgpt-like&amp;#x27;AI-models-?"&gt;What is the future of 'chatgpt like'AI models ?&lt;a class="anchor-link" href="#What-is-the-future-of-&amp;#x27;chatgpt-like&amp;#x27;AI-models-?"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;img alt="Stable_diffusion_v2_generated" src="https://wykeith.github.io/images/google-t5-b.png" /&gt;&lt;/p&gt;
+&lt;h2 id="What-is-the-future-of-&amp;#x27;chatgpt-like&amp;#x27;-AI-models-?"&gt;What is the future of 'chatgpt like' AI models ?&lt;a class="anchor-link" href="#What-is-the-future-of-&amp;#x27;chatgpt-like&amp;#x27;-AI-models-?"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;p&gt;&lt;img alt="Stable_diffusion_v2_generated" src="https://wykeith.github.io/images/google-t5-b.png" /&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Chatgpt is the latest popular tech buzz around the block&lt;/p&gt;
 &lt;/li&gt;
@@ -1375,7 +1375,7 @@ LLM model arguments:
 &lt;div class="text_cell_render border-box-sizing rendered_html"&gt;
 &lt;h2 id="Summary-thoughts"&gt;Summary thoughts&lt;a class="anchor-link" href="#Summary-thoughts"&gt;¶&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;
 &lt;li&gt;As demonstrated above, an open-sourced pre-trained google t5 LLM (11B parameters) can effectively provide answers to comprehension exam questions (abet at PSLE for now), using customized prompting templates.&lt;/li&gt;
-&lt;li&gt;Such LLM can be quickly reprogrammed to perform different task using various prompts. Given this flexibility, the possibilities for the developers are unlimited.&lt;/li&gt;
+&lt;li&gt;Such LLM can be quickly reprogrammed to perform different task with bespoke prompting. Given this flexibility, the possibilities for the developers using such platforms are unlimited.&lt;/li&gt;
 &lt;li&gt;What I will like to build is a personalized assistant that can read through all emails and provide summarization assistance. Using a more intuitive dialogue UI, LLM assistants can scan private emails and provide concise answers to directed queries, all in the safety of a trusted compute environment.&lt;/li&gt;
 &lt;li&gt;From a knowledge management/documentation perspective, it can also help officers improve productivity especially during handovers, especially when incumbent officers need to get up to speed on the details of pertinent terms and conditions regarding the history of the project.&lt;/li&gt;
 &lt;li&gt;As shared in my &lt;a href="http://keith.ml/lognmetrics.html"&gt;previous post&lt;/a&gt;, in my past life I used to spend at least 2 hours everyday reading and writing emails, these 2 hours can be effectively cut down by half to 1 hour instead.&lt;/li&gt;
@@ -10855,10 +10855,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;div class="output"&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="d9044c21-429e-4637-92d1-494020bca014"&gt;&lt;/div&gt;
+&lt;div id="e32565d8-d1c0-4dce-9028-ec75afef2d15"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#d9044c21-429e-4637-92d1-494020bca014');
+var element = $('#e32565d8-d1c0-4dce-9028-ec75afef2d15');
 IPython.OutputArea.prototype._should_scroll = function(lines) {
     return false;
 }
@@ -13448,10 +13448,10 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="1cb31f0c-45ca-4b59-b6f4-0dfc675692f0"&gt;&lt;/div&gt;
+&lt;div id="8f35cf08-88e4-41e7-9d19-2926f70282ef"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_javascript"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#1cb31f0c-45ca-4b59-b6f4-0dfc675692f0');
+var element = $('#8f35cf08-88e4-41e7-9d19-2926f70282ef');
 
 (function(global) {
   function now() {
@@ -16405,10 +16405,10 @@ factors. ['cscollege.gov.sg', 'defence.gov.sg', 'psd.gov.sg', 'sp.edu.sg', 'nea.
 &lt;/div&gt;
 &lt;div class="output_area"&gt;
 &lt;div class="prompt"&gt;&lt;/div&gt;
-&lt;div id="321e640a-3ca9-40e9-8a88-8aea320eb6ef"&gt;&lt;/div&gt;
+&lt;div id="260d5358-d040-4feb-ac44-6ac23e2e63f3"&gt;&lt;/div&gt;
 &lt;div class="output_subarea output_widget_view"&gt;
 &lt;script type="text/javascript"&gt;
-var element = $('#321e640a-3ca9-40e9-8a88-8aea320eb6ef');
+var element = $('#260d5358-d040-4feb-ac44-6ac23e2e63f3');
 &lt;/script&gt;
 &lt;script type="application/vnd.jupyter.widget-view+json"&gt;
 {"model_id": "15761b0dc82746688d7e24327d4f69e6"}
