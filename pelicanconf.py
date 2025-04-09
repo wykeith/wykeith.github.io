@@ -9,7 +9,7 @@ SITETITLE = AUTHOR
 SITESUBTITLE = 'Urbanist - Geek - Maker'
 SITEDESCRIPTION = '%s\'s Thoughts and Writings' % AUTHOR
 #SITELOGO = '//avatars2.githubusercontent.com/u/13540132?v=3&s=460'
-SITELOGO = '/images/avatar.jpeg'
+SITELOGO = '/images/avatar.gif'
 
 THEME = './themes/Flex'
 ROBOTS = 'index, follow'
