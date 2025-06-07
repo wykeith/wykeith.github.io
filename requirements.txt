@@ -1,4 +1,4 @@
-Markdown==2.6.6
+pip install Markdown==2.6.11
 pelican==3.6.3
 jupyter>=1.0
 ipython>=4.0
